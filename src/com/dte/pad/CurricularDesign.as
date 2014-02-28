@@ -1,5 +1,6 @@
 package com.dte.pad 
 {
+	import mx.collections.ArrayCollection;
 	/*!
 	 * This file is part of PAD packager.
 	 *
@@ -11,9 +12,13 @@ package com.dte.pad
 		[Embed(source="../../../data/data.json", mimeType="application/octet-stream")]
 		private var _Data:Class;
 		
-		private var _design:Object = null;
+		static private var _instance:CurricularDesign;
 		
-		private static var _instance:CurricularDesign;
+		static public const UNDEFINED:String = "Sin Especificar";
+		
+		private var _design:Object = null;
+				
+		private var _areas:ArrayCollection;
 		
 		public function CurricularDesign() 
 		{
@@ -22,16 +27,17 @@ package com.dte.pad
 			}
 			
 			_instance = this;
+			this.areas = this.createStructure();
 		}
 		
-		public static function getInstance() : CurricularDesign {
+		static public function getInstance() : CurricularDesign {
 			if (_instance == null)
 				_instance = new CurricularDesign();
 			
 			return _instance;
 		}
 		
-		public function data() : Object {
+		protected function getData() : Object {
 			
 			if (_design == null) {
 				var  d:String = new _Data();
@@ -39,6 +45,33 @@ package com.dte.pad
 			}
 			
 			return _design;
+		}
+		
+		[Bindable]
+		public function get areas():ArrayCollection 
+		{
+			return _areas;
+		}
+		
+		public function set areas(value:ArrayCollection) : void 
+		{
+			_areas = value;
+		}
+		
+		private function createStructure() : ArrayCollection 
+		{
+			var res:ArrayCollection = new ArrayCollection();
+			
+			try {
+				var areas:* = this.getData().areas;
+				for each(var area:* in areas) {
+					res.addItem( new Area(area) );
+				}
+			} catch (e:Error) { 
+				trace(e);
+			}
+			
+			return res;
 		}
 		
 	}
