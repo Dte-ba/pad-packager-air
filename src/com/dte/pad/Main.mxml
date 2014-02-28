@@ -3,7 +3,9 @@
                        xmlns:s="library://ns.adobe.com/flex/spark"
                        xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:dte="library://ns.nticx.net/flex/2014"
-					   creationComplete="onCreationComplete(event)">
+					   xmlns:steps="com.dte.pad.steps.*"
+					   creationComplete="onCreationComplete(event)"
+					   title="{ _wizard.caption + ' | ' + _appNameFull}">
 	
     <!--
 	  PAD packager application
@@ -16,6 +18,16 @@
 		<![CDATA[
 		import flash.events.Event;
 		
+		[Bindable]private var _appVersion:String = "v1.0.0";
+		
+		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
+		
+		[Bindable]private var _insidePadding:Number = 7;
+		
+		[Bindable]private var _title:String = "Nuevo Tangible";
+		
+		[Bindable]private var _status:String = "Nuevo Tangible";
+		
 		protected function onCreationComplete(event:Event) : void 
 		{
 			
@@ -26,5 +38,46 @@
 					   
 	<fx:Declarations>
 	</fx:Declarations>
+	
+	<s:Image source="@Embed('/assets/img/logo_PAD.png')" horizontalCenter="0" top="1" />
+	
+	<s:Label text="{_wizard.caption}" top="120" left="20" fontWeight="bold" fontSize="18" />
+	
+	<s:BorderContainer left="20" right="20" top="145" bottom="70">
+		
+		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
+					backButton="{btnBack}" nextButton="{btnNext}">
+			
+			<steps:Area caption="Nuevo Tangible" />
+			
+			<steps:Datasheet caption="Ficha Técnica" />
+			
+			<steps:Covers caption="Portadas" />
+			
+			<steps:Covers caption="Archivos" />
+			
+			<steps:Credentials caption="Identificación" />
+			
+			<steps:Finish caption="Empaquetar" />
+			
+		</dte:Wizard>
+		
+		<s:HGroup horizontalAlign="center" height="40" verticalAlign="middle" bottom="0" right="10" left="10" >
+			<s:Button id="btnBack" label="Volver"  />
+			<s:Button id="btnNext" label="Continuar" />
+		</s:HGroup>
+	
+	</s:BorderContainer>
+	
+	<s:Group width="100%" height="60" bottom="5" right="20" left="20">
+		<s:Image source="@Embed('/assets/img/footer-dte-logo.png')" left="0" />
+		<s:Image source="@Embed('/assets/img/footer-ba-logo.png')" right="0" />
+	</s:Group>
+	
+	<s:statusBar>
+		<s:HGroup>
+			<s:Label text="{_status}" />
+		</s:HGroup>
+	</s:statusBar>
 			
 </s:WindowedApplication>
