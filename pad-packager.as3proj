@@ -52,7 +52,8 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <!-- example: <element path="..." /> -->
+    <element path="elibs\as3crypto.swc" />
+    <element path="elibs\fzip.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
