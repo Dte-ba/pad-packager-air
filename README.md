@@ -2,6 +2,26 @@
 
 Empaquetador de contenido para la plataforma [PAD](https://github.com/Dte-ba/pad)
 
+# Development
+
+IDE [Flashdevelop](http://www.flashdevelop.org/)
+
+*Tested with the Flex SDK 4.6*
+
+**To compile the application** *on windows*
+
+```
+# clone the repo
+git clone https://github.com/Dte-ba/pad-packager-air.git
+cd pad-packager-air
+
+# Set the Flex_SDK path
+echo "path/to/sdk" > bat/sdk_path.txt
+
+# Make a key to sign the application
+echo SUPER_SECRET > bat/key.txt
+
+```
 
 ## AIR for desktop instructions
 
