@@ -1,6 +1,7 @@
 package com.dte.pad 
 {
 	import mx.collections.ArrayCollection;
+	
 	/*!
 	 * This file is part of PAD packager.
 	 *
@@ -10,6 +11,8 @@ package com.dte.pad
 	{
 		
 		private var _name:String = CurricularDesign.UNDEFINED;
+		
+		private var _img:* = null;
 		
 		private var _axis:ArrayCollection;
 		
@@ -21,6 +24,8 @@ package com.dte.pad
 				for each(var axis:* in obj.axis) {
 					this.axis.addItem( new Axis(axis) );
 				}
+				
+				this.img = AreaImages.getInstance().getImage(this.name);
 				
 			} catch (e:Error) { }
 		}
@@ -40,6 +45,7 @@ package com.dte.pad
 			_axis = value;
 		}
 		
+		[Bindable]
 		public function get name():String 
 		{
 			return _name;
@@ -48,6 +54,17 @@ package com.dte.pad
 		public function set name(value:String):void 
 		{
 			_name = value;
+		}
+		
+		[Bindable]
+		public function get img():* 
+		{
+			return _img;
+		}
+		
+		public function set img(value:*):void 
+		{
+			_img = value;
 		}
 		
 	}

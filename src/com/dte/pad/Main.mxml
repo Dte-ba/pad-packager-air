@@ -18,10 +18,12 @@
 	
 	<fx:Script>
 		<![CDATA[
+		import com.dte.pad.events.AreaStepEvent;
 		import flash.events.Event;
 		import com.dte.pad.Area;
+		import mx.collections.ArrayCollection;
 		
-		[Bindable]private var _appVersion:String = "v1.0.0";
+		[Bindable]private var _appVersion:String = "v1.0.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
 		
@@ -31,9 +33,23 @@
 		
 		[Bindable]private var _status:String = "Nuevo Tangible";
 		
+		[Bindable]private var _areas:ArrayCollection;
+		
+		[Bindable]private var _selectedArea:Area;
+		
 		protected function onCreationComplete(event:Event) : void 
 		{
 			//this.maximize();
+			
+			// set area provider
+			_areas = CurricularDesign.getInstance().areas;
+		}
+		
+		protected function onAreaSelected(e:AreaStepEvent) : void {
+			_selectedArea = e.area;
+			if (_selectedArea != null) {
+				_wizard.next();
+			}
 		}
 		
 		]]>
@@ -51,7 +67,7 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}">
 			
-			<steps:AreaStep caption="Nuevo Tangible" />
+			<steps:AreaStep caption="Nuevo Tangible" areas="{_areas}" areaSelected="onAreaSelected(event)" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" />
 			

@@ -4,8 +4,76 @@
                xmlns:mx="library://ns.adobe.com/flex/halo"
 			   xmlns:dte="library://ns.nticx.net/flex/2014">
 	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+    <fx:Metadata>
+	   [Event(name="areaSelected", type="com.dte.pad.events.AreaStepEvent")] 
+    </fx:Metadata>
+   
+    <fx:Script>
+		<![CDATA[
+		import com.dte.pad.events.AreaStepEvent;
+		import flash.events.Event;
+		import mx.collections.ArrayCollection;
+		
+		private var _areas:ArrayCollection;
+		
+		public function areaClick(event:MouseEvent, data:*) : void {
+			this.dispatchEvent( new AreaStepEvent(AreaStepEvent.AREA_SELECTED, data) );
+		}
+		
+		[Bindable]
+		public function get areas():ArrayCollection 
+		{
+			return _areas;
+		}
+		
+		public function set areas(value:ArrayCollection):void 
+		{
+			_areas = value;
+		}
+		
+		]]>
+	</fx:Script>
+			   
 	<fx:Declarations>
 	</fx:Declarations>
 	
+	<s:Scroller top="0" left="0" right="0" bottom="0">
+		
+		<s:DataGroup id="_dataView" dataProvider="{areas}">
+			 <s:layout>
+			  <s:TileLayout columnWidth="220" verticalAlign="top" />
+			 </s:layout>
+			<s:itemRenderer>
+			  <fx:Component>
+				 <s:ItemRenderer>
+					
+					 <fx:Script>
+						 <![CDATA[
+							private function areaClick(event:flash.events.MouseEvent) : void {
+								outerDocument.areaClick(event, this.data);
+							}
+						 ]]>
+					 </fx:Script>
+					 
+					<s:BorderContainer width="220" height="220" cornerRadius="5" buttonMode="true" useHandCursor="true"
+										backgroundAlpha="0" click="areaClick(event)">
+						<s:VGroup gap="5" paddingTop="15" horizontalAlign="center"
+								  top="5" right="5" left="5" bottom="5">
+						   <s:Image source="{data.img}" />
+						   <s:Label text="{data.name}" fontSize="16" fontWeight="bold" />
+						</s:VGroup>
+					 </s:BorderContainer>
+					
+				 </s:ItemRenderer>
+			  </fx:Component>
+			  </s:itemRenderer>
+		</s:DataGroup>
+		
+	</s:Scroller>
 	
 </dte:Step>
