@@ -77,12 +77,18 @@
 				}
 			}
 			
-			if (_selectedAxis == null) {
+			if (_area == null) {
+				throw new Error("Area not selected");
+			}
+			
+			if (_area.axis.length > 0 && _selectedAxis == null) {
 				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
 				return true;
 			}
 			
-			if (_selectedBlock == null) {
+			var hasBlocks:Boolean = _selectedAxis != null && (_selectedAxis.blocks != null && _selectedAxis.blocks.length > 0);
+			
+			if (hasBlocks && _selectedBlock == null) {
 				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
 				return true;
 			}
