@@ -5,7 +5,9 @@
 					   xmlns:dte="library://ns.nticx.net/flex/2014"
 					   xmlns:steps="com.dte.pad.steps.*"
 					   creationComplete="onCreationComplete(event)"
-					   title="{ _wizard.caption + ' | ' + _appNameFull}">
+					   title="{ _wizard.caption + ' | ' + _appNameFull}"
+					   minWidth="800"
+					   minHeight="600">
 	
     <!--
 	  PAD packager application
@@ -30,7 +32,7 @@
 		
 		protected function onCreationComplete(event:Event) : void 
 		{
-			
+			this.maximize();
 		}
 		
 		]]>

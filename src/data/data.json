@@ -1,0 +1,226 @@
+{
+  "areas" : [
+	  {
+		"area": "Inglés",
+		"axis": [
+		  {
+			"name": "Poesía",
+			"blocks": [
+			  "Rimas",
+			  "Poemas",
+			  "Canciones",
+			  "Trabalenguas"
+			]
+		  },
+		  {
+			"name": "Géneros no ficcionales",
+			"blocks": [
+			  "Cuarto",
+			  "Quinto",
+			  "Sexto"
+			]
+		  },
+		  {
+			"name": "Drama",
+			"blocks": [
+			  "Guiones",
+			  "Obras de teatro",
+			  "Juegos Interactivos",
+			  "Entrevistas"
+			]
+		  },
+		  {
+			"name": "Ficción",
+			"blocks": [
+			  "Cuentos",
+			  "Fábulas"
+			]
+		  },
+		  {
+			"name": "Medios",
+			"blocks": [
+			  "Cancionero",
+			  "Textos informativos"
+			]
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Ciencias Naturales",
+		"axis": [
+		  {
+			"name": "La Tierra y el Universo",
+			"blocks": [
+			  "Historia de la Tierra",
+			  "Universo"
+			]
+		  },
+		  {
+			"name": "Materiales",
+			"blocks": [
+			  "Calor",
+			  "Cambios Químicos",
+			  "Electricidad",
+			  "Estados de Agregación y Mezclas",
+			  "Magnetismo"
+			]
+		  },
+		  {
+			"name": "Mundo Físico",
+			"blocks": [
+			  "Fuerzas",
+			  "Luz",
+			  "Sonido"
+			]
+		  },
+		  {
+			"name": "Seres Vivos",
+			"blocks": [
+			  "Diversidad",
+			  "Animales",
+			  "Hábitat"
+			]
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Educación Física",
+		"axis": [
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Ciencias Sociales",
+		"axis": [
+		  {
+			"name": "Las Sociedades a través del Tiempo",
+			"blocks": [
+			  "Pueblos originarios y del actual territorio argentino",
+			  "Período Colonial",
+			  "Revoluciones y Guerras de Independencia",
+			  "Autonomías Provinciales. Unitarios y Federales",
+			  "Construcción del Estado Nacional Argentino (1853-1880)",
+			  "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)",
+			  "Democracias y Dictaduras"
+			]
+		  },
+		  {
+			"name": "Sociedades y Territorios",
+			"blocks": [
+			  "Provincia de Buenos Aires",
+			  "Argentina",
+			  "Latinoamérica y el Mundo",
+			  "Constitución de la Provincia de Buenos Aires",
+			  "Constitución de la Nación Argentina"
+			]
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Matemática",
+		"axis": [
+		  {
+			"name": "Geometría, Espacio y Medida",
+			"blocks": [
+			  "Figuras y Cuerpos Geométricos",
+			  "Planos y Recorridos"
+			]
+		  },
+		  {
+			"name": "Números",
+			"blocks": [
+			  "Números Naturales",
+			  "Números Racionales"
+			]
+		  },
+		  {
+			"name": "Operaciones",
+			"blocks": [
+			  "Suma y Resta",
+			  "Multiplicación y División",
+			  "Proporcionalidad"
+			]
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Prácticas del Lenguaje",
+		"axis": [
+		  {
+			"name": "Formación del lector literario",
+			"blocks": [
+			  "Cuentos",
+			  "Leyendas",
+			  "Coplas",
+			  "Refranes",
+			  "Audiolibros"
+			]
+		  },
+		  {
+			"name": "Formación del estudiante",
+			"blocks": [
+			  "Textos informativos"
+			]
+		  },
+		  {
+			"name": "Formación ciudadana",
+			"blocks": [
+			  "Afiches",
+			  "Publicidades",
+			  "Graffitis",
+			  "Textos periodisticos",
+			  "Adicciones"
+			]
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  },
+	  {
+		"area": "Educación Artística",
+		"axis": [
+		  {
+			"name": "Plástica",
+			"blocks": []
+		  },
+		  {
+			"name": "Música",
+			"blocks": []
+		  },
+		  {
+			"name": "Danza",
+			"blocks": []
+		  },
+		  {
+			"name": "Teatro",
+			"blocks": []
+		  },
+		  {
+			"name": "Sala de Docentes",
+			"blocks": []
+		  }
+		]
+	  }
+  ]
+}
