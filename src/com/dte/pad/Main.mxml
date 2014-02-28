@@ -19,6 +19,7 @@
 	<fx:Script>
 		<![CDATA[
 		import flash.events.Event;
+		import com.dte.pad.Area;
 		
 		[Bindable]private var _appVersion:String = "v1.0.0";
 		
@@ -32,7 +33,7 @@
 		
 		protected function onCreationComplete(event:Event) : void 
 		{
-			this.maximize();
+			//this.maximize();
 		}
 		
 		]]>
@@ -50,17 +51,17 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}">
 			
-			<steps:Area caption="Nuevo Tangible" />
+			<steps:AreaStep caption="Nuevo Tangible" />
 			
-			<steps:Datasheet caption="Ficha Técnica" />
+			<steps:DatasheetStep caption="Ficha Técnica" />
 			
-			<steps:Covers caption="Portadas" />
+			<steps:CoversStep caption="Portadas" />
 			
-			<steps:Covers caption="Archivos" />
+			<steps:FilesStep caption="Archivos" />
 			
-			<steps:Credentials caption="Identificación" />
+			<steps:CredentialsStep caption="Identificación" />
 			
-			<steps:Finish caption="Empaquetar" />
+			<steps:FinishStep caption="Empaquetar" />
 			
 		</dte:Wizard>
 		
