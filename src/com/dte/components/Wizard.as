@@ -28,15 +28,14 @@ package com.dte.components
 		public function Wizard() 
 		{
 			super();
-			
-			this.addEventListener(IndexChangedEvent.CHANGE, onIndexChange);
-			this.addEventListener(ChildExistenceChangedEvent.CHILD_ADD, onChildAdded);
 			this.addEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
 		}
 		
 		private function onCreationComplete(e:FlexEvent):void 
 		{
 			refreshUI();
+			this.addEventListener(IndexChangedEvent.CHANGE, onIndexChange);
+			this.addEventListener(ChildExistenceChangedEvent.CHILD_ADD, onChildAdded);
 		}
 		
 		private function onChildAdded(e:ChildExistenceChangedEvent):void 
