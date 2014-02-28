@@ -42,7 +42,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-namespace library://ns.nticx.net/flex/2014 src/manifest.xml" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>
