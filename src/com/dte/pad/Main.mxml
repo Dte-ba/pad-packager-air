@@ -37,6 +37,8 @@
 		
 		[Bindable]private var _selectedArea:Area;
 		
+		[BIndable]private var _package:com.dte.pad.Package;
+		
 		protected function onCreationComplete(event:Event) : void 
 		{
 			//this.maximize();
