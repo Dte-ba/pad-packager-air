@@ -76,7 +76,7 @@
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" tagetPackage="{_package}" />
 			
-			<steps:CoversStep caption="Portadas" />
+			<steps:CoversStep caption="Portadas" tagetPackage="{_package}" />
 			
 			<steps:FilesStep caption="Archivos" />
 			

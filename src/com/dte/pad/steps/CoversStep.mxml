@@ -1,11 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
                xmlns:s="library://ns.adobe.com/flex/spark" 
-               xmlns:mx="library://ns.adobe.com/flex/halo"
-			   xmlns:dte="library://ns.nticx.net/flex/2014">
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:dte="library://ns.nticx.net/flex/2014"
+			   initialize="onInitialize(event)">
+	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+	
+	<fx:Script>
+		<![CDATA[
+		import com.dte.html.NativeAlert;
+		import flash.filesystem.File;
+		import flash.net.FileFilter;
+		import com.dte.pad.ui.MessageRef;
+		import com.dte.pad.Package;
+		
+		private var alert:NativeAlert = new NativeAlert();
+		
+		// image files
+		public var thumbFile:File;
+		
+		public var contentFile:File;
+		
+		private var imagesFilter:FileFilter = new FileFilter("Imagenes", "*.jpg;*.gif;*.png");
+		
+		private var _tagetPackage:com.dte.pad.Package;
+		
+		public function onInitialize(event:Event) : void {
+			this.thumbFile = File.desktopDirectory;
+			this.contentFile = File.desktopDirectory;
+			
+			this.thumbFile.addEventListener(Event.SELECT, onThumbFileSelected);
+			this.contentFile.addEventListener(Event.SELECT, onContentFileSelected);
+		}
+		
+		[Bindable]
+		public function get tagetPackage():com.dte.pad.Package 
+		{
+			return _tagetPackage;
+		}
+		
+		public function set tagetPackage(value:com.dte.pad.Package):void 
+		{
+			_tagetPackage = value;
+		}
+		
+		private function onThumbFileSelected(e:Event):void {
+			try  {
+				imgThumb.source = thumbFile.nativePath;
+				tagetPackage.imgThumb  = thumbFile;
+			}
+			catch (err:Error) {
+				tagetPackage.imgThumb  = null;
+			}
+		}
+		
+		private function onContentFileSelected(e:Event):void {
+			try  {
+				imgContent.source = contentFile.nativePath;
+				tagetPackage.imgContent  = contentFile;
+			}
+			catch (err:Error) {
+				tagetPackage.imgContent  = null;
+			}
+		}
+		
+		protected function btnSeleccionarThumb_click(event:MouseEvent) : void {
+			this.thumbFile.browseForOpen(MessageRef.DIALOG_SELECT_IMAGE_FILE, [ imagesFilter ]);
+		}
+		
+		protected function btnSeleccionarContent_click(event:MouseEvent) : void {
+			this.contentFile.browseForOpen(MessageRef.DIALOG_SELECT_IMAGE_FILE, [ imagesFilter ]);
+		}
+		
+		private function hasErrors() : Boolean {
+		
+			if (tagetPackage.imgThumb  == null) {
+				alert.alert(MessageRef.ERROR_ACCES_IMAGE_NOT_SELECTED);
+				return true;
+			}
+			
+			if (tagetPackage.imgContent == null) {
+				alert.alert(MessageRef.ERROR_CONTENT_IMAGE_NOT_SELECTED);
+				return true;
+			}
+			
+		   return false;
+		}
+		
+		override public function isValid():Boolean 
+		{
+			if ( !super.isValid() ) { return false; }
+			
+			if (hasErrors()) return false;
+			
+			return true;
+		}
+		
+		]]>
+	</fx:Script>
 	
 	<fx:Declarations>
 	</fx:Declarations>
+	
+	<s:Group width="100%" height="100%">
+		<s:ButtonBar id="navBar" dataProvider="{coverViewStack}"/>
+
+		<mx:ViewStack id="coverViewStack"
+			borderStyle="solid" top="{navBar.height + 1}"
+			width="100%" historyManagementEnabled="false" creationPolicy="all"
+			bottom="0" right="0" left="0">
+			
+			<s:NavigatorContent id="navAcceso" label="Portada de acceso"
+				bottom="0" right="0" left="0" top="0">
+				<s:Scroller top="0" left="0" right="0" bottom="40">
+					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
+						<s:Image id="imgThumb" />
+					</s:VGroup>
+				</s:Scroller>
+				<s:HGroup bottom="0">
+					<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de acceso..." click="btnSeleccionarThumb_click(event)" />
+				</s:HGroup>
+			</s:NavigatorContent>
+
+			<s:NavigatorContent id="navContenido" label="Portada de contenido"
+				bottom="0" right="0" left="0" top="0">
+				<s:Scroller top="0" left="0" right="0" bottom="40">
+					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
+						<s:Image id="imgContent" />
+					</s:VGroup>
+				</s:Scroller>
+				<s:HGroup bottom="0">
+					<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de contenido ..."  click="btnSeleccionarContent_click(event)"/>
+				</s:HGroup>
+			</s:NavigatorContent>
+		</mx:ViewStack>
+	</s:Group>
 	
 	
 </dte:Step>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
                xmlns:s="library://ns.adobe.com/flex/spark" 
-               xmlns:mx="library://ns.adobe.com/flex/halo"
+               xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:dte="library://ns.nticx.net/flex/2014">
 	
     <!--
@@ -17,14 +17,14 @@
 		import com.dte.pad.Axis;
 		import com.dte.pad.Block;
 		import com.dte.pad.Package;
-		import com.dte.pad.UI.MessageRef;
+		import com.dte.pad.ui.MessageRef;
 		
 		import mx.validators.StringValidator;
 		import mx.validators.ValidationResult;
 		
 		private var alert:NativeAlert = new NativeAlert();
 		
-		private var _package:com.dte.pad.Package;
+		private var _tagetPackage:com.dte.pad.Package;
 		
 		private var _area:Area;
 		
@@ -40,12 +40,12 @@
 		[Bindable]
 		public function get tagetPackage():com.dte.pad.Package 
 		{
-			return _package;
+			return _tagetPackage;
 		}
 		
 		public function set tagetPackage(value:com.dte.pad.Package):void 
 		{
-			_package = value;
+			_tagetPackage = value;
 		}
 		
 		[Bindable]
