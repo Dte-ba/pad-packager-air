@@ -17,9 +17,14 @@ package com.dte.components
 			super();
 		}
 		
-		protected function isValid() : Boolean
+		public function isValid() : Boolean
 		{
-			return false;
+			return true;
+		}
+		
+		public function activate(from:String="") : void
+		{
+			
 		}
 		
 		[Bindable]

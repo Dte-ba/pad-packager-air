@@ -4,8 +4,185 @@
                xmlns:mx="library://ns.adobe.com/flex/halo"
 			   xmlns:dte="library://ns.nticx.net/flex/2014">
 	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+	
+	<fx:Script>
+		<![CDATA[
+		import com.dte.html.NativeAlert;
+		import com.dte.pad.Area;
+		import com.dte.pad.Axis;
+		import com.dte.pad.Block;
+		import com.dte.pad.Package;
+		import com.dte.pad.UI.MessageRef;
+		
+		import mx.validators.StringValidator;
+		import mx.validators.ValidationResult;
+		
+		private var alert:NativeAlert = new NativeAlert();
+		
+		private var _package:com.dte.pad.Package;
+		
+		private var _area:Area;
+		
+		[Bindable]private var _selectedAxis:Axis = null;
+		
+		[Bindable]private var _selectedBlock:Block = null;
+		
+		// validators
+		private var _titleValidator:StringValidator;
+		
+		private var _datasheetValidator:StringValidator;
+				
+		[Bindable]
+		public function get tagetPackage():com.dte.pad.Package 
+		{
+			return _package;
+		}
+		
+		public function set tagetPackage(value:com.dte.pad.Package):void 
+		{
+			_package = value;
+		}
+		
+		[Bindable]
+		public function get area():Area 
+		{
+			return _area;
+		}
+		
+		public function set area(value:Area):void 
+		{
+			_area = value;
+		}
+		
+		private function hasErrors() : Boolean {
+			var tresults:Array = _titleValidator.validate().results;
+			var dresults:Array = _datasheetValidator.validate().results;
+			
+			for each(var r:ValidationResult in tresults) {
+				if (r.isError) {
+					alert.alert(MessageRef.ERROR_REQUIERED_FIELD);
+					return true;
+				}
+			}
+			
+			for each(var rd:ValidationResult in dresults) {
+				if (rd.isError) {
+					alert.alert(MessageRef.ERROR_REQUIERED_FIELD);
+					return true;
+				}
+			}
+			
+			if (_selectedAxis == null) {
+				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
+				return true;
+			}
+			
+			if (_selectedBlock == null) {
+				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
+				return true;
+			}
+			
+		   return false;
+		}
+		
+		override public function activate(from:String = ""):void 
+		{
+			super.activate(from);
+			
+			if (from == "back") {
+				refreshValidators();
+			}
+			
+			if (from == "next") return;
+		}
+		
+		private function resetValidationWarnings():void {
+
+			txtTitle.errorString = "";
+			txtDatasheet.errorString = "";
+
+		}
+		
+		private function refreshValidators():void 
+		{	
+			if (_titleValidator == null && _datasheetValidator == null) {
+				_titleValidator = new StringValidator();
+				_datasheetValidator = new StringValidator();
+			
+				_titleValidator.source = txtTitle;
+				_titleValidator.property = "text";
+				_titleValidator.required = true;
+				_titleValidator.requiredFieldError = "*";
+				
+				_datasheetValidator.source = txtDatasheet;
+				_datasheetValidator.property = "text";
+				_datasheetValidator.required = true;
+				_datasheetValidator.requiredFieldError = "*";
+			} else {
+				_titleValidator.source.errorString = "";
+				_datasheetValidator.source.errorString = "";
+			}
+		}
+		
+		override public function isValid():Boolean 
+		{
+			if ( !super.isValid() ) { return false; }
+			
+			if (hasErrors()) return false;
+			
+			return true;
+		}
+				
+		]]>
+	</fx:Script>
+	
 	<fx:Declarations>
 	</fx:Declarations>
 	
+	<s:Scroller top="0" left="0" right="0" bottom="0">
+		<s:VGroup width="100%">
+			<s:Form id="formPackage" width="100%">
+				<s:FormHeading label="Información de Contenido" />
+				
+				<s:FormItem label="Titulo">
+					<s:TextInput id="txtTitle" width="100%" text="@{tagetPackage.title}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Eje">
+					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{_selectedAxis}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Bloque">
+					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{_selectedBlock}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Palabras Claves">
+					<s:TextInput id="txtTags" width="100%" text="@{tagetPackage.tags}" prompt="Palabras separadas por , (comas)" />
+				</s:FormItem>
+				
+				<s:FormItem label="Autor del Contenido">
+					<s:TextInput id="txtConentAuthor" width="100%" text="@{tagetPackage.contentAutor}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Fuente del Contenido">
+					<s:TextInput id="txtContentSource" width="100%" text="@{tagetPackage.contentSource}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Información Técnica">
+					<s:TextArea id="txtDatasheet" width="100%" text="@{tagetPackage.datasheet}" />
+				</s:FormItem>
+				
+				<s:FormItem label="Observaciones">
+					<s:TextArea id="txtDescription" width="100%" text="@{tagetPackage.description}" heightInLines="5" />
+				</s:FormItem>
+				
+			</s:Form>
+		</s:VGroup>
+	</s:Scroller>
 	
 </dte:Step>

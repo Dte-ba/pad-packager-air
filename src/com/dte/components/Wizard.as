@@ -50,12 +50,26 @@ package com.dte.components
 		
 		private function onIndexChange(e:IndexChangedEvent):void 
 		{
+			var c:* = this.selectedIndex < 0 ? null : this.getChildAt(this.selectedIndex);
+			var from:String = e.oldIndex < e.newIndex ? "back" : "next";
+			
+			if (c !== null) {
+				var cs:Step = c as Step;
+				cs.activate(from);
+			}
+			
 			refreshUI();
 		}
 		
 		public function canNext() : Boolean
 		{
 			if ((this.numChildren - 1 == this.selectedIndex)) return false;
+			
+			var c:* = this.selectedIndex < 0 ? null : this.getChildAt(this.selectedIndex);
+			if (c !== null) {
+				var cs:Step = c as Step;
+				return cs.isValid();
+			}
 			
 			return true;
 		}
@@ -97,7 +111,6 @@ package com.dte.components
 				if (c !== null) {
 					var cs:Step = c as Step;
 					this.caption = cs.caption;
-					trace(this.caption);
 				}
 			} catch (e:Event) { }
 			
