@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<componentPackage>
+
+	<component id="Wizard" class="com.dte.components.Wizard"/>
+	<component id="Step" class="com.dte.components.Step"/>
+	
+</componentPackage>

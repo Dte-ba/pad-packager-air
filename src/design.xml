@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<design version="2">
+
+    <namespaces>
+        <namespace prefix="dte" uri="library://ns.nticx.net/flex/2014" />
+    </namespaces>
+	
+	 <categories>
+        <category id="controls" label="Controls" defaultExpand="true"/>
+    </categories>
+	
+	<components>
+
+		<component name="Wizard" namespace="com.dte.components" category="controls" displayName="Wizard" />
+		<component name="Step" namespace="com.dte.components" category="controls" displayName="Step" />
+		
+	</components>
+	
+</design>
