@@ -1,17 +1,18 @@
 package com.dte.pad 
 {
+	/*!
+	 * This file is part of PAD packager.
+	 *
+	 * please see the LICENSE
+	 */
+	
 	import com.hurlant.crypto.hash.SHA1;
 	import flash.filesystem.File;
 	import flash.utils.ByteArray;
 	import com.hurlant.util.Hex;
 	import mx.collections.ArrayCollection;
 	import com.dte.crypto.AESUtils;
-	
-	/*!
-	 * This file is part of PAD packager.
-	 *
-	 * please see the LICENSE
-	 */
+		
 	public class Package 
 	{
 		private var _uid:String = "";

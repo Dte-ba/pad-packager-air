@@ -22,7 +22,7 @@
 		import flash.events.Event;
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
-		
+				
 		[Bindable]private var _appVersion:String = "v1.0.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
@@ -48,6 +48,7 @@
 			
 			// TODO: delete me
 			_package = new com.dte.pad.Package();
+
 		}
 		
 		protected function onAreaSelected(e:AreaStepEvent) : void {

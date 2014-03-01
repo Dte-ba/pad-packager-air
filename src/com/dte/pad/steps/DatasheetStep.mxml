@@ -99,12 +99,12 @@
 		override public function activate(from:String = ""):void 
 		{
 			super.activate(from);
+						
+			if (from == "next") return;
 			
 			if (from == "back") {
 				refreshValidators();
 			}
-			
-			if (from == "next") return;
 		}
 		
 		private function resetValidationWarnings():void {
