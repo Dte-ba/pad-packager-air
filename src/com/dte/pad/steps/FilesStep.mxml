@@ -2,10 +2,216 @@
 <dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
                xmlns:s="library://ns.adobe.com/flex/spark" 
                xmlns:mx="library://ns.adobe.com/flex/mx"
-			   xmlns:dte="library://ns.nticx.net/flex/2014">
+			   xmlns:dte="library://ns.nticx.net/flex/2014"
+			   initialize="onInitialize(event)">
+	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+	
+	<fx:Script>
+		<![CDATA[
+		import com.dte.formatters.StringFormatter;
+		import com.dte.html.NativeAlert;
+		import com.dte.pad.Package;
+		import flash.events.MouseEvent;
+		import flash.filesystem.File;
+		import mx.collections.ArrayCollection;
+		import spark.components.gridClasses.GridColumn;
+		
+		[Bindable]public var _files:ArrayCollection;
+	   
+	    [Bindable]private var _selectedFiles:ArrayCollection;
+	   
+	    private var _tagetPackage:com.dte.pad.Package;
+		
+	    private var outputFile:File;
+	    private var inputFile:File;
+	    private var relativePath:String;
+	    private var stringFormatter:StringFormatter;
+	   
+	    private var alert:NativeAlert = new NativeAlert();
+		
+		public function onInitialize(event:Event) : void {
+		   
+		   this._files = new ArrayCollection();
+		   _selectedFiles = new ArrayCollection();
+		   this.stringFormatter = new StringFormatter();
+		   this.outputFile = File.desktopDirectory;
+		   this.inputFile = File.desktopDirectory;
+
+		   BindingUtils.bindSetter(updatePackageFiles, this, "_files");
+		   
+		   this.inputFile.addEventListener(FileListEvent.SELECT_MULTIPLE, onInputFilesSelected);
+		   this.inputFile.addEventListener(Event.SELECT, onInputDirectorySelected);
+		}
+		
+		[Bindable]
+		public function get tagetPackage():com.dte.pad.Package 
+		{
+			return _tagetPackage;
+		}
+		
+		public function set tagetPackage(value:com.dte.pad.Package):void 
+		{
+			_tagetPackage = value;
+		}
+				
+		override public function activate(from:String = ""):void 
+		{
+			
+	    }
+		
+		override public function isValid():Boolean 
+		{
+			if ( !super.isValid() ) { return false; }
+			
+			if (hasErrors()) return false;
+			
+			return true;
+		}
+		
+		public function reset() : void {
+		   
+		   _files.removeAll();
+		   _selectedFiles.removeAll();
+	   
+	    }
+		
+		public function updatePackageFiles(val:ArrayCollection):void {
+		   if (this._package == null) return;
+		   
+		   this._package.files = val;
+		}
+	   
+		private function flattenDirectoryStructure(files:Array, flatFiles:Array):void {
+			for each (var f:File in files)
+			{
+				if (f.isDirectory)
+				{
+					this.flattenDirectoryStructure(f.getDirectoryListing(), flatFiles);
+				}
+				else
+				{
+					flatFiles.push(f);
+				}
+			}
+		}
+		
+		private function processIncomingFiles(files:Array):void {
+			var allFiles:Array = new Array();
+			this.findRelativePath(files);
+			this.flattenDirectoryStructure(files, allFiles);
+			this._files = new ArrayCollection(allFiles);
+		}
+		
+		private function onInputFilesSelected(e:FileListEvent):void {
+			this.processIncomingFiles(e.files);
+		}
+		
+		private function onInputDirectorySelected(e:Event):void {
+			this.processIncomingFiles([this.inputFile]);
+		}
+	   
+		private function findRelativePath(files:Array):void {
+			var depth:int = -1;
+			var thisDepth:int = -1;
+			for each (var f:File in files)
+			{
+				thisDepth = f.nativePath.split(File.separator).length;
+				if (thisDepth < depth || depth == -1)
+				{
+					depth = thisDepth;
+					this.relativePath = f.parent.nativePath;
+				}
+			}
+		}
+
+		private function getFileNameLabel(item:Object, column:GridColumn):String {
+			return this.getRelativeFileName(item as File);
+		}
+
+		public function getRelativeFileName(f:File):String {
+			return f.nativePath.substring(this.relativePath.length + 1, f.nativePath.length);
+		}
+
+		private function getFileSizeLabel(item:Object, column:GridColumn):String {
+			return this.stringFormatter.getFormattedFileSize(Number(item.size));
+		}
+
+		private function getFileDateLabel(item:Object, column:GridColumn):String {
+			return this.stringFormatter.getFormattedDate(item.creationDate);
+		}
+		
+		private function onDataGridSelected(event:Event) : void {
+			
+			_selectedFiles.removeAll();
+			
+			if (_grid.selectedItems.length == 0) {
+				return;
+			}
+			
+			for each(var f:File in _grid.selectedItems) {
+				_selectedFiles.addItem( f );
+			}
+			
+		}
+		
+		protected function clearFiles() : void {
+			_files.removeAll();
+			_selectedFiles.removeAll();
+		}
+		
+		protected function onDeleteFiles(event:MouseEvent) : void {
+			for each(var f:File in _selectedFiles) {
+				var idx:int = _files.getItemIndex(f);
+				_files.removeItemAt(idx);
+			}
+			
+			_selectedFiles.removeAll();
+		}
+		
+		protected function onClearFiles(event:MouseEvent) : void {
+			this.clearFiles();
+		}
+	
+	    private function onAddFiles(e:MouseEvent):void {
+			if (e.target == this.addFilesButton)
+			{
+				this.inputFile.browseForOpenMultiple("Seleccione los archivos que desea agregar");
+			}
+			else
+			{
+				this.inputFile.browseForDirectory("Seleccione una carpeta que desea agregar");
+			}
+		}
+		
+		]]>
+	</fx:Script>
 	
 	<fx:Declarations>
 	</fx:Declarations>
 	
+	<s:Label text="Archivos" top="10" />
+	
+	<s:DataGrid id="_grid" width="100%" dataProvider="{_files}" selectionChange="onDataGridSelected(event);" top="30" bottom="40">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn headerText="Nombre" labelFunction="getFileNameLabel"/>
+				<s:GridColumn headerText="Tamaño" labelFunction="getFileSizeLabel" width="92"/>
+				<s:GridColumn headerText="Creado" labelFunction="getFileDateLabel" width="140"/>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+	
+	<s:HGroup width="100%" bottom="0">
+		<s:Button label="Agregar Archivos ..." id="addFilesButton" click="onAddFiles(event);"/>
+		<s:Button label="Agregar Carpeta ..." id="addFolderButton" click="onAddFiles(event);"/>
+		
+		<s:Button label="Quitar" id="btnQuitar" click="onDeleteFiles(event);" enabled="{_selectedFiles.length &gt; 0}" />
+		<s:Button label="Quitar Todos" id="btnClear" click="onClearFiles(event);" enabled="{_files.length &gt; 0}" />
+	</s:HGroup>
 	
 </dte:Step>
