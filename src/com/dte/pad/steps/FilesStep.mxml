@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
-               xmlns:s="library://ns.adobe.com/flex/spark" 
-               xmlns:mx="library://ns.adobe.com/flex/mx"
-			   xmlns:dte="library://ns.nticx.net/flex/2014"
-			   initialize="onInitialize(event)">
+		   xmlns:s="library://ns.adobe.com/flex/spark" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx"
+		   xmlns:dte="library://ns.nticx.net/flex/2014"
+		   initialize="onInitialize(event)">
 	
     <!--
 	 This file is part of PAD packager.
@@ -20,6 +20,7 @@
 		import flash.filesystem.File;
 		import mx.collections.ArrayCollection;
 		import spark.components.gridClasses.GridColumn;
+		import mx.binding.utils.BindingUtils;
 		
 		[Bindable]public var _files:ArrayCollection;
 	   
@@ -64,6 +65,10 @@
 			
 	    }
 		
+		private function hasErrors() : Boolean {
+		   return false;
+		}
+		
 		override public function isValid():Boolean 
 		{
 			if ( !super.isValid() ) { return false; }
@@ -81,9 +86,9 @@
 	    }
 		
 		public function updatePackageFiles(val:ArrayCollection):void {
-		   if (this._package == null) return;
+		   if (this.tagetPackage == null) return;
 		   
-		   this._package.files = val;
+		   this.tagetPackage.files = val;
 		}
 	   
 		private function flattenDirectoryStructure(files:Array, flatFiles:Array):void {
@@ -198,11 +203,11 @@
 	
 	<s:DataGrid id="_grid" width="100%" dataProvider="{_files}" selectionChange="onDataGridSelected(event);" top="30" bottom="40">
 		<s:columns>
-			<s:ArrayList>
+			<mx:ArrayList>
 				<s:GridColumn headerText="Nombre" labelFunction="getFileNameLabel"/>
 				<s:GridColumn headerText="Tamaño" labelFunction="getFileSizeLabel" width="92"/>
 				<s:GridColumn headerText="Creado" labelFunction="getFileDateLabel" width="140"/>
-			</s:ArrayList>
+			</mx:ArrayList>
 		</s:columns>
 	</s:DataGrid>
 	
