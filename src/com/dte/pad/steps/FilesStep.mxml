@@ -16,6 +16,7 @@
 		import com.dte.formatters.StringFormatter;
 		import com.dte.html.NativeAlert;
 		import com.dte.pad.Package;
+		import com.dte.pad.ui.MessageRef;
 		import flash.events.MouseEvent;
 		import flash.filesystem.File;
 		import mx.collections.ArrayCollection;
@@ -185,11 +186,11 @@
 	    private function onAddFiles(e:MouseEvent):void {
 			if (e.target == this.addFilesButton)
 			{
-				this.inputFile.browseForOpenMultiple("Seleccione los archivos que desea agregar");
+				this.inputFile.browseForOpenMultiple(MessageRef.DIALOG_SELECT_FILES);
 			}
 			else
 			{
-				this.inputFile.browseForDirectory("Seleccione una carpeta que desea agregar");
+				this.inputFile.browseForDirectory(MessageRef.DIALOG_SELECT_FOLDER);
 			}
 		}
 		

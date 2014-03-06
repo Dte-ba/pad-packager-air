@@ -26,6 +26,10 @@ package com.dte.pad.ui
 		
 		// DIALOG
 		static public const DIALOG_SELECT_IMAGE_FILE:String = "Seleccione un archivo de image";
+		
+		static public const DIALOG_SELECT_FILES:String = "Seleccione los archivos que desea agregar";
+		
+		static public const DIALOG_SELECT_FOLDER:String = "Seleccione una carpeta que desea agregar";
 	}
 
 }

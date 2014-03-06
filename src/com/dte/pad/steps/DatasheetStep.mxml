@@ -16,6 +16,7 @@
 		import com.dte.pad.Area;
 		import com.dte.pad.Axis;
 		import com.dte.pad.Block;
+		import com.dte.pad.Datasheet;
 		import com.dte.pad.Package;
 		import com.dte.pad.ui.MessageRef;
 		
@@ -24,28 +25,24 @@
 		
 		private var alert:NativeAlert = new NativeAlert();
 		
-		private var _tagetPackage:com.dte.pad.Package;
+		private var _datasheet:Datasheet;
 		
 		private var _area:Area;
-		
-		[Bindable]private var _selectedAxis:Axis = null;
-		
-		[Bindable]private var _selectedBlock:Block = null;
-		
+
 		// validators
 		private var _titleValidator:StringValidator;
 		
 		private var _datasheetValidator:StringValidator;
 				
 		[Bindable]
-		public function get tagetPackage():com.dte.pad.Package 
+		public function get datasheet():Datasheet 
 		{
-			return _tagetPackage;
+			return _datasheet;
 		}
 		
-		public function set tagetPackage(value:com.dte.pad.Package):void 
+		public function set datasheet(value:Datasheet):void 
 		{
-			_tagetPackage = value;
+			_datasheet = value;
 		}
 		
 		[Bindable]
@@ -58,7 +55,7 @@
 		{
 			_area = value;
 		}
-		
+				
 		private function hasErrors() : Boolean {
 			var tresults:Array = _titleValidator.validate().results;
 			var dresults:Array = _datasheetValidator.validate().results;
@@ -81,14 +78,14 @@
 				throw new Error("Area not selected");
 			}
 			
-			if (_area.axis.length > 0 && _selectedAxis == null) {
+			if (_area.axis.length > 0 && datasheet.axis == null) {
 				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
 				return true;
 			}
 			
-			var hasBlocks:Boolean = _selectedAxis != null && (_selectedAxis.blocks != null && _selectedAxis.blocks.length > 0);
+			var hasBlocks:Boolean = datasheet.axis != null && (datasheet.axis.blocks != null && datasheet.axis.blocks.length > 0);
 			
-			if (hasBlocks && _selectedBlock == null) {
+			if (hasBlocks && datasheet.block == null) {
 				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
 				return true;
 			}
@@ -156,35 +153,35 @@
 				<s:FormHeading label="Información de Contenido" />
 				
 				<s:FormItem label="Titulo">
-					<s:TextInput id="txtTitle" width="100%" text="@{tagetPackage.title}" />
+					<s:TextInput id="txtTitle" width="100%" text="@{datasheet.title}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Eje">
-					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{_selectedAxis}" />
+					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{datasheet.axis}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Bloque">
-					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{_selectedBlock}" />
+					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{datasheet.block}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Palabras Claves">
-					<s:TextInput id="txtTags" width="100%" text="@{tagetPackage.tags}" prompt="Palabras separadas por , (comas)" />
+					<s:TextInput id="txtTags" width="100%" text="@{datasheet.tags}" prompt="Palabras separadas por , (comas)" />
 				</s:FormItem>
 				
 				<s:FormItem label="Autor del Contenido">
-					<s:TextInput id="txtConentAuthor" width="100%" text="@{tagetPackage.contentAutor}" />
+					<s:TextInput id="txtConentAuthor" width="100%" text="@{datasheet.contentAutor}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Fuente del Contenido">
-					<s:TextInput id="txtContentSource" width="100%" text="@{tagetPackage.contentSource}" />
+					<s:TextInput id="txtContentSource" width="100%" text="@{datasheet.contentSource}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Información Técnica">
-					<s:TextArea id="txtDatasheet" width="100%" text="@{tagetPackage.datasheet}" />
+					<s:TextArea id="txtDatasheet" width="100%" text="@{datasheet.content}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Observaciones">
-					<s:TextArea id="txtDescription" width="100%" text="@{tagetPackage.description}" heightInLines="5" />
+					<s:TextArea id="txtDescription" width="100%" text="@{datasheet.description}" heightInLines="5" />
 				</s:FormItem>
 				
 			</s:Form>

@@ -47,7 +47,9 @@
 			_areas = CurricularDesign.getInstance().areas;
 			
 			// TODO: delete me
-			_package = new com.dte.pad.Package();
+			_package = new com.dte.pad.Package(_appVersion);
+			_package.datasheet = new Datasheet();
+			_package.token = new SecurityToken();
 
 		}
 		
@@ -75,13 +77,13 @@
 			
 			<steps:AreaStep caption="Nuevo Tangible" areas="{_areas}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
 			
-			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" tagetPackage="{_package}" />
+			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />
 			
 			<steps:CoversStep caption="Portadas" tagetPackage="{_package}" />
 			
 			<steps:FilesStep caption="Archivos" />
 			
-			<steps:CredentialsStep caption="Identificación" />
+			<steps:CredentialsStep caption="Identificación" token="{_package.token}" />
 			
 			<steps:FinishStep caption="Empaquetar" />
 			
