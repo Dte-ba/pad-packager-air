@@ -8,6 +8,7 @@ package com.dte.components
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import mx.containers.ViewStack;
+	import mx.core.IUIComponent;
 	import mx.events.ChildExistenceChangedEvent;
 	import mx.events.FlexEvent;
 	import mx.events.IndexChangedEvent;
@@ -16,6 +17,8 @@ package com.dte.components
 	[Event(name="end", type="flash.events.Event")]
 	public class Wizard extends ViewStack
 	{
+		
+		private var _toolBar:IUIComponent;
 		
 		private var _nextButton:Button;
 		
@@ -111,6 +114,7 @@ package com.dte.components
 				if (c !== null) {
 					var cs:Step = c as Step;
 					this.caption = cs.caption;
+					this.toolBarEnable = cs.enableToolBar;
 				}
 			} catch (e:Event) { }
 			
@@ -172,6 +176,33 @@ package com.dte.components
 		public function set caption(value:String):void 
 		{
 			_caption = value;
+		}
+		
+		[Bindable]
+		public function get toolBar():IUIComponent 
+		{
+			return _toolBar;
+		}
+		
+		public function set toolBar(value:IUIComponent):void 
+		{
+			_toolBar = value;
+		}
+		
+		public function get toolBarEnable():Boolean 
+		{
+			if (_toolBar !== null) {
+				return _toolBar.enabled;
+			}
+			
+			return false;
+		}
+		
+		public function set toolBarEnable(value:Boolean):void 
+		{
+			if (_toolBar !== null) {
+				_toolBar.enabled = value;
+			}
 		}
 		
 		private function endButtonClick(e:MouseEvent):void 

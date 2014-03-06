@@ -12,6 +12,8 @@ package com.dte.components
 		
 		private var _caption:String = "";
 		
+		private var _enableToolBar:Boolean = true;
+		
 		public function Step() 
 		{
 			super();
@@ -36,6 +38,17 @@ package com.dte.components
 		public function set caption(value:String):void 
 		{
 			_caption = value;
+		}
+		
+		[Bindable]
+		public function get enableToolBar():Boolean 
+		{
+			return _enableToolBar;
+		}
+		
+		public function set enableToolBar(value:Boolean):void 
+		{
+			_enableToolBar = value;
 		}
 		
 	}

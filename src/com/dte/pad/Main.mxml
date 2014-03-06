@@ -23,7 +23,7 @@
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
 				
-		[Bindable]private var _appVersion:String = "v1.0.0-beta";
+		[Bindable]private var _appVersion:String = "v1.5.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
 		
@@ -71,9 +71,9 @@
 	<s:BorderContainer left="20" right="20" top="145" bottom="70">
 		
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
-					backButton="{btnBack}" nextButton="{btnNext}">
+					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
-			<steps:AreaStep caption="Nuevo Tangible" areas="{_areas}" areaSelected="onAreaSelected(event)" />
+			<steps:AreaStep caption="Nuevo Tangible" areas="{_areas}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" tagetPackage="{_package}" />
 			
@@ -87,7 +87,7 @@
 			
 		</dte:Wizard>
 		
-		<s:HGroup horizontalAlign="center" height="40" verticalAlign="middle" bottom="0" right="10" left="10" >
+		<s:HGroup id="_toolBar" horizontalAlign="center" height="40" verticalAlign="middle" bottom="0" right="10" left="10" >
 			<s:Button id="btnBack" label="Volver"  />
 			<s:Button id="btnNext" label="Continuar" />
 		</s:HGroup>
