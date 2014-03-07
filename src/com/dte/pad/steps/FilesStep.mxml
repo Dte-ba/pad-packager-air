@@ -13,6 +13,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+		import com.dte.filesystem.FileProvider;
 		import com.dte.formatters.StringFormatter;
 		import com.dte.html.NativeAlert;
 		import com.dte.pad.Package;
@@ -23,42 +24,28 @@
 		import spark.components.gridClasses.GridColumn;
 		import mx.binding.utils.BindingUtils;
 		
-		[Bindable]public var _files:ArrayCollection;
-	   
-	    [Bindable]private var _selectedFiles:ArrayCollection;
-	   
-	    private var _tagetPackage:com.dte.pad.Package;
+		private var _fileProvider:FileProvider;
 		
-	    private var outputFile:File;
-	    private var inputFile:File;
-	    private var relativePath:String;
+		[Bindable]private var _selectedFiles:ArrayCollection;
+		
 	    private var stringFormatter:StringFormatter;
 	   
 	    private var alert:NativeAlert = new NativeAlert();
 		
 		public function onInitialize(event:Event) : void {
-		   
-		   this._files = new ArrayCollection();
-		   _selectedFiles = new ArrayCollection();
-		   this.stringFormatter = new StringFormatter();
-		   this.outputFile = File.desktopDirectory;
-		   this.inputFile = File.desktopDirectory;
-
-		   BindingUtils.bindSetter(updatePackageFiles, this, "_files");
-		   
-		   this.inputFile.addEventListener(FileListEvent.SELECT_MULTIPLE, onInputFilesSelected);
-		   this.inputFile.addEventListener(Event.SELECT, onInputDirectorySelected);
+			this._selectedFiles = new ArrayCollection();
+		    this.stringFormatter = new StringFormatter();
 		}
 		
 		[Bindable]
-		public function get tagetPackage():com.dte.pad.Package 
+		public function get fileProvider():FileProvider 
 		{
-			return _tagetPackage;
+			return _fileProvider;
 		}
 		
-		public function set tagetPackage(value:com.dte.pad.Package):void 
+		public function set fileProvider(value:FileProvider):void 
 		{
-			_tagetPackage = value;
+			_fileProvider = value;
 		}
 				
 		override public function activate(from:String = ""):void 
@@ -80,80 +67,18 @@
 		}
 		
 		public function reset() : void {
-		   
-		   _files.removeAll();
-		   _selectedFiles.removeAll();
-	   
+			this.fileProvider.reset();
+			this._selectedFiles.removeAll();
 	    }
-		
-		public function updatePackageFiles(val:ArrayCollection):void {
-		   if (this.tagetPackage == null) return;
-		   
-		   this.tagetPackage.files = val;
-		}
 	   
-		private function flattenDirectoryStructure(files:Array, flatFiles:Array):void {
-			for each (var f:File in files)
-			{
-				if (f.isDirectory)
-				{
-					this.flattenDirectoryStructure(f.getDirectoryListing(), flatFiles);
-				}
-				else
-				{
-					flatFiles.push(f);
-				}
-			}
+		protected function clearFiles() : void {
+			reset();
 		}
 		
-		private function processIncomingFiles(files:Array):void {
-			var allFiles:Array = new Array();
-			this.findRelativePath(files);
-			this.flattenDirectoryStructure(files, allFiles);
-			this._files = new ArrayCollection(allFiles);
-		}
-		
-		private function onInputFilesSelected(e:FileListEvent):void {
-			this.processIncomingFiles(e.files);
-		}
-		
-		private function onInputDirectorySelected(e:Event):void {
-			this.processIncomingFiles([this.inputFile]);
-		}
-	   
-		private function findRelativePath(files:Array):void {
-			var depth:int = -1;
-			var thisDepth:int = -1;
-			for each (var f:File in files)
-			{
-				thisDepth = f.nativePath.split(File.separator).length;
-				if (thisDepth < depth || depth == -1)
-				{
-					depth = thisDepth;
-					this.relativePath = f.parent.nativePath;
-				}
-			}
-		}
-
-		private function getFileNameLabel(item:Object, column:GridColumn):String {
-			return this.getRelativeFileName(item as File);
-		}
-
-		public function getRelativeFileName(f:File):String {
-			return f.nativePath.substring(this.relativePath.length + 1, f.nativePath.length);
-		}
-
-		private function getFileSizeLabel(item:Object, column:GridColumn):String {
-			return this.stringFormatter.getFormattedFileSize(Number(item.size));
-		}
-
-		private function getFileDateLabel(item:Object, column:GridColumn):String {
-			return this.stringFormatter.getFormattedDate(item.creationDate);
-		}
-		
+		// grid handlers
 		private function onDataGridSelected(event:Event) : void {
 			
-			_selectedFiles.removeAll();
+			this._selectedFiles.removeAll();
 			
 			if (_grid.selectedItems.length == 0) {
 				return;
@@ -165,33 +90,30 @@
 			
 		}
 		
-		protected function clearFiles() : void {
-			_files.removeAll();
-			_selectedFiles.removeAll();
-		}
-		
 		protected function onDeleteFiles(event:MouseEvent) : void {
-			for each(var f:File in _selectedFiles) {
-				var idx:int = _files.getItemIndex(f);
-				_files.removeItemAt(idx);
-			}
-			
+			this.fileProvider.deleteFiles(_selectedFiles);
 			_selectedFiles.removeAll();
 		}
 		
 		protected function onClearFiles(event:MouseEvent) : void {
-			this.clearFiles();
+			reset();
 		}
 	
 	    private function onAddFiles(e:MouseEvent):void {
-			if (e.target == this.addFilesButton)
-			{
-				this.inputFile.browseForOpenMultiple(MessageRef.DIALOG_SELECT_FILES);
-			}
-			else
-			{
-				this.inputFile.browseForDirectory(MessageRef.DIALOG_SELECT_FOLDER);
-			}
+			this.fileProvider.addDialog(e.target == this.addFolderButton);
+		}
+		
+		// label functions
+		private function getFileNameLabel(item:Object, column:GridColumn):String {
+			return this.fileProvider.getRelativeFileName(item as File);
+		}
+
+		private function getFileSizeLabel(item:Object, column:GridColumn):String {
+			return this.stringFormatter.getFormattedFileSize(Number(item.size));
+		}
+
+		private function getFileDateLabel(item:Object, column:GridColumn):String {
+			return this.stringFormatter.getFormattedDate(item.creationDate);
 		}
 		
 		]]>
@@ -202,7 +124,7 @@
 	
 	<s:Label text="Archivos" top="10" />
 	
-	<s:DataGrid id="_grid" width="100%" dataProvider="{_files}" selectionChange="onDataGridSelected(event);" top="30" bottom="40">
+	<s:DataGrid id="_grid" width="100%" dataProvider="{this.fileProvider.files}" selectionChange="onDataGridSelected(event);" top="30" bottom="40">
 		<s:columns>
 			<mx:ArrayList>
 				<s:GridColumn headerText="Nombre" labelFunction="getFileNameLabel"/>
@@ -217,7 +139,7 @@
 		<s:Button label="Agregar Carpeta ..." id="addFolderButton" click="onAddFiles(event);"/>
 		
 		<s:Button label="Quitar" id="btnQuitar" click="onDeleteFiles(event);" enabled="{_selectedFiles.length &gt; 0}" />
-		<s:Button label="Quitar Todos" id="btnClear" click="onClearFiles(event);" enabled="{_files.length &gt; 0}" />
+		<s:Button label="Quitar Todos" id="btnClear" click="onClearFiles(event);" enabled="{this.fileProvider.files.length &gt; 0}" />
 	</s:HGroup>
 	
 </dte:Step>

@@ -6,6 +6,7 @@ package com.dte.pad
 	 * please see the LICENSE
 	 */
 	
+	import com.dte.filesystem.FileProvider;
 	import com.hurlant.crypto.hash.SHA1;
 	import flash.filesystem.File;
 	import flash.utils.ByteArray;
@@ -31,6 +32,8 @@ package com.dte.pad
 		private var _imgContent:File;
 		
 		private var _files:ArrayCollection = new ArrayCollection();
+		
+		private var _fileProvider:FileProvider;
 		
 		public function Package(version:String="0.1")  {
 			
@@ -106,6 +109,17 @@ package com.dte.pad
 		public function set datasheet(value:Datasheet):void 
 		{
 			_datasheet = value;
+		}
+		
+		[Bindable]
+		public function get fileProvider():FileProvider 
+		{
+			return _fileProvider;
+		}
+		
+		public function set fileProvider(value:FileProvider):void 
+		{
+			_fileProvider = value;
 		}
 				
 		private static function createUid() : String {

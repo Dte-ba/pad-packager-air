@@ -28,6 +28,8 @@ package com.dte.components
 		
 		private var _caption:String = "Cargando";
 		
+		private var _debbug:Boolean = true;
+		
 		public function Wizard() 
 		{
 			super();
@@ -66,6 +68,8 @@ package com.dte.components
 		
 		public function canNext() : Boolean
 		{
+			if (_debbug) return true;
+			
 			if ((this.numChildren - 1 == this.selectedIndex)) return false;
 			
 			var c:* = this.selectedIndex < 0 ? null : this.getChildAt(this.selectedIndex);
