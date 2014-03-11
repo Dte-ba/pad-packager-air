@@ -1,11 +1,13 @@
 package com.dte.pad 
 {
-	import mx.collections.ArrayCollection;
 	/*!
 	 * This file is part of PAD packager.
 	 *
 	 * please see the LICENSE
 	 */
+	
+	import mx.collections.ArrayCollection;
+
 	public class CurricularDesign 
 	{
 		
