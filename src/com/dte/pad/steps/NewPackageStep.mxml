@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:dte="library://ns.nticx.net/flex/2014">
+	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+    <fx:Script>
+		<![CDATA[
+		import com.dte.pad.Package;
+		import com.dte.pad.PackagerDesktop;
+		import flash.events.MouseEvent;
+		
+		protected function btnNewClick(e:MouseEvent) : void 
+		{
+		}
+		
+		protected function btnImportClick(e:MouseEvent) : void 
+		{
+			var p:com.dte.pad.Package;
+			
+			var pd:PackagerDesktop = new PackagerDesktop(p);
+			pd.importDialog();
+		}
+		
+		]]>
+	</fx:Script>
+			   
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:VGroup width="100%" horizontalAlign="center" verticalCenter="0">
+		<s:Button id="btnNew" horizontalCenter="0" verticalCenter="0" label="Nuevo Tangible" click="btnNewClick(event)" />
+		<s:Button id="btnImport" horizontalCenter="0" verticalCenter="0" label="Importar Tangible..." click="btnImportClick(event)" />
+	</s:VGroup>
+		
+</dte:Step>
