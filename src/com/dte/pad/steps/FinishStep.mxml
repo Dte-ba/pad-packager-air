@@ -4,8 +4,55 @@
                xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:dte="library://ns.nticx.net/flex/2014">
 	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+    <fx:Script>
+		<![CDATA[
+		import com.dte.html.NativeAlert;
+		import com.dte.pad.events.FileSaveEvent;
+		import com.dte.pad.Package;
+		import com.dte.pad.PackagerDesktop;
+		import com.dte.pad.ui.MessageRef;
+		import flash.events.MouseEvent;
+		
+		private var _packager:PackagerDesktop;
+		
+		private var _tagetPackage:com.dte.pad.Package;
+		
+		private var alert:NativeAlert = new NativeAlert();
+		
+		protected function onBtnPackageClick(e:MouseEvent) : void 
+		{
+			_packager = new PackagerDesktop(this.tagetPackage);
+			_packager.addEventListener(FileSaveEvent.SAVED, targetSaved);
+			_packager.saveDialog();
+		}	
+		
+		private function targetSaved(e:FileSaveEvent):void 
+		{
+			alert.alert(MessageRef.INFO_CONTENT_SAVE + " " + e.filename);
+		}
+		
+		public function get tagetPackage():com.dte.pad.Package 
+		{
+			return _tagetPackage;
+		}
+		
+		public function set tagetPackage(value:com.dte.pad.Package):void 
+		{
+			_tagetPackage = value;
+		}
+		]]>
+	</fx:Script>
+			   
 	<fx:Declarations>
 	</fx:Declarations>
+	
+	<s:Button id="btnPackage" horizontalCenter="0" verticalCenter="0" label="Empaquetar ..." click="onBtnPackageClick(event)" />
+	
 	
 	
 </dte:Step>

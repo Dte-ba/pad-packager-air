@@ -102,6 +102,10 @@ package com.dte.pad
 			}
 		}
 			
+		public function serializeToObject() : *
+		{
+			return this.token;
+		}
 	}
 
 }

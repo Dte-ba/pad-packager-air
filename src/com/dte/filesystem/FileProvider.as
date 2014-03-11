@@ -158,6 +158,17 @@ package com.dte.filesystem
 			trace(_totalSize);
 		}
 		
+		public function serializeToObject() : * 
+		{
+			var fs:Array = new Array();
+			
+			for each(var f:File in this.files) {
+				fs.push( { filename: "files/" + this.getRelativeFileName(f), type: f.type } );
+			}
+			
+			return fs;
+		}
+		
 	}
 
 }

@@ -24,12 +24,20 @@ package com.dte.pad.ui
 		
 		static public const ERROR_ACCES_IMAGE_NOT_SELECTED:String = "Seleccione una imagen de acceso para continuar";
 		
+		static public const ERROR_FILE_EXISTS:String = "Ya existe este contenido en esta carpeta, por favor seleccione otra.";
+		
+		
 		// DIALOG
 		static public const DIALOG_SELECT_IMAGE_FILE:String = "Seleccione un archivo de image";
 		
 		static public const DIALOG_SELECT_FILES:String = "Seleccione los archivos que desea agregar";
 		
 		static public const DIALOG_SELECT_FOLDER:String = "Seleccione una carpeta que desea agregar";
+		
+		static public const DIALOG_SELECT_DEST_FOLDER:String = "Seleccione una carpeta de destino";
+		
+		// INFO
+		static public const INFO_CONTENT_SAVE:String = "Contenido guardado en ";
 	}
 
 }

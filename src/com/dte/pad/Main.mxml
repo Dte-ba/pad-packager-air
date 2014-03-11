@@ -4,6 +4,7 @@
                        xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:dte="library://ns.nticx.net/flex/2014"
 					   xmlns:steps="com.dte.pad.steps.*"
+					   initialize="onInitialize(event)"
 					   creationComplete="onCreationComplete(event)"
 					   title="{ _wizard.caption + ' | ' + _appNameFull}"
 					   minWidth="800"
@@ -34,32 +35,43 @@
 		
 		[Bindable]private var _status:String = "Nuevo Tangible";
 		
-		[Bindable]private var _areas:ArrayCollection;
+		[Bindable]private var _areasProvider:ArrayCollection;
 		
 		[Bindable]private var _selectedArea:Area;
 		
 		[Bindable]private var _package:com.dte.pad.Package;
 		
+		protected function onInitialize(event:Event) : void 
+		{
+			// set area provider
+			_areasProvider = CurricularDesign.getInstance().areas;
+			
+			_package = createPackage();
+		}
+		
 		protected function onCreationComplete(event:Event) : void 
 		{
-			//this.maximize();
-			
-			// set area provider
-			_areas = CurricularDesign.getInstance().areas;
-			
-			// TODO: delete me
-			_package = new com.dte.pad.Package(_appVersion);
-			_package.datasheet = new Datasheet();
-			_package.token = new SecurityToken();
-			_package.fileProvider = new FileProvider();
-
+			this.maximize();
 		}
 		
 		protected function onAreaSelected(e:AreaStepEvent) : void {
 			_selectedArea = e.area;
 			if (_selectedArea != null) {
+				_package.datasheet.area = _selectedArea;
 				_wizard.next();
 			}
+		}
+		
+		protected function createPackage() : com.dte.pad.Package
+		{
+			var p:com.dte.pad.Package;
+			
+			p = new com.dte.pad.Package(_appVersion);
+			p.datasheet = new Datasheet();
+			p.token = new SecurityToken();
+			p.fileProvider = new FileProvider();
+			
+			return p;
 		}
 				
 		]]>
@@ -77,7 +89,7 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
-			<steps:AreaStep caption="Nuevo Tangible" areas="{_areas}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
+			<steps:AreaStep caption="Nuevo Tangible" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />
 			
@@ -87,7 +99,7 @@
 			
 			<steps:CredentialsStep caption="Identificación" token="{_package.token}" />
 			
-			<steps:FinishStep caption="Empaquetar" />
+			<steps:FinishStep caption="Empaquetar"  tagetPackage="{_package}" />
 			
 		</dte:Wizard>
 		

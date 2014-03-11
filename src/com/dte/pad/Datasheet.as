@@ -36,7 +36,7 @@ package com.dte.pad
 		
 		[Bindable]
 		public function get area():Area 
-		{
+		{			
 			return _area;
 		}
 		
@@ -131,6 +131,27 @@ package com.dte.pad
 		public function set description(value:String):void 
 		{
 			_description = value;
+		}
+		
+		public function serializeToObject() : * 
+		{
+			var strArea:String = this.area != null ? this.area.name : CurricularDesign.UNDEFINED;
+			var strAxis:String = this.axis != null ? this.axis.name : CurricularDesign.UNDEFINED;
+			var strBlock:String = this.block != null ? this.block.name : CurricularDesign.UNDEFINED;
+			
+			var obj:* = {
+				title: this.title,
+				area: strArea,
+				axis: strAxis,
+				block: strBlock,
+				tags: this.tags,
+				autor: this.contentAutor,
+				source: this.contentSource,
+				content: this.content,
+				observations: this.description
+			};
+			
+			return obj;
 		}
 		
 	}

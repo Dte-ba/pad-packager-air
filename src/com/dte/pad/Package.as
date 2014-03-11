@@ -31,8 +31,6 @@ package com.dte.pad
 		
 		private var _imgContent:File;
 		
-		private var _files:ArrayCollection = new ArrayCollection();
-		
 		private var _fileProvider:FileProvider;
 		
 		public function Package(version:String="0.1")  {
@@ -90,17 +88,6 @@ package com.dte.pad
 		}
 		
 		[Bindable]
-		public function get files():ArrayCollection 
-		{
-			return _files;
-		}
-		
-		public function set files(value:ArrayCollection):void 
-		{
-			_files = value;
-		}
-		
-		[Bindable]
 		public function get datasheet():Datasheet 
 		{
 			return _datasheet;
@@ -133,6 +120,47 @@ package com.dte.pad
 			var uid:String = Hex.fromArray(hashed);
 						
 			return uid;
+		}
+		
+		public function serialize() : String 
+		{
+			var obj:* = { };
+			
+			obj.version = this.version;
+			obj.uid = this.uid;
+			
+			// create the content
+			if (this.datasheet == null)
+			{
+				throw new Error("The datasheet is null");
+			}
+			
+			var content:* = this.datasheet.serializeToObject();
+			
+			content.images = [ ];
+			
+			if (this.imgThumb != null) {
+				content.images.push( {
+					type: 'front',
+					src: "assets/" + "front." + this.imgThumb.extension
+				});
+			}
+			
+			if (this.imgContent != null) {
+				content.images.push( {
+					type: 'content',
+					src: "assets/" + "content." + this.imgContent.extension
+				});
+			}
+			
+			content.files = this.fileProvider.serializeToObject();
+			
+			obj.content = content;
+			
+			// token
+			obj.token = this.token.serializeToObject();
+			
+			return JSON.stringify(obj);
 		}
 		
 	}
