@@ -51,7 +51,7 @@
 		
 		protected function onCreationComplete(event:Event) : void 
 		{
-			this.maximize();
+			//this.maximize();
 		}
 		
 		protected function onAreaSelected(e:AreaStepEvent) : void {
@@ -89,6 +89,8 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
+			<steps:NewPackageStep caption="Nuevo Tangible"/>
+					
 			<steps:AreaStep caption="Nuevo Tangible" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />

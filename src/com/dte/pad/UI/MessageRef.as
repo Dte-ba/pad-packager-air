@@ -36,6 +36,8 @@ package com.dte.pad.ui
 		
 		static public const DIALOG_SELECT_DEST_FOLDER:String = "Seleccione una carpeta de destino";
 		
+		static public const DIALOG_IMPORT_PACKAGE:String = "Seleccione el tangible que desea importar";
+		
 		// INFO
 		static public const INFO_CONTENT_SAVE:String = "Contenido guardado en ";
 	}
