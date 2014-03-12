@@ -20,7 +20,6 @@ package com.dte.pad
 	import flash.net.URLRequest;
 	
 	[Event(name = "saved", type = "com.dte.pad.events.FileSaveEvent")]
-	[Event(name = "imported", type = "com.dte.pad.events.FileImportEvent")]
 	public class PackagerDesktop extends Packager
 	{
 		
@@ -50,6 +49,7 @@ package com.dte.pad
 		private function onInputFileSelected(e:Event):void 
 		{
 			var tmp:File = File.createTempDirectory();
+			var self:PackagerDesktop = this;
 			
 			trace(tmp.nativePath);
 		
@@ -67,11 +67,16 @@ package com.dte.pad
 					fs.open(new File(tfn), FileMode.WRITE);
 					fs.writeBytes(f.content);
 					fs.close();
+					
 				}
+				
+				self.processInputiFile(tmp.nativePath);
 			} );
+			
+			// load de zip
 			zip.load(request);
 		}
-		
+				
 		public function importDialog() : void 
 		{
 			this.inputFile.browseForOpen(MessageRef.DIALOG_IMPORT_PACKAGE, [ packageFilter ]);

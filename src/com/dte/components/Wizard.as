@@ -28,7 +28,9 @@ package com.dte.components
 		
 		private var _caption:String = "Cargando";
 		
-		private var _debbug:Boolean = true;
+		private var _debbug:Boolean = false;
+		
+		private var _enableCheck:Boolean = true;
 		
 		public function Wizard() 
 		{
@@ -68,7 +70,10 @@ package com.dte.components
 		
 		public function canNext() : Boolean
 		{
+			// TODO: deletme on release
 			if (_debbug) return true;
+			
+			if (!_enableCheck) return true;
 			
 			if ((this.numChildren - 1 == this.selectedIndex)) return false;
 			
@@ -119,6 +124,8 @@ package com.dte.components
 					var cs:Step = c as Step;
 					this.caption = cs.caption;
 					this.toolBarEnable = cs.enableToolBar;
+					this.backButtonEnabled = cs.enableBack;
+					this.nextButtonEnabled = cs.enableNext;
 				}
 			} catch (e:Event) { }
 			
@@ -209,6 +216,38 @@ package com.dte.components
 			}
 		}
 		
+		public function get backButtonEnabled():Boolean 
+		{
+			if (_backButton !== null) {
+				return _backButton.enabled;
+			}
+			
+			return false;
+		}
+		
+		public function set backButtonEnabled(value:Boolean):void 
+		{
+			if (_backButton !== null) {
+				_backButton.enabled = value;
+			}
+		}
+		
+		public function get nextButtonEnabled():Boolean 
+		{
+			if (_nextButton !== null) {
+				return _nextButton.enabled;
+			}
+			
+			return false;
+		}
+		
+		public function set nextButtonEnabled(value:Boolean):void 
+		{
+			if (_nextButton !== null) {
+				_nextButton.enabled = value;
+			}
+		}
+		
 		private function endButtonClick(e:MouseEvent):void 
 		{
 			this.dispatchEvent(new Event("end"));
@@ -217,6 +256,19 @@ package com.dte.components
 		private function backButtonClick(e:MouseEvent):void 
 		{
 			prev();
+		}
+		
+		public function restart() : void 
+		{
+			_enableCheck = true;
+			this.selectedIndex = 0;
+			
+			for (var i:int = 0; i < this.numChildren; i++) 
+			{
+				var cs:Step = this.getChildAt(i) as Step;
+				cs.reset();
+			}
+			_enableCheck = false;
 		}
 		
 	}

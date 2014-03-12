@@ -21,6 +21,7 @@
 		<![CDATA[
 		import com.dte.filesystem.FileProvider;
 		import com.dte.pad.events.AreaStepEvent;
+		import com.dte.pad.events.PackageEvent;
 		import flash.events.Event;
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
@@ -40,6 +41,8 @@
 		[Bindable]private var _selectedArea:Area;
 		
 		[Bindable]private var _package:com.dte.pad.Package;
+		
+		private var _lastToken:SecurityToken = null;
 		
 		protected function onInitialize(event:Event) : void 
 		{
@@ -73,7 +76,35 @@
 			
 			return p;
 		}
+		
+		protected function onPackageCreated(e:PackageEvent) : void
+		{
+			this._package = e.targetPackage;
+			
+			// next step (area step)
+			_wizard.next();
+			
+			if (e.status == "imported")
+			{
+				// next step (datasheet)
+				_selectedArea = this._package.datasheet.area;
+				_wizard.next();
+				stepCovers.loadImageFromPackage();
+				return;
+			}
+			
+			if (_lastToken != null)
+			{
+				_package.token = _lastToken;
+			}
+		}
 				
+		protected function onFinish(e:Event): void
+		{
+			_lastToken = _package.token;
+			_wizard.restart();
+		}
+		
 		]]>
 	</fx:Script>
 					   
@@ -89,19 +120,19 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
-			<steps:NewPackageStep caption="Nuevo Tangible"/>
+			<steps:NewPackageStep caption="Nuevo Tangible" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
 					
-			<steps:AreaStep caption="Nuevo Tangible" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableToolBar="false" />
+			<steps:AreaStep caption="Seleccione un Area" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />
 			
-			<steps:CoversStep caption="Portadas" tagetPackage="{_package}" />
+			<steps:CoversStep id="stepCovers" caption="Portadas" targetPackage="{_package}" />
 			
 			<steps:FilesStep caption="Archivos" fileProvider="{_package.fileProvider}" />
 			
 			<steps:CredentialsStep caption="Identificación" token="{_package.token}" />
 			
-			<steps:FinishStep caption="Empaquetar"  tagetPackage="{_package}" />
+			<steps:FinishStep caption="Empaquetar"  tagetPackage="{_package}" enableNext="false" finish="onFinish(event)" />
 			
 		</dte:Wizard>
 		

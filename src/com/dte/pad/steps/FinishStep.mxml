@@ -9,6 +9,10 @@
 	
 	 please see the LICENSE
 	-->
+	<fx:Metadata>
+	   [Event(name="finish", type="flash.events.Event")] 
+    </fx:Metadata>
+	
     <fx:Script>
 		<![CDATA[
 		import com.dte.html.NativeAlert;
@@ -16,6 +20,7 @@
 		import com.dte.pad.Package;
 		import com.dte.pad.PackagerDesktop;
 		import com.dte.pad.ui.MessageRef;
+		import flash.events.Event;
 		import flash.events.MouseEvent;
 		
 		private var _packager:PackagerDesktop;
@@ -34,6 +39,7 @@
 		private function targetSaved(e:FileSaveEvent):void 
 		{
 			alert.alert(MessageRef.INFO_CONTENT_SAVE + " " + e.filename);
+			this.dispatchEvent(new Event("finish"));
 		}
 		
 		public function get tagetPackage():com.dte.pad.Package 

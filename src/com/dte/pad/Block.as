@@ -9,8 +9,10 @@ package com.dte.pad
 	{
 		private var _name:String = CurricularDesign.UNDEFINED;
 		
-		public function Block(name:String) 
+		public function Block(name:String="") 
 		{
+			if (name == "") { return; }
+			
 			this.name = name;
 		}
 		

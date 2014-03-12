@@ -18,6 +18,8 @@ package com.dte.pad
 		
 		public function Area(obj:*=null) 
 		{
+			if (obj == null)  { return; }
+			
 			try {
 				this.name = obj.area;
 				
@@ -65,6 +67,25 @@ package com.dte.pad
 		public function set img(value:*):void 
 		{
 			_img = value;
+		}
+		
+		public function getAxisByName(aName:String) : Axis 
+		{
+			
+			if (this.axis == null || this.axis.length == 0)
+			{
+				return new Axis();
+			}
+			
+			for each(var a:Axis in this.axis)
+			{
+				if (a.name == aName)
+				{
+					return a;
+				}
+			}
+			
+			return new Axis();
 		}
 		
 	}

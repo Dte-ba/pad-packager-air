@@ -28,7 +28,13 @@
 		
 		private var imagesFilter:FileFilter = new FileFilter("Imagenes", "*.jpg;*.gif;*.png");
 		
-		private var _tagetPackage:com.dte.pad.Package;
+		private var _targetPackage:com.dte.pad.Package;
+		
+		private var _loadFromPackage:Boolean = false;
+		
+		[Bindable]private var _imgThumbSource:*;
+		
+		[Bindable]private var _imgContentSource:*;
 		
 		public function onInitialize(event:Event) : void {
 			this.thumbFile = File.desktopDirectory;
@@ -39,33 +45,33 @@
 		}
 		
 		[Bindable]
-		public function get tagetPackage():com.dte.pad.Package 
+		public function get targetPackage():com.dte.pad.Package 
 		{
-			return _tagetPackage;
+			return _targetPackage;
 		}
 		
-		public function set tagetPackage(value:com.dte.pad.Package):void 
+		public function set targetPackage(value:com.dte.pad.Package):void 
 		{
-			_tagetPackage = value;
+			_targetPackage = value;
 		}
 		
 		private function onThumbFileSelected(e:Event):void {
 			try  {
 				imgThumb.source = thumbFile.nativePath;
-				tagetPackage.imgThumb  = thumbFile;
+				targetPackage.imgThumb  = thumbFile;
 			}
 			catch (err:Error) {
-				tagetPackage.imgThumb  = null;
+				targetPackage.imgThumb  = null;
 			}
 		}
 		
 		private function onContentFileSelected(e:Event):void {
 			try  {
 				imgContent.source = contentFile.nativePath;
-				tagetPackage.imgContent  = contentFile;
+				targetPackage.imgContent  = contentFile;
 			}
 			catch (err:Error) {
-				tagetPackage.imgContent  = null;
+				targetPackage.imgContent  = null;
 			}
 		}
 		
@@ -79,12 +85,12 @@
 		
 		private function hasErrors() : Boolean {
 		
-			if (tagetPackage.imgThumb  == null) {
+			if (targetPackage.imgThumb  == null) {
 				alert.alert(MessageRef.ERROR_ACCES_IMAGE_NOT_SELECTED);
 				return true;
 			}
 			
-			if (tagetPackage.imgContent == null) {
+			if (targetPackage.imgContent == null) {
 				alert.alert(MessageRef.ERROR_CONTENT_IMAGE_NOT_SELECTED);
 				return true;
 			}
@@ -99,6 +105,20 @@
 			if (hasErrors()) return false;
 			
 			return true;
+		}
+		
+		override public function reset():void 
+		{
+			super.reset();
+			_imgThumbSource = null;
+			_imgContentSource = null;
+		}
+		
+		public function loadImageFromPackage() : void 
+		{
+			_imgThumbSource = this.targetPackage.imgContent.nativePath;
+			_imgContentSource = this.targetPackage.imgThumb.nativePath;
+			
 		}
 		
 		]]>
@@ -119,7 +139,7 @@
 				bottom="0" right="0" left="0" top="0">
 				<s:Scroller top="0" left="0" right="0" bottom="40">
 					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
-						<s:Image id="imgThumb" />
+						<s:Image id="imgThumb" source="@{_imgThumbSource}" />
 					</s:VGroup>
 				</s:Scroller>
 				<s:HGroup bottom="0">
@@ -131,7 +151,7 @@
 				bottom="0" right="0" left="0" top="0">
 				<s:Scroller top="0" left="0" right="0" bottom="40">
 					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
-						<s:Image id="imgContent" />
+						<s:Image id="imgContent" source="@{_imgContentSource}"/>
 					</s:VGroup>
 				</s:Scroller>
 				<s:HGroup bottom="0">

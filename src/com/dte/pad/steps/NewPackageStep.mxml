@@ -9,14 +9,29 @@
 	
 	 please see the LICENSE
 	-->
+	
+	<fx:Metadata>
+	   [Event(name="packageCreated", type="com.dte.pad.events.PackageEvent")] 
+    </fx:Metadata>
+	
     <fx:Script>
 		<![CDATA[
+		import com.dte.pad.events.FileImportEvent;
+		import com.dte.pad.events.PackageEvent;
 		import com.dte.pad.Package;
+		import com.dte.pad.Packager;
 		import com.dte.pad.PackagerDesktop;
 		import flash.events.MouseEvent;
 		
+		private var _appVersion:String = "";
+		
+		private var _target:com.dte.pad.Package;
+		
 		protected function btnNewClick(e:MouseEvent) : void 
 		{
+			var p:com.dte.pad.Package = Packager.createPackage(_appVersion);
+			
+			this.dispatchEvent(new PackageEvent(PackageEvent.PACKAGE_CREATED, p, "new"));
 		}
 		
 		protected function btnImportClick(e:MouseEvent) : void 
@@ -24,7 +39,33 @@
 			var p:com.dte.pad.Package;
 			
 			var pd:PackagerDesktop = new PackagerDesktop(p);
+			pd.addEventListener(FileImportEvent.IMPORTED, onPackageImported);
 			pd.importDialog();
+		}
+		
+		private function onPackageImported(e:FileImportEvent):void 
+		{
+			this.dispatchEvent(new PackageEvent(PackageEvent.PACKAGE_CREATED, e.targetPackage, "imported"));
+		}
+		
+		public function get appVersion():String 
+		{
+			return _appVersion;
+		}
+		
+		public function set appVersion(value:String):void 
+		{
+			_appVersion = value;
+		}
+		
+		public function get targetPackage():com.dte.pad.Package 
+		{
+			return _target;
+		}
+		
+		public function set targetPackage(value:com.dte.pad.Package):void 
+		{
+			_target = value;
 		}
 		
 		]]>

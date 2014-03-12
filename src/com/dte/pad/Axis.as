@@ -14,6 +14,8 @@ package com.dte.pad
 		
 		public function Axis(obj:*=null) 
 		{
+			if (obj == null)  { return; }
+			
 			try {
 				this.name = obj.name;
 				
@@ -46,6 +48,25 @@ package com.dte.pad
 		public function set name(value:String):void 
 		{
 			_name = value;
+		}
+		
+		public function getBlockByName(bName:String) : Block 
+		{
+			
+			if (this.blocks == null || this.blocks.length == 0)
+			{
+				return new Block();
+			}
+			
+			for each(var b:Block in this.blocks)
+			{
+				if (b.name == bName)
+				{
+					return b;
+				}
+			}
+			
+			return new Block();
 		}
 		
 	}

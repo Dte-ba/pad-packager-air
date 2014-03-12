@@ -59,7 +59,7 @@ package com.dte.filesystem
 		}
 		
 		// functions
-		private function processIncomingFiles(files:Array):void {
+		public function processIncomingFiles(files:Array):void {
 			var allFiles:Array = new Array();
 			this.findRelativePath(files);
 			this.flattenDirectoryStructure(files, allFiles);

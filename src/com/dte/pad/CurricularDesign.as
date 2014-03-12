@@ -76,6 +76,18 @@ package com.dte.pad
 			return res;
 		}
 		
+		public function getAreaByName(areaName:String) : Area
+		{
+			for each(var a:Area in this.areas) {
+				if (a.name == areaName)
+				{
+					return a;
+				}
+			}
+			
+			return new Area();
+		}
+		
 	}
 
 }

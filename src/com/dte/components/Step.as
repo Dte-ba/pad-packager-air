@@ -14,6 +14,10 @@ package com.dte.components
 		
 		private var _enableToolBar:Boolean = true;
 		
+		private var _enableBack:Boolean = true;
+		
+		private var _enableNext:Boolean = true;
+		
 		public function Step() 
 		{
 			super();
@@ -49,6 +53,31 @@ package com.dte.components
 		public function set enableToolBar(value:Boolean):void 
 		{
 			_enableToolBar = value;
+		}
+		
+		public function get enableBack():Boolean 
+		{
+			return _enableBack;
+		}
+		
+		public function set enableBack(value:Boolean):void 
+		{
+			_enableBack = value;
+		}
+		
+		public function get enableNext():Boolean 
+		{
+			return _enableNext;
+		}
+		
+		public function set enableNext(value:Boolean):void 
+		{
+			_enableNext = value;
+		}
+		
+		public function reset() : void 
+		{
+			
 		}
 		
 	}

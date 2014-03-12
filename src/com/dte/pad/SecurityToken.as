@@ -21,7 +21,7 @@ package com.dte.pad
 		
 		private var _keyIV:String = "321456987";
 		
-		public function SecurityToken(token:*=null) 
+		public function SecurityToken(token:Vector.<String>=null) 
 		{
 			this.token = token;
 		}
@@ -105,6 +105,21 @@ package com.dte.pad
 		public function serializeToObject() : *
 		{
 			return this.token;
+		}
+		
+		public function createFrom(array:Array) : void 
+		{
+			this.token = SecurityToken.convertArray(array);
+		}
+		
+		static public function convertArray(array:Array) : Vector.<String>
+		{
+			var res:Vector.<String> = new Vector.<String>();
+			for (var i:int = 0; i < array.length; i++) 
+			{
+				res[i] = array[i];
+			}
+			return res;
 		}
 	}
 

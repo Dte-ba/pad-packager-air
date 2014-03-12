@@ -17,6 +17,8 @@ package com.dte.pad
 	public class Package 
 	{
 		private var _uid:String = "";
+		
+		private var _oldUid:String = "";
 
 		private var _version:String = "";
 		
@@ -107,6 +109,16 @@ package com.dte.pad
 		public function set fileProvider(value:FileProvider):void 
 		{
 			_fileProvider = value;
+		}
+		
+		public function get oldUid():String 
+		{
+			return _oldUid;
+		}
+		
+		public function set oldUid(value:String):void 
+		{
+			_oldUid = value;
 		}
 				
 		private static function createUid() : String {
