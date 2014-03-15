@@ -1,226 +1,392 @@
 {
-  "areas" : [
-	  {
-		"area": "Inglés",
-		"axis": [
-		  {
-			"name": "Poesía",
-			"blocks": [
-			  "Rimas",
-			  "Poemas",
-			  "Canciones",
-			  "Trabalenguas"
-			]
-		  },
-		  {
-			"name": "Géneros no ficcionales",
-			"blocks": [
-			  "Cuarto",
-			  "Quinto",
-			  "Sexto"
-			]
-		  },
-		  {
-			"name": "Drama",
-			"blocks": [
-			  "Guiones",
-			  "Obras de teatro",
-			  "Juegos Interactivos",
-			  "Entrevistas"
-			]
-		  },
-		  {
-			"name": "Ficción",
-			"blocks": [
-			  "Cuentos",
-			  "Fábulas"
-			]
-		  },
-		  {
-			"name": "Medios",
-			"blocks": [
-			  "Cancionero",
-			  "Textos informativos"
-			]
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Ciencias Naturales",
-		"axis": [
-		  {
-			"name": "La Tierra y el Universo",
-			"blocks": [
-			  "Historia de la Tierra",
-			  "Universo"
-			]
-		  },
-		  {
-			"name": "Materiales",
-			"blocks": [
-			  "Calor",
-			  "Cambios Químicos",
-			  "Electricidad",
-			  "Estados de Agregación y Mezclas",
-			  "Magnetismo"
-			]
-		  },
-		  {
-			"name": "Mundo Físico",
-			"blocks": [
-			  "Fuerzas",
-			  "Luz",
-			  "Sonido"
-			]
-		  },
-		  {
-			"name": "Seres Vivos",
-			"blocks": [
-			  "Diversidad",
-			  "Animales",
-			  "Hábitat"
-			]
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Educación Física",
-		"axis": [
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Ciencias Sociales",
-		"axis": [
-		  {
-			"name": "Las Sociedades a través del Tiempo",
-			"blocks": [
-			  "Pueblos originarios y del actual territorio argentino",
-			  "Período Colonial",
-			  "Revoluciones y Guerras de Independencia",
-			  "Autonomías Provinciales. Unitarios y Federales",
-			  "Construcción del Estado Nacional Argentino (1853-1880)",
-			  "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)",
-			  "Democracias y Dictaduras"
-			]
-		  },
-		  {
-			"name": "Sociedades y Territorios",
-			"blocks": [
-			  "Provincia de Buenos Aires",
-			  "Argentina",
-			  "Latinoamérica y el Mundo",
-			  "Constitución de la Provincia de Buenos Aires",
-			  "Constitución de la Nación Argentina"
-			]
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Matemática",
-		"axis": [
-		  {
-			"name": "Geometría, Espacio y Medida",
-			"blocks": [
-			  "Figuras y Cuerpos Geométricos",
-			  "Planos y Recorridos"
-			]
-		  },
-		  {
-			"name": "Números",
-			"blocks": [
-			  "Números Naturales",
-			  "Números Racionales"
-			]
-		  },
-		  {
-			"name": "Operaciones",
-			"blocks": [
-			  "Suma y Resta",
-			  "Multiplicación y División",
-			  "Proporcionalidad"
-			]
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Prácticas del Lenguaje",
-		"axis": [
-		  {
-			"name": "Formación del lector literario",
-			"blocks": [
-			  "Cuentos",
-			  "Leyendas",
-			  "Coplas",
-			  "Refranes",
-			  "Audiolibros"
-			]
-		  },
-		  {
-			"name": "Formación del estudiante",
-			"blocks": [
-			  "Textos informativos"
-			]
-		  },
-		  {
-			"name": "Formación ciudadana",
-			"blocks": [
-			  "Afiches",
-			  "Publicidades",
-			  "Graffitis",
-			  "Textos periodisticos",
-			  "Adicciones"
-			]
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  },
-	  {
-		"area": "Educación Artística",
-		"axis": [
-		  {
-			"name": "Plástica",
-			"blocks": []
-		  },
-		  {
-			"name": "Música",
-			"blocks": []
-		  },
-		  {
-			"name": "Danza",
-			"blocks": []
-		  },
-		  {
-			"name": "Teatro",
-			"blocks": []
-		  },
-		  {
-			"name": "Sala de Docentes",
-			"blocks": []
-		  }
-		]
-	  }
+  "areas": [
+    {
+      "area": "Inglés",
+      "axis": [
+        {
+          "name": "Contextos de la Vida Cotidiana Escolar",
+          "blocks": [
+            "Yo",
+            "Mi escuela",
+            "Mis amigos",
+            "Mi Familia y ni Hogar",
+            "Mi Mascota",
+            "Mi Día a Día",
+            "Mi barrio - Ciudad - Provincia - País"
+          ]
+        },
+        {
+          "name": "Contextos de los contenidos escolares",
+          "blocks": [
+            "El espacio",
+            "Cuidado del medio ambiente",
+            "Los cambios en la naturaleza",
+            "Los seres vivos",
+            "Animales extintos",
+            "Las actividades humanas",
+            "La orgranización social"
+          ]
+        },
+        {
+          "name": "Contextos Literarios y Populares",
+          "blocks": [
+            "Ficción",
+            "Poesía",
+            "Drama",
+            "Géneros no Ficcionales",
+            "Medios",
+            "Colecciones"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ciencias Naturales",
+      "axis": [
+        {
+          "name": "La Tierra y el Universo",
+          "blocks": [
+            "Historia de la Tierra",
+            "Universo"
+          ]
+        },
+        {
+          "name": "Materiales",
+          "blocks": [
+            "Calor",
+            "Cambios Químicos",
+            "Electricidad",
+            "Estados de Agregación y Mezclas",
+            "Magnetismo"
+          ]
+        },
+        {
+          "name": "Mundo Físico",
+          "blocks": [
+            "Fuerzas",
+            "Luz",
+            "Sonido"
+          ]
+        },
+        {
+          "name": "Seres Vivos",
+          "blocks": [
+            "Animales",
+            "Plantas",
+            "Hongos y Microorganismos",
+            "Paisajes Ambientales"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Educación Física",
+      "axis": [
+        {
+          "name": "Constitución Corporal",
+          "blocks": [
+            "Capacidades Condicionales",
+            "Capacidades Coordinativas"
+          ]
+        },
+        {
+          "name": "Consciencia Corporal",
+          "blocks": []
+        },
+        {
+          "name": "Habilidades Motrices",
+          "blocks": [
+            "Desplazamiento",
+            "Dominio Corporal",
+            "Manipulación",
+            "Combinadas en Juego",
+            "Combinadas en Recorrido "
+          ]
+        },
+        {
+          "name": "Construcción del juego socio-motor",
+          "blocks": [
+            "Cooperativo y de Oposición",
+            "Reglamentos",
+            "Juegos Tradicionales"
+          ]
+        },
+        {
+          "name": "Comunicación corporal",
+          "blocks": [
+            "Expresión corporal",
+            "Secuencias motrices"
+          ]
+        },
+        {
+          "name": "Vida en la naturaleza",
+          "blocks": []
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ciencias Sociales",
+      "axis": [
+        {
+          "name": "Las Sociedades a través del Tiempo",
+          "blocks": [
+            "Pueblos originarios y del actual territorio argentino",
+            "Período Colonial",
+            "Revoluciones y Guerras de Independencia",
+            "Autonomías Provinciales. Unitarios y Federales",
+            "Construcción del Estado Nacional Argentino (1853-1880)",
+            "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)",
+            "Democracias y Dictaduras"
+          ]
+        },
+        {
+          "name": "Sociedades y Territorios",
+          "blocks": [
+            "Provincia de Buenos Aires",
+            "Argentina",
+            "Latinoamérica y el Mundo",
+            "Constitución de la Provincia de Buenos Aires",
+            "Constitución de la Nación Argentina"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Matemática",
+      "axis": [
+        {
+          "name": "Geometría, Espacio y Medida",
+          "blocks": [
+            "Figuras y Cuerpos Geométricos",
+            "Planos y Recorridos"
+          ]
+        },
+        {
+          "name": "Números",
+          "blocks": [
+            "Números Naturales",
+            "Números Racionales"
+          ]
+        },
+        {
+          "name": "Operaciones",
+          "blocks": [
+            "Suma y Resta",
+            "Multiplicación y División",
+            "Proporcionalidad"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Prácticas del Lenguaje",
+      "axis": [
+        {
+          "name": "Formación del lector literario",
+          "blocks": [
+            "Cuentos",
+            "Leyendas",
+            "Coplas",
+            "Refranes",
+            "Audiolibros"
+          ]
+        },
+        {
+          "name": "Formación del estudiante",
+          "blocks": [
+            "Textos informativos"
+          ]
+        },
+        {
+          "name": "Formación ciudadana",
+          "blocks": [
+            "Afiches",
+            "Publicidades",
+            "Graffitis",
+            "Textos periodisticos",
+            "Adicciones"
+          ]
+        },
+        {
+          "name": "Programas y Proyectos",
+          "blocks": [
+            "Educación Para la Salud",
+            "Educación Sexual Integral",
+            "Educación Ambiental",
+            "Educación Científica"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ed. Artística - Plástica",
+      "axis": [
+        {
+          "name": "Imagen",
+          "blocks": [
+            "La imagen",
+            "Imágenes Artísticas",
+            "Imágenes Informativas",
+            "Imágenes Persuasivas",
+            "Imágenes Lúdicas"
+          ]
+        },
+        {
+          "name": "Recepción",
+          "blocks": [
+            "La Mirada como Construcción Cultural",
+            "Relaciones intertextuales",
+            "Construcción de Ciudadanos Críticos",
+            "Motivos",
+            "Otros aspectos"
+          ]
+        },
+        {
+          "name": "Producción",
+          "blocks": [
+            "Producción de la Imagen",
+            "Tradicionales",
+            "Contemporáneos",
+            "Nuevas Tecnologías"
+          ]
+        },
+        {
+          "name": "Proyectos",
+          "blocks": [
+            "Texto Escrito para el Programa",
+            "Construcción de Proyectos",
+            "Construcción de Problemáticas",
+            "Banco de Imágenes"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ed. Artística - Música",
+      "axis": [
+        {
+          "name": "Materiales del Lenguaje Musical",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Música - Materiales)",
+            "Producción (Ed.Ar. - Música - Materiales)",
+            "Recepción (Ed.Ar. - Música - Materiales)",
+            "Contexto sociocultural (Ed.Ar. - Música - Materiales)"
+          ]
+        },
+        {
+          "name": "Organización del Lenguaje Musical",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Música - Lenguaje)",
+            "Producción (Ed.Ar. - Música - Lenguaje)",
+            "Recepción (Ed.Ar. - Música - Lenguaje)",
+            "Contexto sociocultural (Ed.Ar. - Música - Lenguaje)"
+          ]
+        },
+        {
+          "name": "Composición",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Música - Composición)",
+            "Producción (Ed.Ar. - Música - Composición)",
+            "Recepción (Ed.Ar. - Música - Composición)",
+            "Contexto sociocultural (Ed.Ar. - Música - Composición)"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ed. Artística - Danza",
+      "axis": [
+        {
+          "name": "El cuerpo en relación con...",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Danza - El cuerpo)",
+            "Producción (Ed.Ar. - Danza - El cuerpo)",
+            "Recepción (Ed.Ar. - Danza - El cuerpo)",
+            "Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)"
+          ]
+        },
+        {
+          "name": "La danza como lenguaje",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Danza - Lenguaje)",
+            "Producción (Ed.Ar. - Danza - Lenguaje)",
+            "Recepción (Ed.Ar. - Danza - Lenguaje)",
+            "Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)"
+          ]
+        },
+        {
+          "name": "Los discursos corporales y el contexto socio–cultural",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Danza - Discursos)",
+            "Producción (Ed.Ar. - Danza - Discursos)",
+            "Recepción (Ed.Ar. - Danza - Discursos)",
+            "Contexto sociocultural (Ed.Ar. - Danza - Discursos)"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Ed. Artística - Teatro",
+      "axis": [
+        {
+          "name": "Elementos del Lenguaje Teatral",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Teatro - Lenguaje)",
+            "Producción (Ed.Ar. - Teatro - Lenguaje)",
+            "Recepción (Ed.Ar. - Teatro - Lenguaje)",
+            "Contexto sociocultural (Ed.Ar. - Teatro - Lenguaje)"
+          ]
+        },
+        {
+          "name": "Organización de los Elementos del Lenguaje Teatral",
+          "blocks": [
+            "Lenguaje (Ed.Ar. - Teatro - Elementos)",
+            "Producción (Ed.Ar. - Teatro - Elementos)",
+            "Recepción (Ed.Ar. - Teatro - Elementos)",
+            "Contexto sociocultural (Ed.Ar. - Teatro - Elementos)"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ]
+    }
   ]
 }
