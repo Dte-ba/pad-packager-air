@@ -21,9 +21,6 @@ package com.dte.pad
 		[Embed('/assets/img/pdl-thumb.png')]
 		private var imgPL:Class;
 		
-		[Embed('/assets/img/ea-thumb.png')]
-		private var imgEA:Class;
-		
 		[Embed('/assets/img/ing-thumb.png')]
 		private var imgING:Class;
 		
@@ -70,7 +67,6 @@ package com.dte.pad
 			_images["Ciencias Sociales"] = new imgCS();
 			_images["Matemática"] = new imgMA();
 			_images["Prácticas del Lenguaje"] = new imgPL();
-			_images["Educación Artística"] = new imgEA();
 			_images["Inglés"] = new imgING();
 			_images["Educación Física"] = new imgEF();
 			_images["Ed. Artística - Plástica"] = new imgEAP();
