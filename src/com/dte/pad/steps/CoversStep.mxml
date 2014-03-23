@@ -135,7 +135,7 @@
 			width="100%" historyManagementEnabled="false" creationPolicy="all"
 			bottom="0" right="0" left="0">
 			
-			<s:NavigatorContent id="navAcceso" label="Portada de acceso"
+			<s:NavigatorContent id="navAcceso" label="Portada de Tangible"
 				bottom="0" right="0" left="0" top="0">
 				<s:Scroller top="0" left="0" right="0" bottom="40">
 					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
@@ -143,11 +143,11 @@
 					</s:VGroup>
 				</s:Scroller>
 				<s:HGroup bottom="0">
-					<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de acceso..." click="btnSeleccionarThumb_click(event)" />
+					<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de Tangible..." click="btnSeleccionarThumb_click(event)" />
 				</s:HGroup>
 			</s:NavigatorContent>
 
-			<s:NavigatorContent id="navContenido" label="Portada de contenido"
+			<s:NavigatorContent id="navContenido" label="Portada de Ficha Técnica"
 				bottom="0" right="0" left="0" top="0">
 				<s:Scroller top="0" left="0" right="0" bottom="40">
 					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
@@ -155,7 +155,7 @@
 					</s:VGroup>
 				</s:Scroller>
 				<s:HGroup bottom="0">
-					<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de contenido ..."  click="btnSeleccionarContent_click(event)"/>
+					<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de Ficha Técnica..."  click="btnSeleccionarContent_click(event)"/>
 				</s:HGroup>
 			</s:NavigatorContent>
 		</mx:ViewStack>
