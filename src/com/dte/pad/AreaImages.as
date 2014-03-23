@@ -45,6 +45,9 @@ package com.dte.pad
 		[Embed('/assets/img/cec-thumb.png')]
 		private var imgCEC:Class;
 
+		[Embed('/assets/img/bru-thumb.png')]
+		private var imgBRU:Class;
+
 		static private var _instance:AreaImages=null;
 		
 		private var _images:Dictionary;
@@ -81,6 +84,7 @@ package com.dte.pad
 			_images["Ed. Artística - Teatro"] = new imgEAT();
 			_images["EOE"] = new imgEOE();
 			_images["CEC"] = new imgCEC();
+			_images["Brújula"] = new imgBRU();
 		}
 		
 		public function getImage(area:String) : * {
