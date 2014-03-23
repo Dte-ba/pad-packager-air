@@ -150,7 +150,7 @@
 	<s:Scroller top="0" left="0" right="0" bottom="0">
 		<s:VGroup width="100%">
 			<s:Form id="formPackage" width="100%">
-				<s:FormHeading label="Información de Contenido" />
+				<s:FormHeading label="Información del Tangible" />
 				
 				<s:FormItem label="Titulo">
 					<s:TextInput id="txtTitle" width="100%" text="@{datasheet.title}" />
@@ -168,11 +168,11 @@
 					<s:TextInput id="txtTags" width="100%" text="@{datasheet.tags}" prompt="Palabras separadas por , (comas)" />
 				</s:FormItem>
 				
-				<s:FormItem label="Autor del Contenido">
+				<s:FormItem label="Autor del recurso">
 					<s:TextInput id="txtConentAuthor" width="100%" text="@{datasheet.contentAutor}" />
 				</s:FormItem>
 				
-				<s:FormItem label="Fuente del Contenido">
+				<s:FormItem label="Fuente del Recurso">
 					<s:TextInput id="txtContentSource" width="100%" text="@{datasheet.contentSource}" />
 				</s:FormItem>
 				

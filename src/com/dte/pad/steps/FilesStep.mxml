@@ -137,7 +137,7 @@
 	</s:DataGrid>
 	
 	<s:HGroup width="100%" bottom="0">
-		<s:Button label="Agregar Archivos ..." id="addFilesButton" click="onAddFiles(event);"/>
+		<s:Button label="Agregar Archivo ..." id="addFilesButton" click="onAddFiles(event);"/>
 		<s:Button label="Agregar Carpeta ..." id="addFolderButton" click="onAddFiles(event);"/>
 		
 		<s:Button label="Quitar" id="btnQuitar" click="onDeleteFiles(event);" enabled="{_selectedFiles.length &gt; 0}" />
