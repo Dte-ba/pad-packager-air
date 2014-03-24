@@ -415,8 +415,22 @@
       ]
     },
     {
-      "area": "Brújula",
-      "axis": []
-    }
+      "area": "Orientación PAD",
+      "axis": [        
+		{
+          "name": "Ideas para pensar la asisitencia digital en las prácticas de enseñanza",
+          "blocks": []
+        }
+	  ]
+    },
+    {
+      "area": "Temas Transversales",
+      "axis": [        
+		{
+          "name": "Planes y Programas",
+          "blocks": []
+        }
+	  ]
+    }	
   ]
 }
