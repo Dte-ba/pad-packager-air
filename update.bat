@@ -20,7 +20,7 @@ git fetch dte
 git merge dte/master
 
 :: restore the working copy
-git pop
+git stash pop
 
 echo.
 echo "Listo !"
