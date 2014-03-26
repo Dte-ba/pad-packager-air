@@ -8,6 +8,7 @@ package com.dte.pad
 	 */
 	import com.dte.html.NativeAlert;
 	import com.dte.pad.events.FileSaveEvent;
+	import com.dte.pad.steps.NewPackageStep;
 	import com.dte.pad.ui.MessageRef;
 	import deng.fzip.FZip;
 	import deng.fzip.FZipEvent;
@@ -21,6 +22,7 @@ package com.dte.pad
 	
 	[Event(name = "saved", type = "com.dte.pad.events.FileSaveEvent")]
 	[Event(name = "pathChange", type = "flash.events.Event")]
+	[Event(name = "cancel", type = "flash.events.Event")]
 	public class PackagerDesktop extends Packager
 	{
 		
@@ -43,6 +45,7 @@ package com.dte.pad
 			this.outputFile = new File(defPath);
 			this.inputFile = File.desktopDirectory;
 			this.outputFile.addEventListener(Event.SELECT, onOutputDirectorySelected);
+			this.outputFile.addEventListener(Event.CANCEL, onOutputDirectoryCancel);
 			this.inputFile.addEventListener(Event.SELECT, onInputFileSelected);
 			
 		}
@@ -52,6 +55,10 @@ package com.dte.pad
 			this.dispatchEvent(new Event("pathChange"));
 			var outFile:String = this.outputFile.nativePath + "\\" + this.target.uid + ".zip";
 			save(outFile);
+		}
+		
+		private function onOutputDirectoryCancel(e:Event):void {
+			this.dispatchEvent(new Event(Event.CANCEL));
 		}
 		
 		private function onInputFileSelected(e:Event):void 

@@ -260,7 +260,7 @@ package com.dte.components
 		
 		public function restart() : void 
 		{
-			_enableCheck = true;
+			_enableCheck = false;
 			this.selectedIndex = 0;
 			
 			for (var i:int = 0; i < this.numChildren; i++) 
@@ -268,7 +268,7 @@ package com.dte.components
 				var cs:Step = this.getChildAt(i) as Step;
 				cs.reset();
 			}
-			_enableCheck = false;
+			_enableCheck = true;
 		}
 		
 	}

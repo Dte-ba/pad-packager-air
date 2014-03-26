@@ -184,7 +184,6 @@
 		{
 			_imgThumbSource = this.targetPackage.imgContent.nativePath;
 			_imgContentSource = this.targetPackage.imgThumb.nativePath;
-			
 		}
 		
 		]]>
@@ -194,8 +193,8 @@
 	</fx:Declarations>
 	
 	<s:HGroup height="30" width="100%" horizontalAlign="center" visible="{!_processing}">
-		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de acceso..." click="btnSeleccionarThumb_click(event)" />
-		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de contenido ..."  click="btnSeleccionarContent_click(event)"/>
+		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Tangible [...]" click="btnSeleccionarThumb_click(event)" />
+		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de la Ficha Técnica [...]"  click="btnSeleccionarContent_click(event)"/>
 	</s:HGroup>
 	
 	<s:Scroller top="30" bottom="0" width="100%" visible="{!_processing}">
@@ -206,7 +205,7 @@
 			<s:Label text="Imagen de contenido" />
 			<s:Image id="imgContent" source="@{_imgContentSource}" />
 		</s:VGroup>
-	</s:Scroller>	
+	</s:Scroller>
 	
 	<s:Label text="Procesando imagen ..." verticalCenter="0" horizontalCenter="0" visible="{_processing}"/>
 	

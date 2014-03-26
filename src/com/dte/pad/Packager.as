@@ -71,7 +71,7 @@ package com.dte.pad
 			
 			// assets
 			if (this.target.imgThumb != null) {
-				this.addFileToZip(zip, this.target.imgThumb, "assets/" + "front." + this.target.imgThumb.extension);	
+				this.addFileToZip(zip, this.target.imgThumb , "assets/" + "front." + this.target.imgThumb.extension);	
 			}
 			
 			if (this.target.imgContent != null) {
@@ -105,7 +105,7 @@ package com.dte.pad
 			
 			// set covers
 			var iFront:* = metadata.getImgFront();
-			var iContent:* = metadata.getImgFront();
+			var iContent:* = metadata.getImgContent();
 			this.target.imgThumb = new File(nativePath + "\\" + iFront.src);
 			this.target.imgContent = new File(nativePath + "\\" + iContent.src);
 

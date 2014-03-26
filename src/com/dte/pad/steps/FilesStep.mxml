@@ -32,6 +32,8 @@
 	   
 	    private var alert:NativeAlert = new NativeAlert();
 		
+		private var MAX_SIZE:Number = (1024 * 1024 * 100); // 100 Mb
+		
 		public function onInitialize(event:Event) : void {
 			this._selectedFiles = new ArrayCollection();
 		    this.stringFormatter = new StringFormatter();
@@ -54,6 +56,17 @@
 	    }
 		
 		private function hasErrors() : Boolean {
+			
+			if (_fileProvider.files.length == 0) {
+				alert.alert(MessageRef.ERROR_NOT_FILES_SELECTED);
+				return true;
+			}
+			
+			if (_fileProvider.totalSize > MAX_SIZE) {
+				alert.alert(MessageRef.ERROR_FILES_SIZE);
+				return true;
+			}
+			
 		   return false;
 		}
 		
@@ -137,8 +150,8 @@
 	</s:DataGrid>
 	
 	<s:HGroup width="100%" bottom="0">
-		<s:Button label="Agregar Archivos ..." id="addFilesButton" click="onAddFiles(event);"/>
-		<s:Button label="Agregar Carpeta ..." id="addFolderButton" click="onAddFiles(event);"/>
+		<s:Button label="Agregar Archivo [...]" id="addFilesButton" click="onAddFiles(event);"/>
+		<s:Button label="Agregar Carpeta [...]" id="addFolderButton" click="onAddFiles(event);"/>
 		
 		<s:Button label="Quitar" id="btnQuitar" click="onDeleteFiles(event);" enabled="{_selectedFiles.length &gt; 0}" />
 		<s:Button label="Quitar Todos" id="btnClear" click="onClearFiles(event);" enabled="{this.fileProvider.files.length &gt; 0}" />
