@@ -54,6 +54,7 @@
   <libraryPaths>
     <element path="elibs\as3crypto.swc" />
     <element path="elibs\fzip.swc" />
+    <element path="elibs\as3corelib.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
