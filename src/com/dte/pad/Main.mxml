@@ -28,7 +28,7 @@
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
 				
-		[Bindable]private var _appVersion:String = "v1.7.0-beta";
+		[Bindable]private var _appVersion:String = "v1.8.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
 		
