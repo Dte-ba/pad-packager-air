@@ -182,8 +182,8 @@
 		
 		public function loadImageFromPackage() : void 
 		{
-			_imgThumbSource = this.targetPackage.imgContent.nativePath;
-			_imgContentSource = this.targetPackage.imgThumb.nativePath;
+			_imgThumbSource = this.targetPackage.imgThumb.nativePath;
+			_imgContentSource = this.targetPackage.imgContent.nativePath;
 		}
 		
 		]]>
@@ -199,10 +199,10 @@
 	
 	<s:Scroller top="30" bottom="0" width="100%" visible="{!_processing}">
 		<s:VGroup width="100%" horizontalAlign="center" verticalAlign="top">
-			<s:Label text="Imagen de acceso" />
+			<s:Label text="imagen del Tangible" />
 			<s:Image id="imgThumb" source="@{_imgThumbSource}" />
 			
-			<s:Label text="Imagen de contenido" />
+			<s:Label text="Imagen imagen de la Ficha Técnica" />
 			<s:Image id="imgContent" source="@{_imgContentSource}" />
 		</s:VGroup>
 	</s:Scroller>
