@@ -70,6 +70,7 @@ package com.dte.pad
 					res.addItem( new Area(area) );
 				}
 			} catch (e:Error) { 
+				trace("ERROR creating curricular design");
 				trace(e);
 			}
 			

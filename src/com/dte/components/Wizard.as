@@ -28,7 +28,7 @@ package com.dte.components
 		
 		private var _caption:String = "Cargando";
 		
-		private var _debbug:Boolean = false;
+		private var _debbug:Boolean = true;
 		
 		private var _enableCheck:Boolean = true;
 		

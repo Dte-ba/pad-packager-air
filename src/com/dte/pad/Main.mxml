@@ -5,6 +5,7 @@
 					   xmlns:dte="library://ns.nticx.net/flex/2014"
 					   xmlns:steps="com.dte.pad.steps.*"
 					   initialize="onInitialize(event)"
+					   closing="onClosing(event)"
 					   creationComplete="onCreationComplete(event)"
 					   title="{ _wizard.caption + ' | ' + _appNameFull}"
 					   minWidth="800"
@@ -20,13 +21,14 @@
 	<fx:Script>
 		<![CDATA[
 		import com.dte.filesystem.FileProvider;
+		import com.dte.filesystem.FileUtils;
 		import com.dte.pad.events.AreaStepEvent;
 		import com.dte.pad.events.PackageEvent;
 		import flash.events.Event;
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
 				
-		[Bindable]private var _appVersion:String = "v1.5.0-beta";
+		[Bindable]private var _appVersion:String = "v1.6.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
 		
@@ -44,17 +46,45 @@
 		
 		private var _lastToken:SecurityToken = null;
 		
+		[Bindable]private var _configLoaded:Boolean = false;
+		
+		private var _config:PadConfig = PadConfig.getInstance();
+		
 		protected function onInitialize(event:Event) : void 
 		{
-			// set area provider
-			_areasProvider = CurricularDesign.getInstance().areas;
-			
-			_package = createPackage();
+			_config.addEventListener(Event.COMPLETE, onPadConfigLoaded);
+			_config.load();
+
 		}
 		
 		protected function onCreationComplete(event:Event) : void 
 		{
-			//this.maximize();
+			this.maximize();
+		}
+		
+		protected function onClosing(event:Event) : void 
+		{
+			_config.imagesPath = stepCovers.defaultPath;
+			if (_package != null && _package.fileProvider != null) {
+				_config.filesPath = _package.fileProvider.defaultPath;
+			}
+			_config.packagesPath = stepFinish.defaultPath;
+			_config.token = _lastToken;
+			_config.save();
+		}
+		
+		private function onPadConfigLoaded(e:Event):void 
+		{
+			// set from config
+			this._lastToken = _config.token;
+			stepCovers.defaultPath = _config.imagesPath;
+			// stepFiles load automatically from PackagerDesktop
+			stepFinish.defaultPath = _config.packagesPath;
+			
+			// set area provider
+			_areasProvider = CurricularDesign.getInstance().areas;
+			_package = createPackage();
+			_configLoaded = true;
 		}
 		
 		protected function onAreaSelected(e:AreaStepEvent) : void {
@@ -115,7 +145,7 @@
 	
 	<s:Label text="{_wizard.caption}" top="120" left="20" fontWeight="bold" fontSize="18" />
 	
-	<s:BorderContainer left="20" right="20" top="145" bottom="70">
+	<s:BorderContainer left="20" right="20" top="145" bottom="70" visible="{_configLoaded}">
 		
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
@@ -128,11 +158,11 @@
 			
 			<steps:CoversStep id="stepCovers" caption="Portadas" targetPackage="{_package}" />
 			
-			<steps:FilesStep caption="Archivos" fileProvider="{_package.fileProvider}" />
+			<steps:FilesStep id="stepFiles" caption="Archivos" fileProvider="{_package.fileProvider}" />
 			
-			<steps:CredentialsStep caption="Identificación" token="{_package.token}" />
+			<steps:CredentialsStep id="stepsCredentials" caption="Identificación" token="{_package.token}" />
 			
-			<steps:FinishStep caption="Empaquetar"  tagetPackage="{_package}" enableNext="false" finish="onFinish(event)" />
+			<steps:FinishStep id="stepFinish"  caption="Empaquetar"  tagetPackage="{_package}" enableNext="false" finish="onFinish(event)" />
 			
 		</dte:Wizard>
 		
@@ -142,6 +172,9 @@
 		</s:HGroup>
 	
 	</s:BorderContainer>
+	
+	<!-- loading text -->
+	<s:Label text="Cargando configuración ..." verticalCenter="0" horizontalCenter="0" visible="{!_configLoaded}"/>
 	
 	<s:Group width="100%" height="60" bottom="5" right="20" left="20">
 		<s:Image source="@Embed('/assets/img/footer-dte-logo.png')" left="0" />

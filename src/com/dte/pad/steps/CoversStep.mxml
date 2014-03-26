@@ -13,6 +13,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+		import com.dte.filesystem.FileProvider;
+		import com.dte.filesystem.FileUtils;
 		import com.dte.html.NativeAlert;
 		import flash.filesystem.File;
 		import flash.net.FileFilter;
@@ -35,13 +37,28 @@
 		[Bindable]private var _imgThumbSource:*;
 		
 		[Bindable]private var _imgContentSource:*;
+			
+		private var _defaultPath:String = File.desktopDirectory.nativePath;
+		
+		private var _filesCreated:Boolean = false;
 		
 		public function onInitialize(event:Event) : void {
-			this.thumbFile = File.desktopDirectory;
-			this.contentFile = File.desktopDirectory;
 			
-			this.thumbFile.addEventListener(Event.SELECT, onThumbFileSelected);
-			this.contentFile.addEventListener(Event.SELECT, onContentFileSelected);
+		}
+		
+		override public function activate(from:String = ""):void 
+		{
+			super.activate(from);
+			
+			if (!_filesCreated) {
+				this.thumbFile = new File(this.defaultPath);
+				this.contentFile = new File(this.defaultPath);
+				
+				this.thumbFile.addEventListener(Event.SELECT, onThumbFileSelected);
+				this.contentFile.addEventListener(Event.SELECT, onContentFileSelected);
+				_filesCreated = true;
+			}
+			
 		}
 		
 		[Bindable]
@@ -55,8 +72,22 @@
 			_targetPackage = value;
 		}
 		
+		[Bindable]
+		public function get defaultPath():String 
+		{
+			return _defaultPath;
+		}
+		
+		public function set defaultPath(value:String):void 
+		{
+			_defaultPath = value;
+		}
+		
 		private function onThumbFileSelected(e:Event):void {
 			try  {
+				
+				this.defaultPath = FileUtils.getFolderName(thumbFile);
+				
 				imgThumb.source = thumbFile.nativePath;
 				targetPackage.imgThumb  = thumbFile;
 			}
@@ -67,6 +98,8 @@
 		
 		private function onContentFileSelected(e:Event):void {
 			try  {
+				this.defaultPath = thumbFile.nativePath;
+				
 				imgContent.source = contentFile.nativePath;
 				targetPackage.imgContent  = contentFile;
 			}

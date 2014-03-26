@@ -20,6 +20,7 @@ package com.dte.pad
 	import flash.net.URLRequest;
 	
 	[Event(name = "saved", type = "com.dte.pad.events.FileSaveEvent")]
+	[Event(name = "pathChange", type = "flash.events.Event")]
 	public class PackagerDesktop extends Packager
 	{
 		
@@ -31,10 +32,15 @@ package com.dte.pad
 		
 		private var alert:NativeAlert = new NativeAlert();
 		
-		public function PackagerDesktop(target:com.dte.pad.Package) 
+		private var _lastOutputPath:String = "";
+		
+		public function PackagerDesktop(target:com.dte.pad.Package, defPath:String="") 
 		{
 			super(target);
-			this.outputFile = File.desktopDirectory;
+			if (defPath == "") {
+				defPath = File.desktopDirectory.nativePath;
+			}
+			this.outputFile = new File(defPath);
 			this.inputFile = File.desktopDirectory;
 			this.outputFile.addEventListener(Event.SELECT, onOutputDirectorySelected);
 			this.inputFile.addEventListener(Event.SELECT, onInputFileSelected);
@@ -42,6 +48,8 @@ package com.dte.pad
 		}
 		
 		private function onOutputDirectorySelected(e:Event):void {
+			this.lastOutputPath = this.outputFile.nativePath;
+			this.dispatchEvent(new Event("pathChange"));
 			var outFile:String = this.outputFile.nativePath + "\\" + this.target.uid + ".zip";
 			save(outFile);
 		}
@@ -50,9 +58,7 @@ package com.dte.pad
 		{
 			var tmp:File = File.createTempDirectory();
 			var self:PackagerDesktop = this;
-			
-			trace(tmp.nativePath);
-		
+					
 			var zip:FZip = new FZip();
 			var request:URLRequest = new URLRequest(inputFile.nativePath);
 			
@@ -105,6 +111,16 @@ package com.dte.pad
 			outFS.close();
 			
 			this.dispatchEvent(new FileSaveEvent(filename));
+		}
+		
+		public function get lastOutputPath():String 
+		{
+			return _lastOutputPath;
+		}
+		
+		public function set lastOutputPath(value:String):void 
+		{
+			_lastOutputPath = value;
 		}
 		
 	}

@@ -6,7 +6,9 @@ package com.dte.filesystem
 	 * please see the LICENSE
 	 */
 	import com.dte.formatters.StringFormatter;
+	import com.dte.pad.PadConfig;
 	import com.dte.pad.ui.MessageRef;
+	import flash.events.Event;
 	import flash.events.FileListEvent;
 	import flash.filesystem.File;
 	import mx.collections.ArrayCollection;
@@ -27,26 +29,41 @@ package com.dte.filesystem
 		
 		private var _totalSize:Number = 0;
 		
+		private var _defaultPath:String = File.desktopDirectory.nativePath;
+		
 		public function FileProvider() 
 		{
 			this.files = new ArrayCollection();
 			this.stringFormatter = new StringFormatter();
-			this.inputFile = File.desktopDirectory;
+			
+			if (PadConfig.getInstance().loaded) {
+				this.inputFile = new File(PadConfig.getInstance().filesPath);
+				PadConfig.getInstance().addEventListener(Event.COMPLETE, onPadConfigLoaded);
+				this.inputFile.addEventListener(FileListEvent.SELECT_MULTIPLE, onInputFilesSelected);
+				this.inputFile.addEventListener(Event.SELECT, onInputDirectorySelected);
+			}
+			
 			this.stringFormatter = new StringFormatter();
-			
-			this.inputFile.addEventListener(FileListEvent.SELECT_MULTIPLE, onInputFilesSelected);
-		    this.inputFile.addEventListener(Event.SELECT, onInputDirectorySelected);
-			
+
 			//this.files.addEventListener(CollectionEvent.COLLECTION_CHANGE, filesChange);
 			BindingUtils.bindSetter(filesChange, this, "files");
+		}
+		
+		private function onPadConfigLoaded(e:Event):void 
+		{
+			this.inputFile = new File(PadConfig.getInstance().filesPath);
+			this.inputFile.addEventListener(FileListEvent.SELECT_MULTIPLE, onInputFilesSelected);
+		    this.inputFile.addEventListener(Event.SELECT, onInputDirectorySelected);
 		}
 				
 		// handlers
 		private function onInputFilesSelected(e:FileListEvent):void {
+			this.defaultPath = FileUtils.getFolderName(this.inputFile);
 			this.processIncomingFiles(e.files);
 		}
 		
 		private function onInputDirectorySelected(e:Event):void {
+			this.defaultPath = FileUtils.getFolderName(this.inputFile);
 			this.processIncomingFiles([this.inputFile]);
 		}
 		
@@ -118,7 +135,6 @@ package com.dte.filesystem
 				var idx:int = this.files.getItemIndex(f);
 				this.files.removeItemAt(idx);
 				ds += f.size;
-				trace(f);
 			}
 			
 			this.totalSize -= ds;
@@ -155,7 +171,17 @@ package com.dte.filesystem
 		public function set totalSize(value:Number):void 
 		{
 			_totalSize = value;
-			trace(_totalSize);
+			trace(_totalSize); // TODO: delete me
+		}
+		
+		public function get defaultPath():String 
+		{
+			return _defaultPath;
+		}
+		
+		public function set defaultPath(value:String):void 
+		{
+			_defaultPath = value;
 		}
 		
 		public function serializeToObject() : * 

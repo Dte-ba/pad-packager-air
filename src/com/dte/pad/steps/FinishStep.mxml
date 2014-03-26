@@ -15,6 +15,7 @@
 	
     <fx:Script>
 		<![CDATA[
+		import com.dte.filesystem.FileUtils;
 		import com.dte.html.NativeAlert;
 		import com.dte.pad.events.FileSaveEvent;
 		import com.dte.pad.Package;
@@ -22,6 +23,7 @@
 		import com.dte.pad.ui.MessageRef;
 		import flash.events.Event;
 		import flash.events.MouseEvent;
+		import flash.filesystem.File;
 		
 		private var _packager:PackagerDesktop;
 		
@@ -29,12 +31,20 @@
 		
 		private var alert:NativeAlert = new NativeAlert();
 		
+		private var _defaultPath:String = File.desktopDirectory.nativePath;
+		
 		protected function onBtnPackageClick(e:MouseEvent) : void 
 		{
-			_packager = new PackagerDesktop(this.tagetPackage);
+			_packager = new PackagerDesktop(this.tagetPackage, _defaultPath);
+			_packager.addEventListener("pathChange", onPathChange);
 			_packager.addEventListener(FileSaveEvent.SAVED, targetSaved);
 			_packager.saveDialog();
 		}	
+		
+		private function onPathChange(e:Event):void 
+		{
+			this.defaultPath = FileUtils.getFolderName(PackagerDesktop(e.target).lastOutputPath);
+		}
 		
 		private function targetSaved(e:FileSaveEvent):void 
 		{
@@ -51,6 +61,18 @@
 		{
 			_tagetPackage = value;
 		}
+		
+		public function get defaultPath():String 
+		{
+			return _defaultPath;
+		}
+		
+		public function set defaultPath(value:String):void 
+		{
+			_defaultPath = value;
+		}
+		
+		
 		]]>
 	</fx:Script>
 			   
