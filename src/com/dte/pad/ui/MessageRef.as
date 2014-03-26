@@ -20,9 +20,13 @@ package com.dte.pad.ui
 		
 		static public const ERROR_BLOCK_NOT_SELECTED:String = "Sleccione un Bloque para continuar";
 		
-		static public const ERROR_CONTENT_IMAGE_NOT_SELECTED:String = "Seleccione una imagen de contenido para continuar";
+		static public const ERROR_CONTENT_IMAGE_NOT_SELECTED:String = "Seleccione la imagen de la Ficha Técnica para continuar";
 		
-		static public const ERROR_ACCES_IMAGE_NOT_SELECTED:String = "Seleccione una imagen de acceso para continuar";
+		static public const ERROR_ACCES_IMAGE_NOT_SELECTED:String = "Seleccione la imagen del Tangible para continuar";
+		
+		static public const ERROR_NOT_FILES_SELECTED:String = "Seleccione uno o mas archivos para continuar";
+		
+		static public const ERROR_FILES_SIZE:String = "El tamaño del/los archivos excede lo permitido (100 Mb)";
 		
 		static public const ERROR_FILE_EXISTS:String = "Ya existe este contenido en esta carpeta, por favor seleccione otra.";
 		

@@ -32,6 +32,8 @@
 	   
 	    private var alert:NativeAlert = new NativeAlert();
 		
+		private var MAX_SIZE:Number = (1024 * 1024 * 100); // 100 Mb
+		
 		public function onInitialize(event:Event) : void {
 			this._selectedFiles = new ArrayCollection();
 		    this.stringFormatter = new StringFormatter();
@@ -54,6 +56,17 @@
 	    }
 		
 		private function hasErrors() : Boolean {
+			
+			if (_fileProvider.files.length == 0) {
+				alert.alert(MessageRef.ERROR_NOT_FILES_SELECTED);
+				return true;
+			}
+			
+			if (_fileProvider.totalSize > MAX_SIZE) {
+				alert.alert(MessageRef.ERROR_FILES_SIZE);
+				return true;
+			}
+			
 		   return false;
 		}
 		

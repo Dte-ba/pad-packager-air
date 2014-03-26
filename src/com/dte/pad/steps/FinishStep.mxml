@@ -33,13 +33,22 @@
 		
 		private var _defaultPath:String = File.desktopDirectory.nativePath;
 		
+		[Bindable]private var _processing:Boolean = false;
+		
 		protected function onBtnPackageClick(e:MouseEvent) : void 
 		{
 			_packager = new PackagerDesktop(this.tagetPackage, _defaultPath);
 			_packager.addEventListener("pathChange", onPathChange);
+			_packager.addEventListener(Event.CANCEL, onCancelSave);
 			_packager.addEventListener(FileSaveEvent.SAVED, targetSaved);
 			_packager.saveDialog();
+			_processing = true;
 		}	
+		
+		private function onCancelSave(e:Event):void 
+		{
+			_processing = false;
+		}
 		
 		private function onPathChange(e:Event):void 
 		{
@@ -48,6 +57,7 @@
 		
 		private function targetSaved(e:FileSaveEvent):void 
 		{
+			_processing = false;
 			alert.alert(MessageRef.INFO_CONTENT_SAVE + " " + e.filename);
 			this.dispatchEvent(new Event("finish"));
 		}
@@ -79,8 +89,11 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Button id="btnPackage" horizontalCenter="0" verticalCenter="0" label="Empaquetar ..." click="onBtnPackageClick(event)" />
+	<s:Button id="btnPackage" horizontalCenter="0" verticalCenter="0" label="Empaquetar ..." click="onBtnPackageClick(event)" 
+			  visible="{!_processing}" />
 	
-	
-	
+	<s:Label text="El empaquetando puede tardar varios minutos dependiendo del tamaño de archivos y la capacidad de procesamiento, incluso que el programa no responda durante el proceso." 
+			 verticalCenter="0" horizontalCenter="0" 
+			 visible="{_processing}" width="80%" />
+		
 </dte:Step>
