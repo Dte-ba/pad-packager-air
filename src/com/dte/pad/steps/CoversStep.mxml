@@ -16,6 +16,8 @@
 		import com.dte.filesystem.FileProvider;
 		import com.dte.filesystem.FileUtils;
 		import com.dte.html.NativeAlert;
+		import com.dte.images.ImageConverter;
+		import com.dte.images.ImageEvent;
 		import flash.filesystem.File;
 		import flash.net.FileFilter;
 		import com.dte.pad.ui.MessageRef;
@@ -41,6 +43,8 @@
 		private var _defaultPath:String = File.desktopDirectory.nativePath;
 		
 		private var _filesCreated:Boolean = false;
+		
+		[Bindable]private var _processing:Boolean = false;
 		
 		public function onInitialize(event:Event) : void {
 			
@@ -84,21 +88,37 @@
 		}
 		
 		private function onThumbFileSelected(e:Event):void {
+			this.defaultPath = FileUtils.getFolderName(thumbFile);
+			
+			var ic:ImageConverter = new ImageConverter();
+			ic.addEventListener(ImageEvent.CONVERTED, onThumbConverted);
+			ic.convert(thumbFile.nativePath, 320, 240);
+			_processing = true;
+		}
+		
+		private function onThumbConverted(e:ImageEvent):void 
+		{
 			try  {
-				
-				this.defaultPath = FileUtils.getFolderName(thumbFile);
-				
-				imgThumb.source = thumbFile.nativePath;
-				targetPackage.imgThumb  = thumbFile;
+				imgThumb.source = e.file.nativePath;
+				targetPackage.imgThumb  = e.file;
 			}
 			catch (err:Error) {
 				targetPackage.imgThumb  = null;
 			}
+			
+			_processing = false;
 		}
 		
 		private function onContentFileSelected(e:Event):void {
+			this.defaultPath = FileUtils.getFolderName(contentFile.nativePath);
+			
+			var ic:ImageConverter = new ImageConverter();
+			ic.addEventListener(ImageEvent.CONVERTED, onContentConverted);
+			ic.convert(contentFile.nativePath, 1024, 768);
+			_processing = true;
+			
 			try  {
-				this.defaultPath = thumbFile.nativePath;
+				
 				
 				imgContent.source = contentFile.nativePath;
 				targetPackage.imgContent  = contentFile;
@@ -106,6 +126,19 @@
 			catch (err:Error) {
 				targetPackage.imgContent  = null;
 			}
+		}
+		
+		private function onContentConverted(e:ImageEvent):void 
+		{
+			try  {
+				imgContent.source = e.file.nativePath;
+				targetPackage.imgContent  =  e.file;
+			}
+			catch (err:Error) {
+				targetPackage.imgContent  = null;
+			}
+			
+			_processing = false;
 		}
 		
 		protected function btnSeleccionarThumb_click(event:MouseEvent) : void {
@@ -160,39 +193,21 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Group width="100%" height="100%">
-		<s:ButtonBar id="navBar" dataProvider="{coverViewStack}"/>
-
-		<mx:ViewStack id="coverViewStack"
-			borderStyle="solid" top="{navBar.height + 1}"
-			width="100%" historyManagementEnabled="false" creationPolicy="all"
-			bottom="0" right="0" left="0">
-			
-			<s:NavigatorContent id="navAcceso" label="Portada de acceso"
-				bottom="0" right="0" left="0" top="0">
-				<s:Scroller top="0" left="0" right="0" bottom="40">
-					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
-						<s:Image id="imgThumb" source="@{_imgThumbSource}" />
-					</s:VGroup>
-				</s:Scroller>
-				<s:HGroup bottom="0">
-					<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de acceso..." click="btnSeleccionarThumb_click(event)" />
-				</s:HGroup>
-			</s:NavigatorContent>
-
-			<s:NavigatorContent id="navContenido" label="Portada de contenido"
-				bottom="0" right="0" left="0" top="0">
-				<s:Scroller top="0" left="0" right="0" bottom="40">
-					<s:VGroup width="100%" verticalAlign="middle" horizontalAlign="center">
-						<s:Image id="imgContent" source="@{_imgContentSource}"/>
-					</s:VGroup>
-				</s:Scroller>
-				<s:HGroup bottom="0">
-					<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de contenido ..."  click="btnSeleccionarContent_click(event)"/>
-				</s:HGroup>
-			</s:NavigatorContent>
-		</mx:ViewStack>
-	</s:Group>
+	<s:HGroup height="30" width="100%" horizontalAlign="center" visible="{!_processing}">
+		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen de acceso..." click="btnSeleccionarThumb_click(event)" />
+		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de contenido ..."  click="btnSeleccionarContent_click(event)"/>
+	</s:HGroup>
 	
+	<s:Scroller top="30" bottom="0" width="100%" visible="{!_processing}">
+		<s:VGroup width="100%" horizontalAlign="center" verticalAlign="top">
+			<s:Label text="Imagen de acceso" />
+			<s:Image id="imgThumb" source="@{_imgThumbSource}" />
+			
+			<s:Label text="Imagen de contenido" />
+			<s:Image id="imgContent" source="@{_imgContentSource}" />
+		</s:VGroup>
+	</s:Scroller>	
+	
+	<s:Label text="Procesando imagen ..." verticalCenter="0" horizontalCenter="0" visible="{_processing}"/>
 	
 </dte:Step>
