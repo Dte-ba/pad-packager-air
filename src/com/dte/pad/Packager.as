@@ -106,6 +106,8 @@ package com.dte.pad
 			// set covers
 			var iFront:* = metadata.getImgFront();
 			var iContent:* = metadata.getImgContent();
+			trace(iFront.src);
+			trace(iContent.src);
 			this.target.imgThumb = new File(nativePath + "\\" + iFront.src);
 			this.target.imgContent = new File(nativePath + "\\" + iContent.src);
 
