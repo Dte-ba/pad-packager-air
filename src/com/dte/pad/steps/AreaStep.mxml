@@ -46,7 +46,7 @@
 		
 		<s:DataGroup id="_dataView" dataProvider="{areas}">
 			 <s:layout>
-			  <s:TileLayout columnWidth="220" verticalAlign="top" />
+			  <s:TileLayout columnWidth="175" verticalAlign="top" />
 			 </s:layout>
 			<s:itemRenderer>
 			  <fx:Component>
@@ -60,12 +60,12 @@
 						 ]]>
 					 </fx:Script>
 					 
-					<s:BorderContainer width="220" height="220" cornerRadius="5" buttonMode="true" useHandCursor="true"
+					<s:BorderContainer width="175" height="175" cornerRadius="5" buttonMode="true" useHandCursor="true"
 										backgroundAlpha="0" click="areaClick(event)">
 						<s:VGroup gap="5" paddingTop="15" horizontalAlign="center"
 								  top="5" right="5" left="5" bottom="5">
 						   <s:Image source="{data.img}" />
-						   <s:Label text="{data.name}" fontSize="16" fontWeight="bold" />
+						   <s:Label text="{data.name}" fontSize="14" fontWeight="bold" />
 						</s:VGroup>
 					 </s:BorderContainer>
 					

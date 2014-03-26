@@ -78,7 +78,7 @@
             "Animales",
             "Plantas",
             "Hongos y Microorganismos",
-            "Paisajes Ambientales"
+            "Paisajes y Ambientes"
           ]
         },
         {
@@ -387,6 +387,50 @@
           "blocks": []
         }
       ]
-    }
+    },
+    {
+      "area": "EOE",
+      "axis": [
+        {
+          "name": "Construcción de Lazos sociales y comunitarios",
+          "blocks": []
+        },
+        {
+          "name": "Alfabetización y Múltiples Lenguajes",
+          "blocks": []
+        },
+        {
+          "name": "Salud: cuidado de sí y cuidado del otro",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "CEC",
+      "axis": [
+        {
+          "name": "Convivencia escolar",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Orientación PAD",
+      "axis": [        
+		{
+          "name": "Ideas para pensar la asisitencia digital en las prácticas de enseñanza",
+          "blocks": []
+        }
+	  ]
+    },
+    {
+      "area": "Temas Transversales",
+      "axis": [        
+		{
+          "name": "Planes y Programas",
+          "blocks": []
+        }
+	  ]
+    }	
   ]
 }

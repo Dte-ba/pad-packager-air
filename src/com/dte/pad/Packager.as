@@ -71,7 +71,7 @@ package com.dte.pad
 			
 			// assets
 			if (this.target.imgThumb != null) {
-				this.addFileToZip(zip, this.target.imgThumb, "assets/" + "front." + this.target.imgThumb.extension);	
+				this.addFileToZip(zip, this.target.imgThumb , "assets/" + "front." + this.target.imgThumb.extension);	
 			}
 			
 			if (this.target.imgContent != null) {
