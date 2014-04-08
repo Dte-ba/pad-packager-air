@@ -65,7 +65,7 @@
 						<s:VGroup gap="5" paddingTop="15" horizontalAlign="center"
 								  top="5" right="5" left="5" bottom="5">
 						   <s:Image source="{data.img}" />
-						   <s:Label text="{data.name}" fontSize="14" fontWeight="bold" />
+						   <s:Label text="{data.name}" width="170"  textAlign="center" maxDisplayedLines="2" lineBreak="toFit" fontSize="12" fontWeight="bold" />
 						</s:VGroup>
 					 </s:BorderContainer>
 					
