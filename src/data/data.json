@@ -103,13 +103,7 @@
         },
         {
           "name": "Habilidades Motrices",
-          "blocks": [
-            "Desplazamiento",
-            "Dominio Corporal",
-            "Manipulación",
-            "Combinadas en Juego",
-            "Combinadas en Recorrido "
-          ]
+          "blocks": []
         },
         {
           "name": "Construcción del juego socio-motor",
@@ -122,12 +116,11 @@
         {
           "name": "Comunicación corporal",
           "blocks": [
-            "Expresión corporal",
             "Secuencias motrices"
           ]
         },
         {
-          "name": "Vida en la naturaleza",
+          "name": "Las acciones motrices en el ambiente",
           "blocks": []
         },
         {
@@ -389,7 +382,7 @@
       ]
     },
     {
-      "area": "EOE",
+      "area": "Equipos de Orientación Escolar",
       "axis": [
         {
           "name": "Convivencia escolar",
@@ -398,7 +391,7 @@
       ]
     },
     {
-      "area": "CEC",
+      "area": "Centros Educativos Complementarios",
       "axis": [
         {
           "name": "Construcción de Lazos sociales y comunitarios",

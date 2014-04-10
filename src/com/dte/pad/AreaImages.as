@@ -85,8 +85,8 @@ package com.dte.pad
 			_images["Ed. Artística - Música"] = new imgEAM();
 			_images["Ed. Artística - Danza"] = new imgEAD();
 			_images["Ed. Artística - Teatro"] = new imgEAT();
-			_images["EOE"] = new imgEOE();
-			_images["CEC"] = new imgCEC();
+			_images["Equipos de Orientación Escolar"] = new imgEOE();
+			_images["Centros Educativos Complementarios"] = new imgCEC();
 			_images["Orientación PAD"] = new imgORI();
 			_images["Temas Transversales"] = new imgESP();
 		}
