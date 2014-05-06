@@ -25,9 +25,8 @@ set APP_ID=com.dte.pad.padpackager
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=SECUN-Packager
-set RELEASE_NAME=E-PAD
-
+set AIR_NAME=padpackager
+set RELEASE_NAME=E-Secun
 
 :validation
 %SystemRoot%\System32\find /C "<id>%APP_ID%</id>" "%APP_XML%" > NUL

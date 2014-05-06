@@ -4,9 +4,9 @@
 	<id>com.dte.pad.padpackager</id> 
 	<versionNumber>1.9.4</versionNumber> 
 	<filename>secunpackager</filename> 
-	
-	<name>SECUN Packager</name> 
-	<description>Empaquetador de contenido para la plataforma Secundaria.</description> 
+
+	<name>Secun Packager</name> 
+	<description>Empaquetador de contenido para el escritorio de Secundaria.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
 		
 	<initialWindow> 

@@ -4,34 +4,28 @@
       "area": "Secundaria",
       "axis": [
         { "name": "Normativa",
-		  "blocks": [] 
-		},
-		{ "name": "Leyes",
-		  "blocks": [ "Resoluciones", "Disposiciones" ] 
-		},
-		{ "name": "Comunicaciones",
-		  "blocks": [ "Instructivos" ] 
-		},
-		{ "name": "Material de difusión de la normativa",
-		  "blocks": [] 
-		},
-		{ "name": "Guías de lectura",
-		  "blocks": [ "Trípticos" ] 
+		  "blocks": [
+					"Leyes",
+					"Resoluciones",
+					"Disposiciones",
+					"Comunicaciones",
+					"Instructivos ",
+					"Material de difusión de la normativa",
+					"Guías de lectura",
+					"Trípticos"
+				  ]
+
 		},
 		{ "name": "Diseño",
-		  "blocks": [] 
-		},
-		{ "name": "Material de Enseñanza",
-		  "blocks": [ "Secuencias Didácticas", "Contenido Audiovisual" ] 
-		},
-		{ "name": "Material Académico",
-		  "blocks": [] 
-		},
-		{ "name": "Producciones de Escuelas",
-		  "blocks": [ "Audiovisuales" ] 
-		},
-		{ "name": "Material de difusión de la Escuela Secundaria",
-		  "blocks": [] 
+		  "blocks":   [
+				"Material de Enseñanza",
+				"Secuencias Didácticas",
+				"Contenido Audiovisual",
+				"Material Académico",
+				"Producciones de Escuelas",
+				"Audiovisuales",
+				"Material de difusión de la Escuela Secundaria"
+			  ]
 		}
       ]
     }	
