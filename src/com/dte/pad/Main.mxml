@@ -143,7 +143,7 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Image source="@Embed('/assets/img/logo_PAD.png')" horizontalCenter="0" top="1" />
+	<s:Image source="@Embed('/assets/img/logo_PAD.png')" horizontalCenter="0" top="5" />
 	
 	<s:Label text="{_wizard.caption}" top="120" left="20" fontWeight="bold" fontSize="18" />
 	

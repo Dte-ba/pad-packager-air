@@ -193,7 +193,7 @@
 	</fx:Declarations>
 	
 	<s:HGroup height="30" width="100%" horizontalAlign="center" visible="{!_processing}">
-		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Tangible [...]" click="btnSeleccionarThumb_click(event)" />
+		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Paquete [...]" click="btnSeleccionarThumb_click(event)" />
 		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de la Ficha Técnica [...]"  click="btnSeleccionarContent_click(event)"/>
 	</s:HGroup>
 	
