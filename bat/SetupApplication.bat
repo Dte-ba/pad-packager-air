@@ -25,7 +25,7 @@ set APP_ID=com.dte.pad.padpackager
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=padpackager
+set AIR_NAME=SECUN-Packager
 set RELEASE_NAME=E-PAD
 
 

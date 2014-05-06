@@ -3,14 +3,14 @@
 	
 	<id>com.dte.pad.padpackager</id> 
 	<versionNumber>1.9.4</versionNumber> 
-	<filename>padpackager</filename> 
+	<filename>secunpackager</filename> 
 	
-	<name>PAD Packager</name> 
-	<description>Empaquetador de contenido para la plataforma PAD.</description> 
+	<name>SECUN Packager</name> 
+	<description>Empaquetador de contenido para la plataforma Secundaria.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
 		
 	<initialWindow> 
-		<title>Empaquetador PAD</title> 
+		<title>Empaquetador Secundaria</title> 
 		<content>padpackager.swf</content> 
 		<systemChrome>standard</systemChrome> 
 		<transparent>false</transparent> 
@@ -20,9 +20,9 @@
 		<resizable>true</resizable> 
 	</initialWindow> 
 	
-	<icon>
+	<!--<icon>
       <image16x16>icons/pad-16x16.png</image16x16>
 	  <image32x32>icons/pad-32x32.png</image32x32>
-	</icon>
+	</icon>-->
 	
 </application>
