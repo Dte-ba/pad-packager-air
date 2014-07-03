@@ -78,7 +78,7 @@
             "Animales",
             "Plantas",
             "Hongos y Microorganismos",
-            "Paisajes y Ambientes"
+            "Interacciones entre los seres vivos y el ambiente"
           ]
         },
         {
@@ -392,6 +392,10 @@
         },
         {
           "name": "Salud: cuidado de sí y cuidado del otro",
+          "blocks": []
+        },
+        {
+          "name": "Sala de Docentes",
           "blocks": []
         }	  
       ]

@@ -2,7 +2,7 @@
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
 	<id>com.dte.pad.padpackager</id> 
-	<versionNumber>1.9.7</versionNumber> 
+	<versionNumber>1.9.9</versionNumber> 
 	<filename>padpackager</filename> 
 	
 	<name>PAD Packager</name> 
