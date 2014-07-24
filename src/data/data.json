@@ -74,11 +74,10 @@
         },
         {
           "name": "Seres Vivos",
-          "blocks": [
-            "Animales",
-            "Plantas",
-            "Hongos y Microorganismos",
-            "Interacciones entre los seres vivos y el ambiente"
+			  "blocks": [
+			  "Diversidad de los seres vivos",
+			  "Funciones de los seres vivos",
+			  "Interacciones entre los seres vivos y el ambiente"
           ]
         },
         {
@@ -414,7 +413,18 @@
       "axis": [        
 		{
           "name": "Planes y Programas",
-          "blocks": []
+          "blocks": [
+				"Programa Provincial de Actividades Científicas y Tecnológicas Educativas",
+				"Programa de Derechos Humanos, Memoria y Educación",
+				"Educación en Contextos de Encierro",
+				"Programa de Educación y Seguridad Vial",
+				"Programa de Educación Intercultural",
+				"Programa de promoción de derechos de niñas niños y adolescentes",
+				"Programa de Educación Plurilingüe",
+				"Programa de Educación para la Ruralidad continental y de Islas",
+				"Programa de Arte y Medios en la Escuela",
+				"Programa Escuelas Promotoras de Salud"
+			]
         }
 	  ]
     }	
