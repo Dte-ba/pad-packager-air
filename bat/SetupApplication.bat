@@ -28,7 +28,6 @@ set AIR_PATH=air
 set AIR_NAME=padpackager
 set RELEASE_NAME=E-Secun
 
-
 :validation
 %SystemRoot%\System32\find /C "<id>%APP_ID%</id>" "%APP_XML%" > NUL
 if errorlevel 1 goto badid

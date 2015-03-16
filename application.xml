@@ -3,8 +3,8 @@
 	
 	<id>com.dte.secunpackager</id> 
 	<versionNumber>1.9.4</versionNumber> 
-	<filename>padpackager</filename> 
-	
+	<filename>secunpackager</filename> 
+
 	<name>Secun Packager</name> 
 	<description>Empaquetador de contenido para el escritorio de Secundaria.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
@@ -20,9 +20,9 @@
 		<resizable>true</resizable> 
 	</initialWindow> 
 	
-	<icon>
+	<!--<icon>
       <image16x16>icons/pad-16x16.png</image16x16>
 	  <image32x32>icons/pad-32x32.png</image32x32>
-	</icon>
+	</icon>-->
 	
 </application>
