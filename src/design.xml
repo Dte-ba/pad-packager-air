@@ -13,6 +13,7 @@
 
 		<component name="Wizard" namespace="com.dte.components" category="controls" displayName="Wizard" />
 		<component name="Step" namespace="com.dte.components" category="controls" displayName="Step" />
+		<component name="CascadeDropDownList" namespace="com.dte.components" category="controls" displayName="CascadeDropDownList" />
 		
 	</components>
 	

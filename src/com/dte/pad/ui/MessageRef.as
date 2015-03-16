@@ -16,6 +16,8 @@ package com.dte.pad.ui
 		// ERRORS
 		static public const ERROR_REQUIERED_FIELD:String = "Uno o mas campos son requeridos para continuar";
 		
+		static public const ERROR_CATEGORY_NOT_SELECTED:String = "Sleccione un Categoria para continuar";
+		
 		static public const ERROR_AXIS_NOT_SELECTED:String = "Sleccione un Eje para continuar";
 		
 		static public const ERROR_BLOCK_NOT_SELECTED:String = "Sleccione un Bloque para continuar";

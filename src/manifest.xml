@@ -4,5 +4,6 @@
 
 	<component id="Wizard" class="com.dte.components.Wizard"/>
 	<component id="Step" class="com.dte.components.Step"/>
+	<component id="CascadeDropDownList" class="com.dte.components.CascadeDropDownList"/>
 	
 </componentPackage>

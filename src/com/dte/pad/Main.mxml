@@ -28,7 +28,7 @@
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
 				
-		[Bindable]private var _appVersion:String = "v0.1-demo";
+		[Bindable]private var _appVersion:String = "v1.0-beta1";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador Secundaria " + _appVersion;
 		

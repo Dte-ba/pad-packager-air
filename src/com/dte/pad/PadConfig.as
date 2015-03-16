@@ -159,12 +159,13 @@ package com.dte.pad
 		public function save(def:Boolean = true) :void {
 			
 			var file:File = new File(_configFile);
+			var t:* = this.token == null ? null : this.token.token;
 			
 			var obj:* = {
 				imagesPath: this.imagesPath,
 				packagesPath: this.packagesPath,
 				filesPath: this.filesPath,
-				token: this.token.token
+				token: t
 			};
 			
 			var fs:FileStream = new FileStream();

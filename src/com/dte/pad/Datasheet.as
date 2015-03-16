@@ -16,6 +16,8 @@ package com.dte.pad
 		
 		private var _block:Block = null;
 		
+		private var _category:Array = null;
+		
 		private var _title:String = "";
 		
 		private var _tags:String = "";
@@ -133,6 +135,17 @@ package com.dte.pad
 			_description = value;
 		}
 		
+		[Bindable]
+		public function get category():Array 
+		{
+			return _category;
+		}
+		
+		public function set category(value:Array):void 
+		{
+			_category = value;
+		}
+		
 		public function serializeToObject() : * 
 		{
 			var strArea:String = this.area != null ? this.area.name : CurricularDesign.UNDEFINED;
@@ -142,9 +155,8 @@ package com.dte.pad
 			var obj:* = {
 				title: this.title,
 				area: strArea,
-				axis: strAxis,
-				block: strBlock,
 				tags: this.tags,
+				category: this.category,
 				autor: this.contentAutor,
 				source: this.contentSource,
 				content: this.content,

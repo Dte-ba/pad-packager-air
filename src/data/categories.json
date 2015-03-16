@@ -1,0 +1,1167 @@
+{
+  "name": "categories",
+  "level": 0,
+  "hasCategories": true,
+  "categories": [
+    {
+      "name": "Apartado Institucional",
+      "level": 1,
+      "hasCategories": true,
+      "categories": [
+        {
+          "name": "Normativa",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Papelería",
+          "level": 2,
+          "hasCategories": false
+        }
+      ]
+    },
+    {
+      "name": "Familia",
+      "level": 1,
+      "hasCategories": true,
+      "categories": [
+        {
+          "name": "Régimen Académico",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Comunicación Familia- Escuela",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Información de interés",
+          "level": 2,
+          "hasCategories": false
+        }
+      ]
+    },
+    {
+      "name": "Comunidad",
+      "level": 1,
+      "hasCategories": true,
+      "categories": [
+        {
+          "name": "Temas de interés sobre juventudes",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "La secundaria en los medios",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Artículos académicos",
+          "level": 2,
+          "hasCategories": false
+        }
+      ]
+    },
+    {
+      "name": "Proyectos y experiencias",
+      "level": 1,
+      "hasCategories": false
+    },
+    {
+      "name": "Docentes en el aula",
+      "level": 1,
+      "hasCategories": true,
+      "categories": [
+        {
+          "name": "Diseños Curriculares",
+          "level": 2,
+          "hasCategories": true,
+          "categories": [
+            {
+              "name": "1 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "Diseño de 1º año",
+                  "level": 4,
+                  "hasCategories": false
+                },
+                {
+                  "name": "Diseño de Construcción de Ciudadanía de 1º a 3º ",
+                  "level": 4,
+                  "hasCategories": false
+                }
+              ]
+            },
+            {
+              "name": "2 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "Diseño de 2º año",
+                  "level": 4,
+                  "hasCategories": false
+                },
+                {
+                  "name": "Diseño de Construcción de Ciudadanía de 1º a 3º ",
+                  "level": 4,
+                  "hasCategories": false
+                }
+              ]
+            },
+            {
+              "name": "3 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "General",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Diseño de 3º año",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de Construcción de Ciudadanía de 1º a 3º ",
+                      "level": 5,
+                      "hasCategories": false
+                    }
+                  ]
+                },
+                {
+                  "name": "Por Materias",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Diseño de 3º año de Prácticas del Lenguaje",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Matemática",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Cs. Sociales",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Cs. Naturales",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Ed. Artística",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Ed. Física",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 3º año de Inglés",
+                      "level": 5,
+                      "hasCategories": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "4 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "Marco General del Ciclo Superior ",
+                  "level": 4,
+                  "hasCategories": false
+                },
+                {
+                  "name": "Materias Comunes",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Diseño de 4º año de Biología",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Educación Física",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Geografía",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Historia",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Inglés",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Literatura",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Introducción a la Física",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Matemática – Ciclo Superior",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Nuevas Tecnologías de la Información y la Conectividad",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 4º año de Salud y Adolescencia",
+                      "level": 5,
+                      "hasCategories": false
+                    }
+                  ]
+                },
+                {
+                  "name": "Materias Orientadas",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Arte",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Arte",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Actuación",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Lenguaje de la Danza",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Lenguaje Musical",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Producción y Análisis de la Imagen",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Taller de Lectura Literaria y Escritura",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Comunicación",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Comunicación",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Introducción a la Comunicación",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Psicología",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Educación Física",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Educación Física",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Educación Física y Corporeidad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Deportivas y Atléticas",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Psicología",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Economía y Administración",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Economía y Administración",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Los Sistemas de Información Contable",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Teorías de las Organizaciones",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Naturales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco general de Cs. Naturales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Introducción a la Química",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Sociales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Cs. Sociales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Psicología",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Lenguas Extranjeras",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General de Lenguas Extranjeras",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Francés",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Italiano",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Portugués",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "5 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "Marco General del Ciclo Superior ",
+                  "level": 4,
+                  "hasCategories": false
+                },
+                {
+                  "name": "Materias Comunes",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Diseño de 5º año de Política y Ciudadanía",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Geografía",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Historia",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Inglés",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Literatura",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Matemática",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Arte",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Introducción a la Química",
+                      "level": 5,
+                      "hasCategories": false
+                    },
+                    {
+                      "name": "Diseño de 5º año de Educación Física",
+                      "level": 5,
+                      "hasCategories": false
+                    }
+                  ]
+                },
+                {
+                  "name": "Materias Orientadas",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Arte",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Arte",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Artes Visuales",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Artes Visuales",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Imagen y Nuevos Medios",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Imagen y Procedimientos Constructivos",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Danza",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Danza",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Análisis Coreográfico",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Improvisación y Composición Coreográfica",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Literatura",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Literatura",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Seminario de Investigación Literaria",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Taller de Escritura",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Música",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Música",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Análisis y Producción en Música",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Prácticas de Conjuntos Vocales e Instrumentales",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Teatro",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Teatro",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Actuación y Procedimientos Constructivos en teatro",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Análisis del Lenguaje Teatral",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Comunicación",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Comunicación",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Comunicación y Culturas del Consumo",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Observatorio de Comunicación, Cultura y Sociedad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Observatorio de Medios",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Naturales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Cs. Naturales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Biología",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Ciencias de la Tierra",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Física",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Fundamentos de Química",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Sociales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Cs. Sociales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Comunicación, Cultura y Sociedad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Economía Política",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Sociología",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Economía y Administración",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Economía",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Derecho",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Elementos de Micro y Macro Economía",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Sistemas de Información Contable",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Gestión Organizacional",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Educación Física",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Educación Física",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Educación Física y Cultura",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Corporales y Deportivas en el Ambiente Naturales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Deportivas y Acuáticas",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Gimnásticas y Expresivas",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Sociología",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Lenguas Extranjeras",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Lenguas Extranjeras",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Estudios Interculturales en Inglés I",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Francés II",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Portugués II",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Italiano II",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "6 Año",
+              "level": 3,
+              "hasCategories": true,
+              "categories": [
+                {
+                  "name": "Marco General del Ciclo Superior ",
+                  "level": 4,
+                  "hasCategories": false
+                },
+                {
+                  "name": "Materias Orientadas",
+                  "level": 4,
+                  "hasCategories": true,
+                  "categories": [
+                    {
+                      "name": "Arte",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Arte",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Historia",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Artes Visuales",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Artes Visuales",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Proyecto de Producción en Artes Visuales",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Danza",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Danza",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Proyecto de Producción en Danza",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Literatura",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Literatura",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Proyecto de Producción en Literatura",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Música",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Música",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Proyecto de Producción en Música",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Teatro",
+                          "level": 6,
+                          "hasCategories": true,
+                          "categories": [
+                            {
+                              "name": "Marco Teatro",
+                              "level": 7,
+                              "hasCategories": false
+                            },
+                            {
+                              "name": "Proyecto de Producción en Teatro",
+                              "level": 7,
+                              "hasCategories": false
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Comunicación",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Comunicación",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Taller de Producción en Lenguajes",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Comunicación y Transformaciones Socioculturales en el Siglo XXI",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Talles de Comunicación Institucional y Comunitaria",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Naturales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Cs. Naturales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Ambiente, Desarrollo y Sociedad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Biología, Genética y Sociedad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Física Clásica y Moderna",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Química del Carbono",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Cs. Sociales",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Cs. Sociales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Historia",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Proyectos de Investigación en Cs. Sociales",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Geografía",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Economía y Administración",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Economía y Administración",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Economía Política",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Proyectos Organizacionales",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Educación Física",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Educación Física",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Diseño y Gestión de Proyectos",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Educación Física y Comunidad",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Gimnásticas y Expresivas II",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Prácticas Deportivas y Juegos",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Lenguas Extranjeras",
+                      "level": 5,
+                      "hasCategories": true,
+                      "categories": [
+                        {
+                          "name": "Marco General Lenguas Extranjeras",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Estudios Interculturales en Inglés II",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Francés III",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Portugués III",
+                          "level": 6,
+                          "hasCategories": false
+                        },
+                        {
+                          "name": "Italiano III",
+                          "level": 6,
+                          "hasCategories": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Secuencias Didácticas",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Recursos para la enseñanza",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Docente autor",
+          "level": 2,
+          "hasCategories": false
+        }
+      ]
+    },
+    {
+      "name": "Estudiantes",
+      "level": 1,
+      "hasCategories": true,
+      "categories": [
+        {
+          "name": "Participación estudiantil",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Convivencia",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Voto a los 16",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Secundaria Cultural",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Régimen Académico",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Bienestar Estudiantil",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Recursos para estudiar",
+          "level": 2,
+          "hasCategories": false
+        },
+        {
+          "name": "Temas de interés",
+          "level": 2,
+          "hasCategories": false
+        }
+      ]
+    }
+  ]
+}

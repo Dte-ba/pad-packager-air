@@ -78,7 +78,7 @@
 				throw new Error("Area not selected");
 			}
 			
-			if (_area.axis.length > 0 && datasheet.axis == null) {
+			/*if (_area.axis.length > 0 && datasheet.axis == null) {
 				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
 				return true;
 			}
@@ -88,6 +88,13 @@
 			if (hasBlocks && datasheet.block == null) {
 				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
 				return true;
+			}*/
+			
+			if (ddlCategory.hasErrors()) {
+				alert.alert(MessageRef.ERROR_CATEGORY_NOT_SELECTED);
+				return true;
+			} else {
+				datasheet.category = ddlCategory.getSlectedCategory();
 			}
 			
 		   return false;
@@ -96,7 +103,7 @@
 		override public function activate(from:String = ""):void 
 		{
 			super.activate(from);
-						
+									
 			if (from == "next") return;
 			
 			if (from == "back") {
@@ -156,12 +163,16 @@
 					<s:TextInput id="txtTitle" width="100%" text="@{datasheet.title}" />
 				</s:FormItem>
 				
-				<s:FormItem label="Eje">
+				<!--<s:FormItem label="Eje">
 					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{datasheet.axis}" />
 				</s:FormItem>
 				
 				<s:FormItem label="Bloque">
 					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{datasheet.block}" />
+				</s:FormItem>
+				-->
+				<s:FormItem label="Categoría">
+					<dte:CascadeDropDownList id="ddlCategory" width="100%" />
 				</s:FormItem>
 				
 				<s:FormItem label="Palabras Claves">
