@@ -9,7 +9,7 @@
             "Yo",
             "Mi escuela",
             "Mis amigos",
-            "Mi Familia y ni Hogar",
+            "Mi Familia y mi Hogar",
             "Mi Mascota",
             "Mi Día a Día",
             "Mi barrio - Ciudad - Provincia - País"
@@ -24,7 +24,7 @@
             "Los seres vivos",
             "Animales extintos",
             "Las actividades humanas",
-            "La orgranización social"
+            "La organización social"
           ]
         },
         {
@@ -74,11 +74,10 @@
         },
         {
           "name": "Seres Vivos",
-          "blocks": [
-            "Animales",
-            "Plantas",
-            "Hongos y Microorganismos",
-            "Paisajes y Ambientes"
+			  "blocks": [
+			  "Diversidad de los seres vivos",
+			  "Funciones de los seres vivos",
+			  "Interacciones entre los seres vivos y el ambiente"
           ]
         },
         {
@@ -91,36 +90,15 @@
       "area": "Educación Física",
       "axis": [
         {
-          "name": "Constitución Corporal",
-          "blocks": [
-            "Capacidades Condicionales",
-            "Capacidades Coordinativas"
-          ]
-        },
-        {
-          "name": "Consciencia Corporal",
+          "name": "Corporeidad y motricidad",
           "blocks": []
         },
         {
-          "name": "Habilidades Motrices",
+          "name": "Corporeidad y sociomotricidad",
           "blocks": []
         },
         {
-          "name": "Construcción del juego socio-motor",
-          "blocks": [
-            "Cooperativo y de Oposición",
-            "Reglamentos",
-            "Juegos Tradicionales"
-          ]
-        },
-        {
-          "name": "Comunicación corporal",
-          "blocks": [
-            "Secuencias motrices"
-          ]
-        },
-        {
-          "name": "Las acciones motrices en el ambiente",
+          "name": "Corporeidad y motricidad en relación con el ambiente",
           "blocks": []
         },
         {
@@ -195,38 +173,40 @@
       "area": "Prácticas del Lenguaje",
       "axis": [
         {
-          "name": "Formación del lector literario",
+          "name": "Formación Literaria",
           "blocks": [
-            "Cuentos",
-            "Leyendas",
-            "Coplas",
-            "Refranes",
-            "Audiolibros"
+            "Para leer, ver y escuchar literatura: Narrativa",
+            "Para leer, ver y escuchar literatura: Poesía",
+            "Para leer, ver y escuchar literatura: Teatro",
+            "Para escribir en torno a la literatura: Textos Digitales",
+            "Para escribir en torno a la literatura: Recursos Multimediales"
           ]
         },
         {
           "name": "Formación del estudiante",
           "blocks": [
-            "Textos informativos"
+            "Para buscar y seleccionar información: Textos digitales",
+			"Para buscar y seleccionar información: Recursos Multimediales",
+			"Para comunicar lo aprendido: Textos Digitales",
+			"Para comunicar lo aprendido: Recursos"
           ]
         },
         {
-          "name": "Formación ciudadana",
+          "name": "Formación del Ciudadano",
           "blocks": [
-            "Afiches",
-            "Publicidades",
-            "Graffitis",
-            "Textos periodisticos",
-            "Adicciones"
-          ]
+            "Para construir y expresar opiniones: Textos Digitales",
+            "Para construir y expresar opiniones: Recursos Multimediales",
+            "Para leer y comentar: Prensa",
+            "Para leer y comentar: Publicidad"
+            ]
         },
         {
-          "name": "Programas y Proyectos",
+          "name": "Reflexión sobre el lenguaje",
           "blocks": [
-            "Educación Para la Salud",
-            "Educación Sexual Integral",
-            "Educación Ambiental",
-            "Educación Científica"
+            "Para reflexionar sobre las gramáticas",
+            "Para reflexionar sobre el sistema de escritura y la ortografía",
+            "Para reflexionar sobre la historia de la lengua",
+            "Para reflexionar sobre los usos sociales del lenguaje"
           ]
         },
         {
@@ -387,7 +367,15 @@
         {
           "name": "Convivencia escolar",
           "blocks": []
-        }
+        },
+        {
+          "name": "Inclusión Educativa",
+          "blocks": []
+        },
+        {
+          "name": "Situaciones Emergentes",
+          "blocks": []
+        }		
       ]
     },
     {
@@ -403,6 +391,10 @@
         },
         {
           "name": "Salud: cuidado de sí y cuidado del otro",
+          "blocks": []
+        },
+        {
+          "name": "Sala de Docentes",
           "blocks": []
         }	  
       ]
@@ -421,7 +413,18 @@
       "axis": [        
 		{
           "name": "Planes y Programas",
-          "blocks": []
+          "blocks": [
+				"Programa Provincial de Actividades Científicas y Tecnológicas Educativas",
+				"Programa de Derechos Humanos, Memoria y Educación",
+				"Educación en Contextos de Encierro",
+				"Programa de Educación y Seguridad Vial",
+				"Programa de Educación Intercultural",
+				"Programa de promoción de derechos de niñas niños y adolescentes",
+				"Programa de Educación Plurilingüe",
+				"Programa de Educación para la Ruralidad continental y de Islas",
+				"Programa de Arte y Medios en la Escuela",
+				"Programa Escuelas Promotoras de Salud"
+			]
         }
 	  ]
     }	
