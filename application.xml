@@ -2,10 +2,10 @@
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
 	<id>com.dte.pad.padpackager</id> 
-	<versionNumber>1.9.10</versionNumber> 
-	<filename>padpackager</filename> 
+	<versionNumber>1.9.11</versionNumber> 
+	<filename>Empaquetador PAD</filename> 
 	
-	<name>PAD Packager</name> 
+	<name>Empaquetador PAD</name> 
 	<description>Empaquetador de contenido para la plataforma PAD.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
 		

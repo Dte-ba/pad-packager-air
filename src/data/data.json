@@ -1,5 +1,14 @@
 {
   "areas": [
+	{
+		"area": "PAD en acción",
+		"axis": [
+			{
+				"name": "PAD en acción",
+				"blocks": []
+			}
+		]
+	},
     {
       "area": "Inglés",
       "axis": [

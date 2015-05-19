@@ -9,6 +9,9 @@ package com.dte.pad
 	 */
 	public class AreaImages 
 	{
+		[Embed('/assets/img/pea-thumb.png')]
+		private var imgPEA:Class;
+		
 		[Embed('/assets/img/cn-thumb.png')]
 		private var imgCN:Class;
 		
@@ -89,6 +92,7 @@ package com.dte.pad
 			_images["Centros Educativos Complementarios"] = new imgCEC();
 			_images["Orientación PAD"] = new imgORI();
 			_images["Temas Transversales"] = new imgESP();
+			_images["PAD en acción"] = new imgPEA();
 		}
 		
 		public function getImage(area:String) : * {
