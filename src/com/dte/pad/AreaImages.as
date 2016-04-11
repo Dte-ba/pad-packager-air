@@ -12,6 +12,9 @@ package com.dte.pad
 		[Embed('/assets/img/pea-thumb.png')]
 		private var imgPEA:Class;
 		
+		[Embed('/assets/img/hd-thumb.png')]
+		private var imgHD:Class;
+		
 		[Embed('/assets/img/cn-thumb.png')]
 		private var imgCN:Class;
 		
@@ -93,6 +96,7 @@ package com.dte.pad
 			_images["Orientación PAD"] = new imgORI();
 			_images["Temas Transversales"] = new imgESP();
 			_images["PAD en acción"] = new imgPEA();
+			_images["Herramientas Digitales"] = new imgHD();
 		}
 		
 		public function getImage(area:String) : * {
