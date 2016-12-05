@@ -75,8 +75,8 @@
 	</fx:Declarations>
 	
 	<s:VGroup width="100%" horizontalAlign="center" verticalCenter="0">
-		<s:Button id="btnNew" horizontalCenter="0" verticalCenter="0" label="Nuevo Tangible" click="btnNewClick(event)" />
-		<s:Button id="btnImport" horizontalCenter="0" verticalCenter="0" label="Importar Tangible..." click="btnImportClick(event)" />
+		<s:Button id="btnNew" horizontalCenter="0" verticalCenter="0" label="Nuevo Material" click="btnNewClick(event)" />
+		<s:Button id="btnImport" horizontalCenter="0" verticalCenter="0" label="Importar Material..." click="btnImportClick(event)" />
 	</s:VGroup>
 		
 </dte:Step>

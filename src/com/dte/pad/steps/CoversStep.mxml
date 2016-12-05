@@ -193,13 +193,13 @@
 	</fx:Declarations>
 	
 	<s:HGroup height="30" width="100%" horizontalAlign="center" visible="{!_processing}">
-		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Tangible [...]" click="btnSeleccionarThumb_click(event)" />
+		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Material [...]" click="btnSeleccionarThumb_click(event)" />
 		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de la Ficha Técnica [...]"  click="btnSeleccionarContent_click(event)"/>
 	</s:HGroup>
 	
 	<s:Scroller top="30" bottom="0" width="100%" visible="{!_processing}">
 		<s:VGroup width="100%" horizontalAlign="center" verticalAlign="top">
-			<s:Label text="Imagen del Tangible" />
+			<s:Label text="Imagen del Material" />
 			<s:Image id="imgThumb" source="@{_imgThumbSource}" />
 			
 			<s:Label text="Imagen de la Ficha Técnica" />

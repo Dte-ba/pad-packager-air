@@ -22,7 +22,7 @@ package com.dte.pad.ui
 		
 		static public const ERROR_CONTENT_IMAGE_NOT_SELECTED:String = "Seleccione la imagen de la Ficha Técnica para continuar";
 		
-		static public const ERROR_ACCES_IMAGE_NOT_SELECTED:String = "Seleccione la imagen del Tangible para continuar";
+		static public const ERROR_ACCES_IMAGE_NOT_SELECTED:String = "Seleccione la imagen del Material para continuar";
 		
 		static public const ERROR_NOT_FILES_SELECTED:String = "Seleccione uno o mas archivos para continuar";
 		
@@ -40,7 +40,7 @@ package com.dte.pad.ui
 		
 		static public const DIALOG_SELECT_DEST_FOLDER:String = "Seleccione una carpeta de destino";
 		
-		static public const DIALOG_IMPORT_PACKAGE:String = "Seleccione el tangible que desea importar";
+		static public const DIALOG_IMPORT_PACKAGE:String = "Seleccione el material que desea importar";
 		
 		// INFO
 		static public const INFO_CONTENT_SAVE:String = "Contenido guardado en ";
