@@ -30,13 +30,13 @@
 				
 		[Bindable]private var _appVersion:String = "v2.0.0-beta";
 		
-		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
+		[Bindable]private var _appNameFull:String = " Curador DTE" + _appVersion;
 		
 		[Bindable]private var _insidePadding:Number = 7;
 		
-		[Bindable]private var _title:String = "Nuevo Tangible";
+		[Bindable]private var _title:String = "Nuevo Material";
 		
-		[Bindable]private var _status:String = "Nuevo Tangible";
+		[Bindable]private var _status:String = "Nuevo Material";
 		
 		[Bindable]private var _areasProvider:ArrayCollection;
 		
@@ -150,9 +150,9 @@
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
-			<steps:NewPackageStep caption="Nuevo Tangible" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
+			<steps:NewPackageStep caption="Nuevo Material" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
 					
-			<steps:AreaStep caption="Seleccione un Area" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
+			<steps:AreaStep caption="Seleccione un Dimensión" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
 			
 			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />
 			

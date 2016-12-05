@@ -30,7 +30,7 @@ package com.dte.pad
 		
 		private var inputFile:File;
 		
-		private var packageFilter:FileFilter = new FileFilter("Tangible", "*.zip");
+		private var packageFilter:FileFilter = new FileFilter("Paquete", "*.zip");
 		
 		private var alert:NativeAlert = new NativeAlert();
 		

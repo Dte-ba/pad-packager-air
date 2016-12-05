@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
-	<id>com.dte.pad.padpackager</id> 
-	<versionNumber>2.0.0</versionNumber> 
-	<filename>Empaquetador PAD</filename> 
+	<id>com.dte.pad.curador</id> 
+	<versionNumber>2.0.2</versionNumber> 
+	<filename>Curador DTE</filename> 
 	
-	<name>Empaquetador PAD</name> 
-	<description>Empaquetador de contenido para la plataforma PAD.</description> 
+	<name>Curador DTE</name> 
+	<description>Curador de contenido para la plataforma DTE.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
 		
 	<initialWindow> 
-		<title>Empaquetador PAD</title> 
+		<title>Curador DTE</title> 
 		<content>padpackager.swf</content> 
 		<systemChrome>standard</systemChrome> 
 		<transparent>false</transparent> 
@@ -21,8 +21,8 @@
 	</initialWindow> 
 	
 	<icon>
-      <image16x16>icons/pad-16x16.png</image16x16>
-	  <image32x32>icons/pad-32x32.png</image32x32>
+      <image16x16>icons/dte-16x16.png</image16x16>
+	  <image32x32>icons/dte-32x32.png</image32x32>
 	</icon>
 	
 </application>

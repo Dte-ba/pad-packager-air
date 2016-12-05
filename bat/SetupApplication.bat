@@ -7,9 +7,9 @@
 :: NOTICE: all paths are relative to project root
 
 :: Your certificate information
-set CERT_NAME="pad-packager"
+set CERT_NAME="curador"
 set /p CERT_PASS=<%~dp0key.txt
-set CERT_FILE="bat\padpackager.p12"
+set CERT_FILE="bat\curador.p12"
 set SIGNING_OPTIONS=-storetype pkcs12 -keystore %CERT_FILE% -storepass %CERT_PASS%
 set ICONS=assets
 
@@ -21,12 +21,12 @@ set APP_DIR=bin
 set FILE_OR_DIR=-C %APP_DIR% . -C %ICONS% .
 
 :: Your application ID (must match <id> of Application descriptor)
-set APP_ID=com.dte.pad.padpackager
+set APP_ID=com.dte.pad.curador
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=padpackager
-set RELEASE_NAME=Empaquetador-PAD-setup
+set AIR_NAME=curador
+set RELEASE_NAME=Curador-setup
 
 
 :validation

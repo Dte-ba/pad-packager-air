@@ -9,6 +9,16 @@ package com.dte.pad
 	 */
 	public class AreaImages 
 	{
+		
+		[Embed('/assets/img/logo_PAD.png')]
+		private var imgDTE:Class;
+		
+		[Embed('/assets/img/administrative.png')]
+		private var imgADMIN:Class;
+		
+		[Embed('/assets/img/educative.png')]
+		private var imgPEDAGOGICA:Class;
+		
 		[Embed('/assets/img/pea-thumb.png')]
 		private var imgPEA:Class;
 		
@@ -81,6 +91,7 @@ package com.dte.pad
 		private function createImagesArray():void 
 		{
 			_images = new Dictionary();
+			_images["DTE"] = new imgDTE();
 			_images["Ciencias Naturales"] = new imgCN();
 			_images["Ciencias Sociales"] = new imgCS();
 			_images["Matemática"] = new imgMA();
@@ -97,6 +108,11 @@ package com.dte.pad
 			_images["Temas Transversales"] = new imgESP();
 			_images["PAD en acción"] = new imgPEA();
 			_images["Herramientas Digitales"] = new imgHD();
+			
+			_images["Técnica"] = new imgHD();
+			_images["Administrativa"] = new imgADMIN();
+			_images["Pedagógica"] = new imgPEDAGOGICA();
+			
 		}
 		
 		public function getImage(area:String) : * {
