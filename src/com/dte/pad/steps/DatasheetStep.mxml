@@ -44,17 +44,6 @@
 		{
 			_datasheet = value;
 		}
-		
-		[Bindable]
-		public function get area():Area 
-		{
-			return _area;
-		}
-		
-		public function set area(value:Area):void 
-		{
-			_area = value;
-		}
 				
 		private function hasErrors() : Boolean {
 			var tresults:Array = _titleValidator.validate().results;
@@ -74,28 +63,14 @@
 				}
 			}
 			
-			if (_area == null) {
-				throw new Error("Area not selected");
-			}
-			
-			if (_area.axis.length > 0 && datasheet.axis == null) {
-				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
-				return true;
-			}
-			
-			var hasBlocks:Boolean = datasheet.axis != null && (datasheet.axis.blocks != null && datasheet.axis.blocks.length > 0);
-			
-			if (hasBlocks && datasheet.block == null) {
-				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
-				return true;
-			}
-			
 		   return false;
 		}
 		
 		override public function activate(from:String = ""):void 
 		{
 			super.activate(from);
+			
+			_scroller.viewport.verticalScrollPosition = 0;
 						
 			if (from == "next") return;
 			
@@ -147,44 +122,37 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Scroller top="0" left="0" right="0" bottom="0">
-		<s:VGroup width="100%">
-			<s:Form id="formPackage" width="100%">
-				<s:FormHeading label="Información del Material" />
+	<s:Scroller id="_scroller" top="0" left="0" right="0" bottom="0">
+		<s:VGroup width="100%" gap="30">
+			<s:VGroup width="100%">
+				<!-- Title -->
+				<s:Label text="Título" fontWeight="bold" fontSize="16"/>
+				<s:Label text="Debe ser corto, contundente y específico." fontSize="10" />
 				
-				<s:FormItem label="Titulo">
-					<s:TextInput id="txtTitle" width="100%" text="@{datasheet.title}" />
-				</s:FormItem>
+				<s:TextInput id="txtTitle" width="100%" text="@{datasheet.title}" 
+							 toolTip="Esto es lo que los docentes verán cuando  busquen tu recurso." />
+			</s:VGroup>
+			
+			<s:VGroup width="100%">
+				<!-- Datasheet -->
+				<s:Label text="Descripción / Ficha Técnica" fontWeight="bold" fontSize="16"/>
+				<s:Label text="Describe tu recurso. Dar cuenta de su relación con el DC." fontSize="10" />
+				<s:Label text="Una descripción genial podría tener unas 150/200 palabras, dando detalles generales y anticipando preguntas o dudas de los usuarios." fontSize="10" />
 				
-				<s:FormItem label="Eje">
-					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{datasheet.axis}" />
-				</s:FormItem>
+				<s:TextArea id="txtDatasheet" width="100%" text="@{datasheet.content}" 
+							toolTip="Este campo se mostrará en la ficha técnica que acompaña tu recurso." />
+			</s:VGroup>
+			
+			<s:VGroup width="100%">
+				<!-- Observations -->
+				<s:Label text="Observaciones (opcional)" fontWeight="bold" fontSize="16"/>
+				<s:Label text="¿Qué tipo de recurso digital es?." fontSize="10" />
+				<s:Label text="Recomendaciones técnicas y de uso (ej. si el usuario necesita algún programa específico para abrirlo). Sugerimos no utilizar más de 40 palabras." fontSize="10" />
 				
-				<s:FormItem label="Bloque">
-					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{datasheet.block}" />
-				</s:FormItem>
-				
-				<s:FormItem label="Palabras Claves">
-					<s:TextInput id="txtTags" width="100%" text="@{datasheet.tags}" prompt="Palabras separadas por , (comas)" />
-				</s:FormItem>
-				
-				<s:FormItem label="Autor del recurso">
-					<s:TextInput id="txtConentAuthor" width="100%" text="@{datasheet.contentAutor}" />
-				</s:FormItem>
-				
-				<s:FormItem label="Fuente del Recurso">
-					<s:TextInput id="txtContentSource" width="100%" text="@{datasheet.contentSource}" />
-				</s:FormItem>
-				
-				<s:FormItem label="Información Técnica">
-					<s:TextArea id="txtDatasheet" width="100%" text="@{datasheet.content}" />
-				</s:FormItem>
-				
-				<s:FormItem label="Observaciones">
-					<s:TextArea id="txtDescription" width="100%" text="@{datasheet.description}" heightInLines="5" />
-				</s:FormItem>
-				
-			</s:Form>
+				<s:TextArea id="txtDescription" width="100%" text="@{datasheet.description}" heightInLines="5" 
+							toolTip="Este campo se mostrará en la ficha técnica debajo de la descripción."
+							prompt="Ej. Juego interactivo desarrollado en Scratch. Para utilizarlo se deberá descargar Scratch v2."/>
+				</s:VGroup>
 		</s:VGroup>
 	</s:Scroller>
 	

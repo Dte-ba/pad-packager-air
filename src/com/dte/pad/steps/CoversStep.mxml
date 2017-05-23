@@ -193,11 +193,31 @@
 	</fx:Declarations>
 	
 	<s:HGroup height="30" width="100%" horizontalAlign="center" visible="{!_processing}">
+		<s:VGroup horizontalCenter="0" verticalCenter="0" horizontalAlign="center">
+			<s:Label text="Portada" horizontalCenter="0"/>
+			<s:Image source="@Embed('/assets/img/portada.png')"
+				 id="btnSeleccionarThumb"   
+				 click="btnSeleccionarThumb_click(event)"
+				 horizontalCenter="0"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false"
+				 toolTip="Esta imagen identificará tu recurso" />
+		</s:VGroup>
+		
+		<s:VGroup horizontalCenter="0" verticalCenter="0" horizontalAlign="center">
+			<s:Label text="Ficha técnica" horizontalCenter="0"/>
+			<s:Image source="@Embed('/assets/img/ficha_tecnica.png')"
+					 id="btnSeleccionarContent" horizontalCenter="0"
+					 click="btnSeleccionarContent_click(event)"
+					 useHandCursor="true" buttonMode="true" mouseChildren="false"
+					 toolTip="Sugerimos cargar una captura de pantalla del recurso" />
+		</s:VGroup>
+		<!--
 		<s:Button id="btnSeleccionarThumb" label="Seleccionar imagen del Material [...]" click="btnSeleccionarThumb_click(event)" />
 		<s:Button id="btnSeleccionarContent" label="Seleccionar imagen de la Ficha Técnica [...]"  click="btnSeleccionarContent_click(event)"/>
+		-->
 	</s:HGroup>
 	
-	<s:Scroller top="30" bottom="0" width="100%" visible="{!_processing}">
+	<s:Scroller top="130" bottom="0" width="100%" visible="{!_processing}">
 		<s:VGroup width="100%" horizontalAlign="center" verticalAlign="top">
 			<s:Label text="Imagen del Material" />
 			<s:Image id="imgThumb" source="@{_imgThumbSource}" />

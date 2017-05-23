@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:dte="library://ns.nticx.net/flex/2014">
+	
+    <!--
+	 This file is part of PAD packager.
+	
+	 please see the LICENSE
+	-->
+	
+	<fx:Script>
+		<![CDATA[
+		import com.dte.html.NativeAlert;
+		import com.dte.pad.Area;
+		import com.dte.pad.Axis;
+		import com.dte.pad.Block;
+		import com.dte.pad.Datasheet;
+		import com.dte.pad.Package;
+		import com.dte.pad.SecurityToken;
+		import com.dte.pad.ui.MessageRef;
+		import mx.validators.EmailValidator;
+		
+		import mx.validators.StringValidator;
+		import mx.validators.ValidationResult;
+		
+		private var alert:NativeAlert = new NativeAlert();
+		
+		private var _datasheet:Datasheet;
+		
+		private var _area:Area;
+
+		// validators
+		private var _nameValidator:StringValidator;
+		
+		private var _emailValidator:EmailValidator;
+				
+		[Bindable]
+		public function get datasheet():Datasheet 
+		{
+			return _datasheet;
+		}
+		
+		public function set datasheet(value:Datasheet):void 
+		{
+			_datasheet = value;
+		}
+		
+		[Bindable]
+		public function get area():Area 
+		{
+			return _area;
+		}
+		
+		public function set area(value:Area):void 
+		{
+			_area = value;
+		}
+				
+		private var _token:SecurityToken = new SecurityToken();
+		
+		[Bindable]
+		public function get token():SecurityToken
+		{
+			return _token;
+		}
+		
+		public function set token(value:SecurityToken):void 
+		{
+			_token = value;
+		}
+		
+		private function hasErrors() : Boolean {	
+			var tresults:Array = _nameValidator.validate().results;
+			var dresults:Array = _emailValidator.validate().results;
+			
+			for each(var r:ValidationResult in tresults) {
+				if (r.isError) {
+					alert.alert(MessageRef.ERROR_REQUIERED_FIELD);
+					return true;
+				}
+			}
+			
+			for each(var rd:ValidationResult in dresults) {
+				if (rd.isError) {
+					alert.alert(MessageRef.ERROR_REQUIERED_FIELD);
+					return true;
+				}
+			}
+			
+			if (_area == null) {
+				throw new Error("Area not selected");
+			}
+			
+			if (_area.axis.length > 0 && datasheet.axis == null) {
+				alert.alert(MessageRef.ERROR_AXIS_NOT_SELECTED);
+				return true;
+			}
+			
+			var hasBlocks:Boolean = datasheet.axis != null && (datasheet.axis.blocks != null && datasheet.axis.blocks.length > 0);
+			
+			if (hasBlocks && datasheet.block == null) {
+				alert.alert(MessageRef.ERROR_BLOCK_NOT_SELECTED);
+				return true;
+			}
+			
+		   return false;
+		}
+		
+		private function refreshValidators():void 
+		{	
+			if (_nameValidator == null && _emailValidator == null) {
+				_nameValidator = new StringValidator();
+				_emailValidator = new EmailValidator();
+			
+				_nameValidator.source = txtName;
+				_nameValidator.property = "text";
+				_nameValidator.required = true;
+				_nameValidator.requiredFieldError = "*";
+				
+				_emailValidator.source = txtEmail;
+				_emailValidator.property = "text";
+				_emailValidator.required = true;
+				_emailValidator.requiredFieldError = "*";
+			} else {
+				_emailValidator.source.errorString = "";
+				_emailValidator.source.errorString = "";
+			}
+		}
+		
+		override public function activate(from:String = ""):void 
+		{
+			super.activate(from);
+			
+			_scroller.viewport.verticalScrollPosition = 0;
+						
+			if (from == "next") return;
+			
+			if (from == "back") {
+				refreshValidators();
+			}
+		}
+		
+		override public function isValid():Boolean 
+		{
+			if ( !super.isValid() ) { return false; }
+			
+			if (hasErrors()) return false;
+			
+			return true;
+		}
+				
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:Scroller id="_scroller" top="0" left="0" right="0" bottom="0">
+		<s:VGroup width="100%" gap="30">
+			<s:Label text="Área: {area.name}" fontWeight="bold" fontSize="16"/>
+			
+			<s:HGroup width="100%">
+				<s:VGroup  width="50%">
+					<s:Label text="Eje" fontWeight="bold" fontSize="12"/>
+					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{datasheet.axis}" />
+				</s:VGroup>
+				<s:VGroup  width="50%">
+					<s:Label text="Bloque" fontWeight="bold" fontSize="12"/>
+					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{datasheet.block}" />
+				</s:VGroup>
+			</s:HGroup>
+			
+			<s:VGroup width="100%">
+				<s:Label text="Palabras claves" fontWeight="bold" fontSize="16"/>
+				<s:Label text="¿De qué otra forma el docente podría encontrar tu recurso?. " fontSize="10" />
+				<s:Label text="Estas palabras te permitirán vincularlo con otros." fontSize="10" />
+				<s:Label text="Son etiquetas que ayudan a identificarlo. Podrás utilizar todas las que necesites." fontSize="10" />
+				<s:Label text="Deben estar separadas por comas. Sugerimos: Singular, infinitivo y minúscula." fontSize="10"/>
+				<s:TextInput id="txtTags" width="100%" text="@{datasheet.tags}" prompt="Ej. video, numero, romano, calcular, sistema, adivinanza, primer ciclo" />
+			</s:VGroup>
+			
+			<s:VGroup width="100%" gap="15">
+				<s:Label text="El recurso está" fontWeight="bold" fontSize="16"/>
+				<s:VGroup width="100%">
+					<s:Label text="Curado por" fontWeight="bold" fontSize="12"/>
+					<s:HGroup width="100%">
+						<s:HGroup width="100%" verticalAlign="middle">
+							<s:Label text="Nombre:"/>
+							<s:TextInput id="txtName" text="@{token.name}" width="100%"/>
+						</s:HGroup>
+						<s:HGroup width="100%" verticalAlign="middle">
+							<s:Label text="e-Mail:"/>
+							<s:TextInput id="txtEmail" text="@{token.email}" width="100%" />
+						</s:HGroup>
+					</s:HGroup>
+				</s:VGroup>
+				<s:VGroup width="100%">
+					<s:Label text="Creado por (autor)" fontWeight="bold" fontSize="12"/>
+					<s:TextInput id="txtConentAuthor" width="100%" text="@{datasheet.contentAutor}" />
+					<s:Label text="Fuente" fontWeight="bold" fontSize="12"/>
+					<s:TextInput id="txtContentSource" width="100%" text="@{datasheet.contentSource}" />					
+				</s:VGroup>
+			</s:VGroup>
+		</s:VGroup>
+	</s:Scroller>
+	
+</dte:Step>

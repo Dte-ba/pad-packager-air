@@ -89,8 +89,13 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Button id="btnPackage" horizontalCenter="0" verticalCenter="0" label="Empaquetar ..." click="onBtnPackageClick(event)" 
-			  visible="{!_processing}" />
+	<s:Image source="@Embed('/assets/img/empaquetar_recurso.png')"
+				 id="btnPackage" horizontalCenter="0" verticalCenter="0" 
+				 click="onBtnPackageClick(event)" visible="{!_processing}"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false"/>
+	
+	<!--<s:Button id="btnPackage" horizontalCenter="0" verticalCenter="0" label="Empaquetar ..." click="onBtnPackageClick(event)" 
+			  visible="{!_processing}" /> -->
 	
 	<s:Label text="El empaquetando puede tardar varios minutos dependiendo del tamaño de archivos y la capacidad de procesamiento, incluso que el programa no responda durante el proceso." 
 			 verticalCenter="0" horizontalCenter="0" 

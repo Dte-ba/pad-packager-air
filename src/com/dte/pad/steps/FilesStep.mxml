@@ -137,9 +137,18 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Label text="Archivos" top="10" />
+	<s:VGroup top="10">
+		<s:Label text="Archivos" fontWeight="bold" fontSize="16" />
+		
+		<s:Label text="Tipos de archivos sugeridos:" />
+		
+		<s:Label text="AUDIO: mp3, wav - VIDEO: mp4, WebM | TEXTO O PRESENTACIONES: pdf | IMAGEN: jpg, png, gif | INTERACTIVOS: html, svg" 
+				 toolTip="Estos formatos  se abrirán automáticamente en el navegador  (el resto puede pedir descarga)" />
+		
+		<s:Label text="Tamaño máximo total 100MB" fontWeight="bold" />
+	</s:VGroup>
 	
-	<s:DataGrid id="_grid" width="100%" dataProvider="{this.fileProvider.files}" selectionChange="onDataGridSelected(event);" top="30" bottom="40">
+	<s:DataGrid id="_grid" width="100%" dataProvider="{this.fileProvider.files}" selectionChange="onDataGridSelected(event);" top="90" bottom="40">
 		<s:columns>
 			<mx:ArrayList>
 				<s:GridColumn headerText="Nombre" labelFunction="getFileNameLabel"/>
@@ -150,8 +159,10 @@
 	</s:DataGrid>
 	
 	<s:HGroup width="100%" bottom="0">
-		<s:Button label="Agregar Archivo [...]" id="addFilesButton" click="onAddFiles(event);"/>
-		<s:Button label="Agregar Carpeta [...]" id="addFolderButton" click="onAddFiles(event);"/>
+		<s:Button label="Cargar Archivo [...]" id="addFilesButton" click="onAddFiles(event);"
+				  toolTip="Podrás cargar uno o más archivos a la vez" />
+		<s:Button label="Cargar Carpeta [...]" id="addFolderButton" click="onAddFiles(event);"
+				  toolTip="Podrás cargar todos los  archivos de la carpeta seleccionada." />
 		
 		<s:Button label="Quitar" id="btnQuitar" click="onDeleteFiles(event);" enabled="{_selectedFiles.length &gt; 0}" />
 		<s:Button label="Quitar Todos" id="btnClear" click="onClearFiles(event);" enabled="{this.fileProvider.files.length &gt; 0}" />

@@ -27,8 +27,17 @@
 		import flash.events.Event;
 		import com.dte.pad.Area;
 		import mx.collections.ArrayCollection;
+	    import com.dte.filesystem.FileUtils;
+		import com.dte.html.NativeAlert;
+		import com.dte.pad.events.FileSaveEvent;
+		import com.dte.pad.Package;
+		import com.dte.pad.PackagerDesktop;
+		import com.dte.pad.ui.MessageRef;
+		import flash.events.Event;
+		import flash.events.MouseEvent;
+		import flash.filesystem.File;
 				
-		[Bindable]private var _appVersion:String = "v2.1.0";
+		[Bindable]private var _appVersion:String = "v2.5.0-beta";
 		
 		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
 		
@@ -68,7 +77,7 @@
 			if (_package != null && _package.fileProvider != null) {
 				_config.filesPath = _package.fileProvider.defaultPath;
 			}
-			_config.packagesPath = stepFinish.defaultPath;
+			_config.packagesPath = _defaultPath; // stepFinish.defaultPath;
 			_config.token = _lastToken;
 			_config.save();
 		}
@@ -79,7 +88,7 @@
 			this._lastToken = _config.token;
 			stepCovers.defaultPath = _config.imagesPath;
 			// stepFiles load automatically from PackagerDesktop
-			stepFinish.defaultPath = _config.packagesPath;
+			_defaultPath = _config.packagesPath;
 			
 			// set area provider
 			_areasProvider = CurricularDesign.getInstance().areas;
@@ -135,40 +144,105 @@
 			_wizard.restart();
 		}
 		
+		// Package the thing
+		private var _packager:PackagerDesktop;
+		
+		private var _tagetPackage:com.dte.pad.Package;
+		
+		private var alert:NativeAlert = new NativeAlert();
+		
+		private var _defaultPath:String = File.desktopDirectory.nativePath;
+		
+		[Bindable]private var _processing:Boolean = false;
+		
+		protected function btnPackageClick(e:MouseEvent) : void 
+		{
+			if (!_wizard.isCurrentStepValid()){
+				return;
+			}
+			
+			_packager = new PackagerDesktop(_package, _defaultPath);
+			_packager.addEventListener("pathChange", onPathChange);
+			_packager.addEventListener(Event.CANCEL, onCancelSave);
+			_packager.addEventListener(FileSaveEvent.SAVED, targetSaved);
+			_packager.saveDialog();
+			_processing = true;
+		}
+		
+		private function onCancelSave(e:Event):void 
+		{
+			_processing = false;
+		}
+		
+		private function onPathChange(e:Event):void 
+		{
+			_defaultPath = FileUtils.getFolderName(PackagerDesktop(e.target).lastOutputPath);
+		}
+		
+		private function targetSaved(e:FileSaveEvent):void 
+		{
+			_processing = false;
+			alert.alert(MessageRef.INFO_CONTENT_SAVE + " " + e.filename);
+			_lastToken = _package.token;
+			_wizard.restart();
+		}
+		
 		]]>
 	</fx:Script>
 					   
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Image source="@Embed('/assets/img/logo_PAD.png')" horizontalCenter="0" top="1" />
+	<s:Label text="{_wizard.caption}" top="20" left="20" fontWeight="bold" fontSize="22" color="#AEC211" />
+
+	<s:HGroup top="25" right="30" visible="{_wizard.selectedIndex > 0}"
+					      includeInLayout="{_wizard.selectedIndex > 0}">
+		<s:Label text="1" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==1}" includeInLayout="{_wizard.selectedIndex!==1}"/>
+		<s:Label text="1" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==1}" includeInLayout="{_wizard.selectedIndex==1}"/>
+		<s:Label text="2" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==2}" includeInLayout="{_wizard.selectedIndex!==2}"/>
+		<s:Label text="2" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==2}" includeInLayout="{_wizard.selectedIndex==2}"/>
+		<s:Label text="3" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==3}" includeInLayout="{_wizard.selectedIndex!==3}"/>
+		<s:Label text="3" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==3}" includeInLayout="{_wizard.selectedIndex==3}"/>
+		<s:Label text="4" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==4}" includeInLayout="{_wizard.selectedIndex!==4}"/>
+		<s:Label text="4" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==4}" includeInLayout="{_wizard.selectedIndex==4}"/>
+		<s:Label text="5" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==5}" includeInLayout="{_wizard.selectedIndex!==5}"/>
+		<s:Label text="5" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==5}" includeInLayout="{_wizard.selectedIndex==5}"/>
+		<!--<s:Label text="6" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==5}" includeInLayout="{_wizard.selectedIndex!==5}"/>
+		<s:Label text="6" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==5}" includeInLayout="{_wizard.selectedIndex==5}"/>
+		<s:Label text="7" fontSize="16" color="#C2C2C2" visible="{_wizard.selectedIndex!==6}" includeInLayout="{_wizard.selectedIndex!==6}"/>
+		<s:Label text="7" fontSize="16" color="#AEC211" visible="{_wizard.selectedIndex==6}" includeInLayout="{_wizard.selectedIndex==6}"/>-->
+	</s:HGroup>
 	
-	<s:Label text="{_wizard.caption}" top="120" left="20" fontWeight="bold" fontSize="18" />
-	
-	<s:BorderContainer left="20" right="20" top="145" bottom="70" visible="{_configLoaded}">
+	<s:BorderContainer left="20" right="20" top="60" bottom="70" visible="{_configLoaded}">
 		
 		<dte:Wizard id="_wizard" left="{_insidePadding}" right="{_insidePadding}" top="{_insidePadding}" bottom="60"
 					backButton="{btnBack}" nextButton="{btnNext}" toolBar="{_toolBar}">
 			
-			<steps:NewPackageStep caption="Nuevo Material" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
+			<steps:NewPackageStep caption="Curá tu recurso" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
 					
-			<steps:AreaStep caption="Seleccione un Area" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
+			<steps:AreaStep caption="Seleccioná el área" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
 			
-			<steps:DatasheetStep caption="Ficha Técnica" area="{_selectedArea}" datasheet="{_package.datasheet}" />
+			<steps:FilesStep id="stepFiles" caption="Cargá tu recurso (Archivos)" fileProvider="{_package.fileProvider}" />
 			
-			<steps:CoversStep id="stepCovers" caption="Portadas" targetPackage="{_package}" />
+			<steps:CoversStep id="stepCovers" caption="Cargá tu recurso (Imágenes)" targetPackage="{_package}" />
 			
-			<steps:FilesStep id="stepFiles" caption="Archivos" fileProvider="{_package.fileProvider}" />
+			<steps:DatasheetStep caption="Curá tu recurso (Describí tu recurso)" datasheet="{_package.datasheet}" />
 			
-			<steps:CredentialsStep id="stepsCredentials" caption="Identificación" token="{_package.token}" />
+			<steps:DetailStep caption="Detallá y catalogá tu recurso" token="{_package.token}" area="{_selectedArea}" datasheet="{_package.datasheet}" />
 			
-			<steps:FinishStep id="stepFinish"  caption="Empaquetar"  tagetPackage="{_package}" enableNext="false" finish="onFinish(event)" />
+			<!-- <steps:CredentialsStep id="stepsCredentials" caption="Identificate" /> -->
+			
+			<!--<steps:FinishStep id="stepFinish"  caption="Finalizar"  tagetPackage="{_package}" enableNext="false" finish="onFinish(event)" />-->
 			
 		</dte:Wizard>
 		
-		<s:HGroup id="_toolBar" horizontalAlign="center" height="40" verticalAlign="middle" bottom="0" right="10" left="10" >
+		<s:HGroup id="_toolBar" horizontalAlign="center" height="40" verticalAlign="middle" bottom="0" right="10" left="10" 
+				  visible="{_wizard.selectedIndex > 0}">
 			<s:Button id="btnBack" label="Volver"  />
-			<s:Button id="btnNext" label="Continuar" />
+			<s:Button id="btnNext" label="Continuar" visible="{_wizard.selectedIndex !== 5}"
+					  includeInLayout="{_wizard.selectedIndex !== 5}" />
+			<s:Button id="btnEmpaquetar" label="Empaquetar!" visible="{_wizard.selectedIndex == 5}"
+					  click="btnPackageClick(event)" />
 		</s:HGroup>
 	
 	</s:BorderContainer>
@@ -177,7 +251,8 @@
 	<s:Label text="Cargando configuración ..." verticalCenter="0" horizontalCenter="0" visible="{!_configLoaded}"/>
 	
 	<s:Group width="100%" height="60" bottom="5" right="20" left="20">
-		<s:Image source="@Embed('/assets/img/footer-dte-logo.png')" left="0" />
+		<s:Image source="@Embed('/assets/img/footer-dte-logo.png')" right="170" />
+		<s:Image source="@Embed('/assets/img/logo_PAD.png')" left="20" top="7" />
 		<s:Image source="@Embed('/assets/img/footer-ba-logo.png')" right="0" />
 	</s:Group>
 	

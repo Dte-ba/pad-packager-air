@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dte:Step xmlns:fx="http://ns.adobe.com/mxml/2009" 
-               xmlns:s="library://ns.adobe.com/flex/spark" 
-               xmlns:mx="library://ns.adobe.com/flex/mx"
-			   xmlns:dte="library://ns.nticx.net/flex/2014">
+		   xmlns:s="library://ns.adobe.com/flex/spark" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx"
+		   xmlns:dte="library://ns.nticx.net/flex/2014">
 	
     <!--
 	 This file is part of PAD packager.
@@ -74,9 +74,20 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:VGroup width="100%" horizontalAlign="center" verticalCenter="0">
-		<s:Button id="btnNew" horizontalCenter="0" verticalCenter="0" label="Nuevo Material" click="btnNewClick(event)" />
-		<s:Button id="btnImport" horizontalCenter="0" verticalCenter="0" label="Importar Material..." click="btnImportClick(event)" />
-	</s:VGroup>
+	<s:HGroup width="100%" horizontalAlign="center" verticalCenter="0">
+		<!--<s:Button id="btnNew" horizontalCenter="0" verticalCenter="0" label="Nuevo Recurso" click="btnNewClick(event)"
+				   />-->
+		
+		<s:Image source="@Embed('/assets/img/importar_recurso.png')"
+				 id="btnImport" horizontalCenter="0" verticalCenter="0" 
+				 click="btnImportClick(event)"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false"/>
+		<s:Image source="@Embed('/assets/img/nuevo_recurso.png')"
+				 id="btnNew" horizontalCenter="0" verticalCenter="0" 
+				 click="btnNewClick(event)"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false"/>
+		
+		<!--<s:Button id="btnImport" horizontalCenter="0" verticalCenter="0" label="Importar Recurso..." click="btnImportClick(event)" />-->
+	</s:HGroup>
 		
 </dte:Step>

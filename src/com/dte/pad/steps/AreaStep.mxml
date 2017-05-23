@@ -36,13 +36,20 @@
 			_areas = value;
 		}
 		
+		override public function activate(from:String = ""):void 
+		{
+			super.activate(from);
+			
+			_scroller.viewport.verticalScrollPosition = 0;
+		}
+		
 		]]>
 	</fx:Script>
 			   
 	<fx:Declarations>
 	</fx:Declarations>
 	
-	<s:Scroller top="0" left="0" right="0" bottom="0">
+	<s:Scroller id="_scroller" top="0" left="0" right="0" bottom="0">
 		
 		<s:DataGroup id="_dataView" dataProvider="{areas}">
 			 <s:layout>

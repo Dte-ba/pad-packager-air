@@ -28,7 +28,7 @@ package com.dte.components
 		
 		private var _caption:String = "Cargando";
 		
-		private var _debbug:Boolean = false;
+		private var _debbug:Boolean = true;
 		
 		private var _enableCheck:Boolean = true;
 		
@@ -77,6 +77,11 @@ package com.dte.components
 			
 			if ((this.numChildren - 1 == this.selectedIndex)) return false;
 			
+			return this.isCurrentStepValid()
+		}
+		
+		public function isCurrentStepValid() : Boolean
+		{
 			var c:* = this.selectedIndex < 0 ? null : this.getChildAt(this.selectedIndex);
 			if (c !== null) {
 				var cs:Step = c as Step;
