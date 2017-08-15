@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
-	<id>com.dte.pad.padpackager</id> 
+	<id>com.dte.pad.efpackager</id> 
 	<versionNumber>2.4.91</versionNumber> 
 	<filename>Empaquetador Escuelas del Futuro</filename> 
 	
