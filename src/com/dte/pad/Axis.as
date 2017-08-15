@@ -12,18 +12,11 @@ package com.dte.pad
 		
 		private var _blocks:ArrayCollection;
 		
-		public function Axis(obj:*=null) 
+		public function Axis(name:String="") 
 		{
-			if (obj == null)  { return; }
+			if (name == "") { return; }
 			
-			try {
-				this.name = obj.name;
-				
-				for each(var block:* in obj.blocks) {
-					this.blocks.addItem( new Block(block) );
-				}
-				
-			} catch (e:Error) { }
+			this.name = name;
 		}
 		
 		[Bindable]

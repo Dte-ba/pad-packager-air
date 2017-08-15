@@ -15,7 +15,7 @@ package com.dte.pad
 	public class PadConfig  extends EventDispatcher
 	{		
 		
-		static public const CONFIG_FILENAME:String = "pad-config.json";
+		static public const CONFIG_FILENAME:String = "ef-config.json";
 		
 		static private var _instance:PadConfig;
 		

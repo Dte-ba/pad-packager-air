@@ -39,7 +39,7 @@
 				
 		[Bindable]private var _appVersion:String = "v2.5.0-beta";
 		
-		[Bindable]private var _appNameFull:String = " Empaquetador PAD " + _appVersion;
+		[Bindable]private var _appNameFull:String = " Empaquetador Escuelas del Futuro " + _appVersion;
 		
 		[Bindable]private var _insidePadding:Number = 7;
 		
@@ -91,7 +91,7 @@
 			_defaultPath = _config.packagesPath;
 			
 			// set area provider
-			_areasProvider = CurricularDesign.getInstance().areas;
+			_areasProvider = CurricularDesign.getInstance().efEjes;
 			_package = createPackage();
 			_configLoaded = true;
 		}
@@ -220,7 +220,7 @@
 			
 			<steps:NewPackageStep caption="Curá tu recurso" appVersion="{_appVersion}" packageCreated="onPackageCreated(event)" enableToolBar="false"/>
 					
-			<steps:AreaStep caption="Seleccioná el área" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
+			<steps:AreaStep caption="Seleccioná el eje" areas="{_areasProvider}" areaSelected="onAreaSelected(event)" enableNext="false" />
 			
 			<steps:FilesStep id="stepFiles" caption="Cargá tu recurso (Archivos)" fileProvider="{_package.fileProvider}" />
 			
@@ -252,7 +252,7 @@
 	
 	<s:Group width="100%" height="60" bottom="5" right="20" left="20">
 		<s:Image source="@Embed('/assets/img/footer-dte-logo.png')" right="170" />
-		<s:Image source="@Embed('/assets/img/logo_PAD.png')" left="20" top="7" />
+		<!--<s:Image source="@Embed('/assets/img/logo_PAD.png')" left="20" top="7" />-->
 		<s:Image source="@Embed('/assets/img/footer-ba-logo.png')" right="0" />
 	</s:Group>
 	

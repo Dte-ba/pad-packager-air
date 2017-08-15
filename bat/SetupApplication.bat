@@ -26,7 +26,7 @@ set APP_ID=com.dte.pad.padpackager
 :: Output
 set AIR_PATH=air
 set AIR_NAME=padpackager
-set RELEASE_NAME=Empaquetador-PAD-setup
+set RELEASE_NAME=Empaquetador-EF-setup
 
 
 :validation

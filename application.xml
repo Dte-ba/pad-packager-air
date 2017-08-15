@@ -2,15 +2,15 @@
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
 	<id>com.dte.pad.padpackager</id> 
-	<versionNumber>2.4.9</versionNumber> 
-	<filename>Empaquetador PAD</filename> 
+	<versionNumber>2.4.91</versionNumber> 
+	<filename>Empaquetador Escuelas del Futuro</filename> 
 	
-	<name>Empaquetador PAD</name> 
-	<description>Empaquetador de contenido para la plataforma PAD.</description> 
+	<name>Empaquetador Escuelas del Futuro</name> 
+	<description>Empaquetador de contenido para Escuelas del Futuro.</description> 
 	<copyright>Copyright(c) Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)</copyright>
 		
 	<initialWindow> 
-		<title>Empaquetador PAD</title> 
+		<title>Empaquetador Escuelas del Futuro</title> 
 		<content>padpackager.swf</content> 
 		<systemChrome>standard</systemChrome> 
 		<transparent>false</transparent> 

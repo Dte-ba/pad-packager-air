@@ -19,7 +19,9 @@
 		import com.dte.pad.Datasheet;
 		import com.dte.pad.Package;
 		import com.dte.pad.SecurityToken;
+		import com.dte.pad.CurricularDesign;
 		import com.dte.pad.ui.MessageRef;
+		import mx.collections.ArrayCollection;
 		import mx.validators.EmailValidator;
 		
 		import mx.validators.StringValidator;
@@ -57,6 +59,17 @@
 		{
 			_area = value;
 		}
+		
+		public function get niveles():ArrayCollection 
+		{
+			return CurricularDesign.getInstance().efNiveles;
+		}
+		
+		public function get soluciones():ArrayCollection 
+		{
+			return CurricularDesign.getInstance().efSolucion;
+		}
+		
 				
 		private var _token:SecurityToken = new SecurityToken();
 		
@@ -163,12 +176,12 @@
 			
 			<s:HGroup width="100%">
 				<s:VGroup  width="50%">
-					<s:Label text="Eje" fontWeight="bold" fontSize="12"/>
-					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{area.axis}" labelField="name" selectedItem="@{datasheet.axis}" />
+					<s:Label text="Nivel" fontWeight="bold" fontSize="12"/>
+					<s:DropDownList id="ddlAxis" width="100%" dataProvider="{niveles}" labelField="name" selectedItem="@{datasheet.axis}" />
 				</s:VGroup>
 				<s:VGroup  width="50%">
-					<s:Label text="Bloque" fontWeight="bold" fontSize="12"/>
-					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{ddlAxis.selectedItem.blocks}" labelField="name" selectedItem="@{datasheet.block}" />
+					<s:Label text="Solución" fontWeight="bold" fontSize="12"/>
+					<s:DropDownList id="ddlBlock" width="100%" dataProvider="{soluciones}" labelField="name" selectedItem="@{datasheet.block}" />
 				</s:VGroup>
 			</s:HGroup>
 			

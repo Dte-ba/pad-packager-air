@@ -1,4 +1,75 @@
 {
+  "ef": {
+	"ejes": [
+		{ 
+		  "area": "1 - Programación + laboratorio virtual (Matemática)",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "2 - Programación",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "3 - Robótica",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "4 - Robótica",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "5 - Laboratorio virtual (Ciencias)",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "6 - Idiomas a distancia (inglés) y formación continua",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "7 - Laboratorio virtual (Ciencias)",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "8 - Programación",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "9 - Robótica",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "10 - Robótica",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "11 - Idiomas a distancia (Inglés)",
+		  "axis": [] 
+		},
+		{ 
+		  "area": "12 - Formación continua",
+		  "axis": []
+		}
+	],
+	"niveles": [
+	  "Nivel Primaria",
+	  "Nivel Secundaria"
+	],
+	"solucion": [
+	  "Schoology",
+	  "English Discoveries (Edusoft)",
+	  "Makeblock Ultimate",
+	  "Drone Parrot Airborn Night",
+	  "Mindstorms Education EV3 (Lego)",
+	  "Pi Top – Raspberry Pi",
+	  "LabDisc Gensci (Globisens)",
+	  "Little Bits",
+	  "Probots R502 (Mis Ladrillos)",
+	  "Probots R501 y R500 (Mis Ladrillos)",
+	  "Kano – Raspberry Pi",
+	  "Matific",
+	  "Code Monkey"
+	]
+  },
   "areas": [
 	{
 		"area": "PAD en acción",

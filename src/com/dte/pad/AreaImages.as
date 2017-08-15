@@ -9,7 +9,7 @@ package com.dte.pad
 	 */
 	public class AreaImages 
 	{
-		[Embed('/assets/img/pea-thumb.png')]
+		/*[Embed('/assets/img/pea-thumb.png')]
 		private var imgPEA:Class;
 		
 		[Embed('/assets/img/hd-thumb.png')]
@@ -55,7 +55,45 @@ package com.dte.pad
 		private var imgORI:Class;
 
 		[Embed('/assets/img/esp-thumb.png')]
-		private var imgESP:Class;
+		private var imgESP:Class;*/
+		
+		// Escuelas del Futuro
+		[Embed('/assets/img/emp_ef_1.png')]
+		private var imgEf1:Class;
+
+		[Embed('/assets/img/emp_ef_2.png')]
+		private var imgEf2:Class;
+
+		[Embed('/assets/img/emp_ef_3.png')]
+		private var imgEf3:Class;
+
+		[Embed('/assets/img/emp_ef_4.png')]
+		private var imgEf4:Class;
+
+		[Embed('/assets/img/emp_ef_5.png')]
+		private var imgEf5:Class;
+
+		[Embed('/assets/img/emp_ef_6.png')]
+		private var imgEf6:Class;
+
+		[Embed('/assets/img/emp_ef_7.png')]
+		private var imgEf7:Class;
+
+		[Embed('/assets/img/emp_ef_8.png')]
+		private var imgEf8:Class;
+
+		[Embed('/assets/img/emp_ef_9.png')]
+		private var imgEf9:Class;
+
+		[Embed('/assets/img/emp_ef_10.png')]
+		private var imgEf10:Class;
+
+		[Embed('/assets/img/emp_ef_11.png')]
+		private var imgEf11:Class;
+
+		[Embed('/assets/img/emp_ef_12.png')]
+		private var imgEf12:Class;
+
 
 		static private var _instance:AreaImages=null;
 		
@@ -81,6 +119,7 @@ package com.dte.pad
 		private function createImagesArray():void 
 		{
 			_images = new Dictionary();
+			/*
 			_images["Ciencias Naturales"] = new imgCN();
 			_images["Ciencias Sociales"] = new imgCS();
 			_images["Matemática"] = new imgMA();
@@ -97,6 +136,20 @@ package com.dte.pad
 			_images["Temas Transversales"] = new imgESP();
 			_images["PAD en acción"] = new imgPEA();
 			_images["Herramientas Digitales"] = new imgHD();
+			*/
+			// Escuelas del Futuro
+			_images["1 - Programación + laboratorio virtual (Matemática)"] = new imgEf1();
+			_images["2 - Programación"] = new imgEf2();
+			_images["3 - Robótica"] = new imgEf3();
+			_images["4 - Robótica"] = new imgEf4();
+			_images["5 - Laboratorio virtual (Ciencias)"] = new imgEf5();
+			_images["6 - Idiomas a distancia (inglés) y formación continua"] = new imgEf6();
+			_images["7 - Laboratorio virtual (Ciencias)"] = new imgEf7();
+			_images["8 - Programación"] = new imgEf8();
+			_images["9 - Robótica"] = new imgEf9();
+			_images["10 - Robótica"] = new imgEf10();
+			_images["11 - Idiomas a distancia (Inglés)"] = new imgEf11();
+			_images["12 - Formación continua"] = new imgEf12();
 		}
 		
 		public function getImage(area:String) : * {
