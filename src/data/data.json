@@ -48,6 +48,10 @@
 		{ 
 		  "area": "12 - Formación continua",
 		  "axis": []
+		},
+		{ 
+		  "area": "Varios",
+		  "axis": []
 		}
 	],
 	"niveles": [

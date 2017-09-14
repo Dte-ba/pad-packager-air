@@ -93,6 +93,9 @@ package com.dte.pad
 
 		[Embed('/assets/img/emp_ef_12.png')]
 		private var imgEf12:Class;
+		
+		[Embed('/assets/img/emp_ef_generico.png')]
+		private var imgEfGenerico:Class;
 
 
 		static private var _instance:AreaImages=null;
@@ -150,6 +153,7 @@ package com.dte.pad
 			_images["10 - Robótica"] = new imgEf10();
 			_images["11 - Idiomas a distancia (Inglés)"] = new imgEf11();
 			_images["12 - Formación continua"] = new imgEf12();
+			_images["Varios"] = new imgEfGenerico();
 		}
 		
 		public function getImage(area:String) : * {

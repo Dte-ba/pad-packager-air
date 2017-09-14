@@ -2,7 +2,7 @@
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
 	
 	<id>com.dte.pad.efpackager</id> 
-	<versionNumber>2.4.91</versionNumber> 
+	<versionNumber>2.4.92</versionNumber> 
 	<filename>Empaquetador Escuelas del Futuro</filename> 
 	
 	<name>Empaquetador Escuelas del Futuro</name> 
