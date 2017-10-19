@@ -32,7 +32,7 @@
 	   
 	    private var alert:NativeAlert = new NativeAlert();
 		
-		private var MAX_SIZE:Number = (1024 * 1024 * 100); // 100 Mb
+		private var MAX_SIZE:Number = (1024 * 1024 * 1024); // 1 GB
 		
 		public function onInitialize(event:Event) : void {
 			this._selectedFiles = new ArrayCollection();

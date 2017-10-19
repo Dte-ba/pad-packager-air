@@ -56,7 +56,9 @@
 	],
 	"niveles": [
 	  "Nivel Primaria",
-	  "Nivel Secundaria"
+	  "Nivel Secundaria",
+	  "Especial",
+	  "Todos los niveles"
 	],
 	"solucion": [
 	  "Schoology",
@@ -71,7 +73,9 @@
 	  "Probots R501 y R500 (Mis Ladrillos)",
 	  "Kano – Raspberry Pi",
 	  "Matific",
-	  "Code Monkey"
+	  "Code Monkey",
+	  "General",
+	  "Transversal"
 	]
   },
   "areas": [
